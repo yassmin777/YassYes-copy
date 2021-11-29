@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct Match:Codable{
+struct Match:Encodable{
     let ddd:Date
     let ddf:Date
-    let equipe:[Equipe]
+    let equipe:[equipeModel]
 }
