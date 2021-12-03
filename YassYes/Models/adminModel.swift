@@ -6,15 +6,18 @@
 //
 
 import Foundation
-struct  adminModel:Decodable{
+struct  adminModel:Encodable{
     
+    let _id:String
     let nom:String
     let prenom:String
     let email:String
-    let role:String
     let motdepasse:String
+    let isProprietaireDestade:String
+
     //var isVerified : Bool?
 
     //let token:String
    
 }
+

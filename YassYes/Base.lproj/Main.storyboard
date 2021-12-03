@@ -347,15 +347,15 @@
                     <connections>
                         <outlet property="confirmermotdepasse" destination="xem-1X-R0X" id="4SZ-cD-0io"/>
                         <outlet property="email" destination="3PX-HI-Uat" id="ktE-oG-7jC"/>
+                        <outlet property="isProprietaireDestade" destination="aSQ-Bg-A87" id="nX5-7M-MNf"/>
                         <outlet property="motdepasse" destination="mIO-0B-CHD" id="uh9-Kj-VvX"/>
-                        <outlet property="nom" destination="1zX-jA-mcc" id="q6X-OR-RM0"/>
+                        <outlet property="nom" destination="1zX-jA-mcc" id="j08-zb-Hhp"/>
                         <outlet property="prenom" destination="Waa-8M-LyV" id="MuM-mN-JzI"/>
-                        <outlet property="role" destination="aSQ-Bg-A87" id="F9v-SP-CCo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V4S-Zk-Zpl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8974" y="-2638"/>
+            <point key="canvasLocation" x="8213" y="-2860"/>
         </scene>
         <!--Equipe View Controller-->
         <scene sceneID="ZDc-Os-Mln">

@@ -12,6 +12,7 @@
 		4314ECBD2755195800235E20 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBC2755195800235E20 /* NetworkingService.swift */; };
 		4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBE27552EC400235E20 /* ErrorResponse.swift */; };
 		4314ECC227556F3800235E20 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECC127556F3800235E20 /* Alert.swift */; };
+		43442033275A47BC001D1297 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43442032275A47BC001D1297 /* APIManager.swift */; };
 		435FD9AF27527A160082806C /* ligueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435FD9AE27527A160082806C /* ligueModel.swift */; };
 		435FD9B127527A340082806C /* LigueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435FD9B027527A340082806C /* LigueService.swift */; };
 		435FD9B3275282F60082806C /* ArbitreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435FD9B2275282F60082806C /* ArbitreService.swift */; };
@@ -67,6 +68,7 @@
 		4314ECBC2755195800235E20 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		4314ECBE27552EC400235E20 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		4314ECC127556F3800235E20 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		43442032275A47BC001D1297 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		435FD9AE27527A160082806C /* ligueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ligueModel.swift; sourceTree = "<group>"; };
 		435FD9B027527A340082806C /* LigueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigueService.swift; sourceTree = "<group>"; };
 		435FD9B2275282F60082806C /* ArbitreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitreService.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				435FD9B627528EB20082806C /* SignUpService.swift */,
 				435FD9BC2752A3940082806C /* SigninService.swift */,
 				4314ECBC2755195800235E20 /* NetworkingService.swift */,
+				43442032275A47BC001D1297 /* APIManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				E4700E9C2742A595006621CA /* addEquipeViewController.swift in Sources */,
 				E4700EA02742A71B006621CA /* equipeViewController.swift in Sources */,
 				435FD9AF27527A160082806C /* ligueModel.swift in Sources */,
+				43442033275A47BC001D1297 /* APIManager.swift in Sources */,
 				43867C99275263F000505137 /* equipeModel.swift in Sources */,
 				E4700E982742A21B006621CA /* listeJoueurViewController.swift in Sources */,
 				435FD9B727528EB20082806C /* SignUpService.swift in Sources */,

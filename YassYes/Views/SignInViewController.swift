@@ -50,19 +50,28 @@ class SignInViewController: UIViewController ,GIDSignInUIDelegate{
         }
         
         
-        networkingService.request(email: email.text!, motdepasse: motdepasse.text!,completed: { (success, reponse) in
-            
-            
-            if success {
-                let utilisateur = reponse //as! adminModel
-                
-                    self.performSegue(withIdentifier: "SeConnecter", sender: nil)
-               
+        guard let email = self.email.text else{return}
+        guard let motdepasse = self.motdepasse.text else{return}
+        //let admin = adminModel(email: email, motdepasse: motdepasse)
+        if(self.email.text!.isEmpty || self.motdepasse.text!.isEmpty){
+            self.present(Alert.makeAlert(titre: "Avertissement", message: "Vous devez taper vos identifiants"), animated: true)
+            return
+        }
+        
+        APIManger.shareInstence.login(email: email, motdepasse: motdepasse){
+            (isSuccess) in
+            if isSuccess{
+                //self.present(Alert.makeAlert(titre: "Alert", message: "User register successfully"), animated: true)
+                self.performSegue(withIdentifier: "SeConnecter", sender: nil)
             } else {
-                self.present(Alert.makeAlert(titre: "Avertissement", message: "Email ou mot de passe incorrect."), animated: true)
+                self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
             }
-        })
+        }
+
+
     }
+    
+    
     
     //yassineo888@esprit.tn
     @IBAction func signUpBtn(_ sender: Any) {
