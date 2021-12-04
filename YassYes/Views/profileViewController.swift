@@ -17,18 +17,13 @@ class profileViewController: UIViewController {
     var user : adminModel?
 
     
-    //var profileNom: String?
-    //var profilePrenom: String?
-    //var profileEmail : String?
-    //var profileRole : String?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
-        //nomP.text = UserDefaults.standard.string(forKey: "nom")
-        //prenomP.text = UserDefaults.standard.string(forKey: "prenom")
-        //emailP.text = UserDefaults.standard.string(forKey: "email")
+        
         intialiseProfile()
         // Do any additional setup after loading the view.
     }
@@ -60,6 +55,19 @@ class profileViewController: UIViewController {
     }
     */
 
+    @IBAction func modifierBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "Modifier", sender: nil)
+
+    }
+    func testSegue(_ identifier: String!, sender:AnyObject!){
+        performSegue(withIdentifier: identifier, sender: sender)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "Modifer"{
+            
+            let distination = segue.destination as? updateProfileViewController
+        }
+            
 }
 
 /*import Foundation
@@ -134,3 +142,4 @@ class ProfileView: UIViewController, ModalDelegate {
     }
 }
 */
+}

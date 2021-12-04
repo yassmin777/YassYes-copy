@@ -17,7 +17,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmermotdepasse: UITextField!
     
 
-    let signUpService = SignUpService()
     
     override func viewDidLoad() {
         super.viewDidLoad()

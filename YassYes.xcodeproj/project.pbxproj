@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13E1B658273FE99900BBB15E /* stade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1B657273FE99900BBB15E /* stade.swift */; };
 		13E1B65A273FEA4D00BBB15E /* match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1B659273FEA4D00BBB15E /* match.swift */; };
 		4314ECBD2755195800235E20 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBC2755195800235E20 /* NetworkingService.swift */; };
 		4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBE27552EC400235E20 /* ErrorResponse.swift */; };
@@ -26,6 +25,8 @@
 		43867C972752565200505137 /* joueurModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C962752565200505137 /* joueurModel.swift */; };
 		43867C99275263F000505137 /* equipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C98275263F000505137 /* equipeModel.swift */; };
 		43867C9B2752641F00505137 /* EquipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C9A2752641F00505137 /* EquipeService.swift */; };
+		43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9E9275BC65E00E08B81 /* stadeService.swift */; };
+		43D8A9EC275BC6D700E08B81 /* stadeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9EB275BC6D700E08B81 /* stadeModel.swift */; };
 		4FFAB04B27391B7E00F09638 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAB04A27391B7E00F09638 /* AppDelegate.swift */; };
 		4FFAB04D27391B7E00F09638 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAB04C27391B7E00F09638 /* SceneDelegate.swift */; };
 		4FFAB04F27391B7E00F09638 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAB04E27391B7E00F09638 /* ViewController.swift */; };
@@ -63,7 +64,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13E1B657273FE99900BBB15E /* stade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stade.swift; sourceTree = "<group>"; };
 		13E1B659273FEA4D00BBB15E /* match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = match.swift; sourceTree = "<group>"; };
 		4314ECBC2755195800235E20 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		4314ECBE27552EC400235E20 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		43867C962752565200505137 /* joueurModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurModel.swift; sourceTree = "<group>"; };
 		43867C98275263F000505137 /* equipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = equipeModel.swift; sourceTree = "<group>"; };
 		43867C9A2752641F00505137 /* EquipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeService.swift; sourceTree = "<group>"; };
+		43D8A9E9275BC65E00E08B81 /* stadeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeService.swift; sourceTree = "<group>"; };
+		43D8A9EB275BC6D700E08B81 /* stadeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeModel.swift; sourceTree = "<group>"; };
 		4FFAB04727391B7E00F09638 /* YassYes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YassYes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FFAB04A27391B7E00F09638 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FFAB04C27391B7E00F09638 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +175,6 @@
 		131AA1AF273F0EA300AB68AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13E1B657273FE99900BBB15E /* stade.swift */,
 				13E1B659273FEA4D00BBB15E /* match.swift */,
 				43867C962752565200505137 /* joueurModel.swift */,
 				43867C98275263F000505137 /* equipeModel.swift */,
@@ -181,6 +182,7 @@
 				435FD9B4275283A30082806C /* arbitreModel.swift */,
 				435FD9B82752916D0082806C /* adminModel.swift */,
 				4314ECBE27552EC400235E20 /* ErrorResponse.swift */,
+				43D8A9EB275BC6D700E08B81 /* stadeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +198,7 @@
 				435FD9BC2752A3940082806C /* SigninService.swift */,
 				4314ECBC2755195800235E20 /* NetworkingService.swift */,
 				43442032275A47BC001D1297 /* APIManager.swift */,
+				43D8A9E9275BC65E00E08B81 /* stadeService.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -411,13 +414,13 @@
 				4FFAB05527391B7E00F09638 /* YassYes.xcdatamodeld in Sources */,
 				13E1B65A273FEA4D00BBB15E /* match.swift in Sources */,
 				4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */,
+				43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */,
 				4FFAB04B27391B7E00F09638 /* AppDelegate.swift in Sources */,
 				E4700EAE2742B0C6006621CA /* addStadeViewController.swift in Sources */,
 				E4700EBE2742CAB0006621CA /* classementViewController.swift in Sources */,
 				E4700E9227429D83006621CA /* SignUpViewController.swift in Sources */,
 				E4700E962742A124006621CA /* modifierJoueurViewController.swift in Sources */,
 				E4700EBA2742B46B006621CA /* addArbitreViewController.swift in Sources */,
-				13E1B658273FE99900BBB15E /* stade.swift in Sources */,
 				43867C95275249FC00505137 /* JoueurService.swift in Sources */,
 				E4700EC02742CCFF006621CA /* debutMatchViewController.swift in Sources */,
 				E4700EBC2742C83F006621CA /* arbitreHomeViewController.swift in Sources */,
@@ -433,6 +436,7 @@
 				436093202753D4B500101D21 /* updateProfileViewController.swift in Sources */,
 				E4700EB02742B196006621CA /* stadeViewController.swift in Sources */,
 				E4700E9C2742A595006621CA /* addEquipeViewController.swift in Sources */,
+				43D8A9EC275BC6D700E08B81 /* stadeModel.swift in Sources */,
 				E4700EA02742A71B006621CA /* equipeViewController.swift in Sources */,
 				435FD9AF27527A160082806C /* ligueModel.swift in Sources */,
 				43442033275A47BC001D1297 /* APIManager.swift in Sources */,
