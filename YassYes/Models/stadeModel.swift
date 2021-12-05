@@ -7,8 +7,21 @@
 
 import Foundation
 struct stadeModel:Encodable{
-    let photo:String?
+    internal init(_id: String, admin: adminModel? = nil, nom: String, lat: Double, lon: Double, discription: String) {
+        self._id = _id
+        self.admin = admin
+        self.nom = nom
+        self.lat = lat
+        self.lon = lon
+        self.discription = discription
+    }
+    
+    //let photo:String?
+    let _id:String
+    let admin:adminModel?
     let nom:String
-    let address:String
+    let lat:Double
+    let lon:Double
+    //var capacity: Int
     let discription:String
 }

@@ -1014,7 +1014,7 @@
             </objects>
             <point key="canvasLocation" x="6781" y="-968"/>
         </scene>
-        <!--Stade-->
+        <!--Les stades-->
         <scene sceneID="EZG-dp-lcl">
             <objects>
                 <viewController id="bAf-Th-Awi" customClass="listeStadeViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
@@ -1022,25 +1022,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-xY-rIr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-xY-rIr">
                                 <rect key="frame" x="0.0" y="201" width="414" height="612"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.098039215690000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="Y7P-uW-3zW">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="130"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ligueCell" rowHeight="116" id="Y7P-uW-3zW">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y7P-uW-3zW" id="ajJ-L7-NGn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpK-Qh-wpg">
-                                                    <rect key="frame" x="20" y="0.0" width="150" height="150"/>
+                                                    <rect key="frame" x="20" y="0.0" width="78" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.12549019610000001" green="0.098039215690000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de stade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bco-ts-tfB">
-                                                    <rect key="frame" x="178" y="28" width="150" height="30"/>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zdU-W2-Vt9">
+                                                    <rect key="frame" x="316" y="0.0" width="78" height="89"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </mapView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvF-VP-byc">
+                                                    <rect key="frame" x="38" y="84" width="96" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.90796475929999998" green="1" blue="0.91051274660000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de stade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bco-ts-tfB">
+                                                    <rect key="frame" x="125" y="11" width="183" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                     <color key="textColor" systemColor="systemGreenColor"/>
@@ -1051,6 +1062,10 @@
                                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bAf-Th-Awi" id="0os-Wc-Wva"/>
+                                    <outlet property="delegate" destination="bAf-Th-Awi" id="TFt-Vo-k7v"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q28-o2-eKo">
                                 <rect key="frame" x="57" y="115" width="300" height="70"/>
@@ -1061,8 +1076,7 @@
                                     <color key="baseBackgroundColor" systemColor="tertiaryLabelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="addStadeBtn:" destination="bAf-Th-Awi" eventType="touchUpInside" id="XRQ-5G-PH9"/>
-                                    <segue destination="FOQ-0u-xSv" kind="show" id="dkz-Oj-pcJ"/>
+                                    <action selector="addjouterStadeBtn:" destination="bAf-Th-Awi" eventType="touchUpInside" id="Zey-KF-QNA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1072,16 +1086,18 @@
                     <tabBarItem key="tabBarItem" title="Stade" image="sportscourt.fill" catalog="system" id="UX4-nf-Xhk">
                         <color key="badgeColor" red="0.0039215686269999999" green="0.83921568629999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="Elp-mc-Ikw"/>
+                    <navigationItem key="navigationItem" title="Les stades" id="Elp-mc-Ikw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableVienStade" destination="B2H-xY-rIr" id="Kdu-5x-vYd"/>
                         <segue destination="2EN-SA-n8z" kind="show" id="IZ7-9z-5rY"/>
                         <segue destination="mkt-xt-6e1" kind="show" id="JXJ-5F-Il7"/>
+                        <segue destination="FOQ-0u-xSv" kind="show" identifier="interfaceAddStade" id="zqe-gH-sg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjP-g0-YG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3770" y="-968"/>
+            <point key="canvasLocation" x="3735" y="-903"/>
         </scene>
         <!--Stade View Controller-->
         <scene sceneID="lG9-Y7-a6t">
@@ -1199,7 +1215,7 @@
             </objects>
             <point key="canvasLocation" x="8507" y="-968"/>
         </scene>
-        <!--Add Stade View Controller-->
+        <!--Item-->
         <scene sceneID="0PW-nj-O7Q">
             <objects>
                 <viewController id="FOQ-0u-xSv" customClass="addStadeViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
@@ -1220,7 +1236,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de stade" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sFJ-RB-sxh">
-                                <rect key="frame" x="20" y="241" width="380" height="34"/>
+                                <rect key="frame" x="20" y="312" width="380" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1233,34 +1249,64 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mek-RT-dxx">
-                                <rect key="frame" x="20" y="325" width="380" height="315"/>
+                                <rect key="frame" x="17" y="480" width="380" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Discription" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ib6-GQ-IuP">
-                                <rect key="frame" x="20" y="283" width="380" height="34"/>
+                                <rect key="frame" x="20" y="354" width="380" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehk-tP-JmM">
+                                <rect key="frame" x="20" y="396" width="380" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aV0-yq-dfy">
+                                <rect key="frame" x="20" y="438" width="380" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NB: pour ajouter un stade il faut enter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-In-O8i">
+                                <rect key="frame" x="41" y="241" width="338" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="les cordonnées correcte de votre stade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbF-HR-9NQ">
+                                <rect key="frame" x="41" y="260" width="338" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-6h-xWT">
-                                <rect key="frame" x="86" y="19" width="249" height="170"/>
+                                <rect key="frame" x="86" y="88" width="249" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="blX-WQ-ztR"/>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.098039215690000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="pencil" catalog="system" id="O6z-qK-9s2">
+                        <color key="badgeColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="OHZ-zu-Lft"/>
                     <connections>
                         <outlet property="descStade" destination="ib6-GQ-IuP" id="5bF-aa-d8J"/>
                         <outlet property="imageStade" destination="Yn0-6h-xWT" id="niQ-0J-h3a"/>
-                        <outlet property="mapStade" destination="Mek-RT-dxx" id="Id5-cK-rCd"/>
-                        <outlet property="nomStade" destination="sFJ-RB-sxh" id="3dg-qn-z02"/>
+                        <outlet property="latitude" destination="ehk-tP-JmM" id="Nxl-gM-jF7"/>
+                        <outlet property="longitude" destination="aV0-yq-dfy" id="j3S-je-EBf"/>
+                        <outlet property="nomStade" destination="sFJ-RB-sxh" id="KfD-iz-PMl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUr-ow-5NZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845" y="-968"/>
+            <point key="canvasLocation" x="2844.9275362318845" y="-968.30357142857133"/>
         </scene>
         <!--Arbitre-->
         <scene sceneID="6MD-pD-sEz">
@@ -2103,10 +2149,10 @@
                         <color key="selectedImageTintColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="bAf-Th-Awi" kind="relationship" relationship="viewControllers" id="2AQ-Qa-PaE"/>
                         <segue destination="TBA-ZE-eaZ" kind="relationship" relationship="viewControllers" id="gM9-TY-rPu"/>
                         <segue destination="gQ2-8m-Zmw" kind="relationship" relationship="viewControllers" id="Ymy-E0-xX7"/>
-                        <segue destination="NdC-sA-6x4" kind="show" id="kqT-jh-wMn"/>
+                        <segue destination="bAf-Th-Awi" kind="relationship" relationship="viewControllers" id="TP9-Mc-TPQ"/>
+                        <segue destination="6ia-zF-qdl" kind="relationship" relationship="viewControllers" id="gK7-pN-69Y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ktk-kI-GdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2202,7 +2248,7 @@
             <objects>
                 <viewController id="Jh5-fr-rSg" customClass="updateProfileViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SNf-Ea-UKx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Modifier le profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ1-2b-vcP">
@@ -2293,6 +2339,38 @@
             </objects>
             <point key="canvasLocation" x="3848" y="-1680"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Hel-hf-Ncn">
+            <objects>
+                <viewController id="6ia-zF-qdl" customClass="mapVCViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zl6-0w-5Hn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nvi-km-zVV">
+                                <rect key="frame" x="0.0" y="171" width="414" height="691"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="les stades" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW6-sl-StP">
+                                <rect key="frame" x="30" y="93" width="200" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <color key="textColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eu1-v1-R32"/>
+                        <color key="backgroundColor" red="0.12526950240000001" green="0.10013213009999999" blue="0.26603338119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="6T7-rn-O6c"/>
+                    <connections>
+                        <outlet property="map" destination="nvi-km-zVV" id="wfy-f5-xzR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYk-bo-CRv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4766.666666666667" y="-273.88392857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="99B-C2-4HF"/>
@@ -2307,6 +2385,7 @@
         <image name="Image" width="450" height="450"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="pngegg" width="2400" height="2400"/>
