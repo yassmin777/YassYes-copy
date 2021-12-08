@@ -6,8 +6,15 @@
 //
 
 import Foundation
-struct stadeModel:Encodable{
-    internal init(_id: String, admin: adminModel? = nil, nom: String, lat: Double, lon: Double, discription: String) {
+struct stadeModel{
+    internal init(image:String?=nil
+                  ,_id: String?=nil,
+                  admin: adminModel? = nil,
+                  nom: String?=nil,
+                  lat: Double?=nil,
+                  lon: Double?=nil,
+                  discription: String?=nil) {
+        self.image = image
         self._id = _id
         self.admin = admin
         self.nom = nom
@@ -16,12 +23,12 @@ struct stadeModel:Encodable{
         self.discription = discription
     }
     
-    //let photo:String?
-    let _id:String
+    let image:String?
+    let _id:String?
     let admin:adminModel?
-    let nom:String
-    let lat:Double
-    let lon:Double
+    let nom:String?
+    let lat:Double?
+    let lon:Double?
     //var capacity: Int
-    let discription:String
+    let discription:String?
 }
