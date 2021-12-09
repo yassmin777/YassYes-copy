@@ -11,7 +11,7 @@ import UIKit.UIImage
 
 class stadeService{
     static let shareInstence = stadeService()
-    
+    /*
     func addStade(stade : stadeModel,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade", method: .post, parameters: stade,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
@@ -37,7 +37,7 @@ class stadeService{
             }
         }
     }
-     
+     */
    /* [
         "nom": stade.nom!,
         "lat": stade.lat!,
@@ -68,9 +68,11 @@ class stadeService{
         }
         })
         }
-    }/*
+    }*/
     func addstade(stade: stadeModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
         print("hi")
+        let headers: HTTPHeaders = [.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!))
+]
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(uiImage.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
             
@@ -79,7 +81,6 @@ class stadeService{
                                 "lon": stade.lon!,
                                 "discription": stade.discription!
             ] as [String : Any]
-            
             for (key, value) in ParametersS {
                 if let temp = value as? String {
                     multipartFormData.append(temp.data(using: .utf8)!, withName: key)
@@ -95,7 +96,7 @@ class stadeService{
                 print(multipartFormData)
             }
             },to: "http://localhost:3000/stade",
-        method: .post)
+        method: .post,headers: headers)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -108,7 +109,7 @@ class stadeService{
                     print(error)
                 }
             }
-    }*/
+    }
     func getAllstade(_id:String,completionHandler: @escaping (Bool, [stadeModel]?) -> Void ) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in

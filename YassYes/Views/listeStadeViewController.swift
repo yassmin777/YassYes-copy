@@ -9,19 +9,17 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import MapKit
+import AlamofireImage
 
 class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
-    /*
-    //var stade : stadeModel!
-     
     
-    var stades : [stadeModel] = []
-    
-    let _id = UserDefaults.standard.string(forKey: "_id")!
-    */
     var stade_nom = [String]()
     var lati = [Double]()
     var longi = [Double]()
+    var stade_image = [String]()
+    var stadeDescription = [String]()
+
+
     var coor = [CLLocationCoordinate2D]()
 
     //@IBOutlet weak var map: MKMapView!
@@ -40,10 +38,13 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
                     let nom = i["nom"].stringValue
                     let lat = i["lat"].doubleValue
                     let long = i["lon"].doubleValue
-
+                    let stadeDescription = i["discription"].stringValue
+                    let image = "http://localhost:3000/"+i["image"].stringValue
                     self.stade_nom.append(nom)
                     self.lati.append(lat)
                     self.longi.append(long)
+                    self.stade_image.append(image)
+                    self.stadeDescription.append(stadeDescription)
                     let Coords = CLLocationCoordinate2D(latitude: lat, longitude: long)
 
                     self.coor.append(Coords)
@@ -76,31 +77,61 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
         let tv = cell.contentView
         let stade_Name = tv.viewWithTag(1) as! UILabel
         let mapp = tv.viewWithTag(2) as! MKMapView
+        let stadeImage = tv.viewWithTag(3) as! UIImageView
         
         
         stade_Name.text = stade_nom[indexPath.row]
         mapp.setRegion(MKCoordinateRegion(center: coor[indexPath.row], span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)), animated: true)
 
+        var path = String(stade_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+               path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+
+
+
+                let url = URL(string: path)!
+
+               
+
+
+
+                print(url)
+
+
+        stadeImage.af.setImage(withURL: url)
+
+           
+
+                
+
+
+        
             return cell
         
         
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "detailStade", sender: indexPath)
+
+
     }
     
     @IBAction func addjouterStadeBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "interfaceAddStade", sender: nil)
 
     }
-    func testSegue(_ identifier: String!, sender:AnyObject!){
+   /* func testSegue(_ identifier: String!, sender:AnyObject!){
         performSegue(withIdentifier: identifier, sender: sender)
-    }
+    }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "interfaceAddStade"{
+        if  segue.identifier == "detailStade"{
+            let indexPath = sender as! IndexPath
+            let destination = segue.destination as! stadeViewController
+            destination.stadeName = stade_nom[indexPath.row]
+            destination.stadeImage = stade_image[indexPath.row]
+            destination.stadeDescription = stadeDescription[indexPath.row]
             
-            let distination = segue.destination as? addStadeViewController
         }
     }
     /*

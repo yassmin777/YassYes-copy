@@ -6,38 +6,50 @@
 //
 
 import Foundation
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
+import Alamofire
+import SwiftyJSON
+import UIKit.UIImage
+
 class EquipeService{
     static let shareinstance = EquipeService()
 
-    func AddJ(equipe : equipeModel)-> Int{
-        var status: Int = 0
-        var semaphore = DispatchSemaphore (value: 0)
-
-        let parameters = "nom="+equipe.nom+"&discription="+equipe.discription+"&equipecapacite="+equipe.equipecapacite
-        let postData =  parameters.data(using: .utf8)
-
-        var request = URLRequest(url: URL(string: "http://localhost:3000/sifflet/equipe")!,timeoutInterval: Double.infinity)
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-
-        request.httpMethod = "POST"
-        request.httpBody = postData
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let data = data else {
-            print(String(describing: error))
-            semaphore.signal()
-            return
-          }
-          print(String(data: data, encoding: .utf8)!)
-          semaphore.signal()
-        }
-
-        task.resume()
-        semaphore.wait()
-        return status
-
+    func addequipe(equipe: equipeModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
+        print("hi")
+        let headers: HTTPHeaders = [.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!))
+]
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(uiImage.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
+            
+            let ParametersS = [ "nom": equipe.nom!,
+                                "discription": equipe.discription!
+            ] as [String : Any]
+            for (key, value) in ParametersS {
+                if let temp = value as? String {
+                    multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Int {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                }
+                if let temp = value as? Double {
+                    multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                
+                }
+                
+                print(multipartFormData)
+            }
+            },to: "http://localhost:3000/equipe",
+        method: .post,headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Success")
+                    completed(true)
+                case let .failure(error):
+                    completed(false)
+                    print(error)
+                }
+            }
     }
 }

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13E1B65A273FEA4D00BBB15E /* match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E1B659273FEA4D00BBB15E /* match.swift */; };
 		4314ECBD2755195800235E20 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBC2755195800235E20 /* NetworkingService.swift */; };
 		4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBE27552EC400235E20 /* ErrorResponse.swift */; };
 		4314ECC227556F3800235E20 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECC127556F3800235E20 /* Alert.swift */; };
+		431DEC01276257E400AEB066 /* matchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DEC00276257E400AEB066 /* matchModel.swift */; };
 		43442033275A47BC001D1297 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43442032275A47BC001D1297 /* APIManager.swift */; };
 		435FD9AF27527A160082806C /* ligueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435FD9AE27527A160082806C /* ligueModel.swift */; };
 		435FD9B127527A340082806C /* LigueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435FD9B027527A340082806C /* LigueService.swift */; };
@@ -67,10 +67,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13E1B659273FEA4D00BBB15E /* match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = match.swift; sourceTree = "<group>"; };
 		4314ECBC2755195800235E20 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		4314ECBE27552EC400235E20 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		4314ECC127556F3800235E20 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		431DEC00276257E400AEB066 /* matchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchModel.swift; sourceTree = "<group>"; };
 		43442032275A47BC001D1297 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		435FD9AE27527A160082806C /* ligueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ligueModel.swift; sourceTree = "<group>"; };
 		435FD9B027527A340082806C /* LigueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigueService.swift; sourceTree = "<group>"; };
@@ -183,7 +183,6 @@
 		131AA1AF273F0EA300AB68AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13E1B659273FEA4D00BBB15E /* match.swift */,
 				43867C962752565200505137 /* joueurModel.swift */,
 				43867C98275263F000505137 /* equipeModel.swift */,
 				435FD9AE27527A160082806C /* ligueModel.swift */,
@@ -192,6 +191,7 @@
 				4314ECBE27552EC400235E20 /* ErrorResponse.swift */,
 				43D8A9EB275BC6D700E08B81 /* stadeModel.swift */,
 				43D8A9F1275BD19C00E08B81 /* stadeAnnotion.swift */,
+				431DEC00276257E400AEB066 /* matchModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,10 +418,10 @@
 				E4700EAA2742AD2C006621CA /* listeEquipesLigueViewController.swift in Sources */,
 				E4E5E18A2740063600084FFA /* PaymentViewController.swift in Sources */,
 				E4700EB62742B3AB006621CA /* listeArbitreViewController.swift in Sources */,
+				431DEC01276257E400AEB066 /* matchModel.swift in Sources */,
 				E4700E9A2742A287006621CA /* addJoueurViewController.swift in Sources */,
 				43D8A9F4275BE37500E08B81 /* listeStadeViewController.swift in Sources */,
 				4FFAB05527391B7E00F09638 /* YassYes.xcdatamodeld in Sources */,
-				13E1B65A273FEA4D00BBB15E /* match.swift in Sources */,
 				4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */,
 				43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */,
 				4FFAB04B27391B7E00F09638 /* AppDelegate.swift in Sources */,
@@ -615,6 +615,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,6 +644,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

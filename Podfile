@@ -9,6 +9,8 @@ target 'YassYes' do
   pod 'GoogleSignIn', '< 5.0.0'
   pod 'Alamofire', '~> 5.4'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'AlamofireImage', '~> 4.1'
+
 
 
 
