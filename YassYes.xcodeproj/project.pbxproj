@@ -26,6 +26,7 @@
 		43867C99275263F000505137 /* equipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C98275263F000505137 /* equipeModel.swift */; };
 		43867C9B2752641F00505137 /* EquipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C9A2752641F00505137 /* EquipeService.swift */; };
 		439BF6BB275CD82700B26CA3 /* ligueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439BF6BA275CD82700B26CA3 /* ligueCell.swift */; };
+		43AB52792763ADB200A3522E /* addligue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB52782763ADB200A3522E /* addligue.swift */; };
 		43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7CA98275D61E300B717EA /* mapVCViewController.swift */; };
 		43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9E9275BC65E00E08B81 /* stadeService.swift */; };
 		43D8A9EC275BC6D700E08B81 /* stadeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9EB275BC6D700E08B81 /* stadeModel.swift */; };
@@ -86,6 +87,7 @@
 		43867C98275263F000505137 /* equipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = equipeModel.swift; sourceTree = "<group>"; };
 		43867C9A2752641F00505137 /* EquipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeService.swift; sourceTree = "<group>"; };
 		439BF6BA275CD82700B26CA3 /* ligueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ligueCell.swift; sourceTree = "<group>"; };
+		43AB52782763ADB200A3522E /* addligue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addligue.swift; sourceTree = "<group>"; };
 		43C7CA98275D61E300B717EA /* mapVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapVCViewController.swift; sourceTree = "<group>"; };
 		43D8A9E9275BC65E00E08B81 /* stadeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeService.swift; sourceTree = "<group>"; };
 		43D8A9EB275BC6D700E08B81 /* stadeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeModel.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				43D8A9F3275BE37500E08B81 /* listeStadeViewController.swift */,
 				439BF6BA275CD82700B26CA3 /* ligueCell.swift */,
 				43C7CA98275D61E300B717EA /* mapVCViewController.swift */,
+				43AB52782763ADB200A3522E /* addligue.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,7 +288,6 @@
 				4FFAB04427391B7E00F09638 /* Frameworks */,
 				4FFAB04527391B7E00F09638 /* Resources */,
 				EEC9325BD852881452774E52 /* [CP] Embed Pods Frameworks */,
-				D6CAAF04B363C3E8D560C057 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -365,23 +367,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D6CAAF04B363C3E8D560C057 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YassYes/Pods-YassYes-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YassYes/Pods-YassYes-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YassYes/Pods-YassYes-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EEC9325BD852881452774E52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,6 +409,7 @@
 				4FFAB05527391B7E00F09638 /* YassYes.xcdatamodeld in Sources */,
 				4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */,
 				43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */,
+				43AB52792763ADB200A3522E /* addligue.swift in Sources */,
 				4FFAB04B27391B7E00F09638 /* AppDelegate.swift in Sources */,
 				E4700EAE2742B0C6006621CA /* addStadeViewController.swift in Sources */,
 				E4700EBE2742CAB0006621CA /* classementViewController.swift in Sources */,

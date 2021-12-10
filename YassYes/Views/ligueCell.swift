@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-
+/*
 class ligueCell: UITableViewCell {
 
     @IBOutlet weak var imageLigue: UIImageView!
@@ -35,4 +35,4 @@ class ligueCell: UITableViewCell {
 }
     
 }
-
+*/

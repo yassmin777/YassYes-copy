@@ -14,6 +14,7 @@ class stadeViewController: UIViewController {
     var stadeName: String?
     var stadeImage: String?
     var stadeDescription: String?
+    var stadeId: String?
 
     @IBOutlet weak var imageStade: UIImageView!
     @IBOutlet weak var nomStade: UILabel!
@@ -36,9 +37,20 @@ class stadeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func addjouterStadeBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "addLigueToStade", sender: nil)
 
-    @IBAction func listeLigueBtn(_ sender: Any) {
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == "addLigueToStade"{
+           // let indexPath = sender as! IndexPath
+            let destination = segue.destination as! listeLiguesStadeViewController
+            destination.stadeIId = stadeId
+
+        }
+
+    }
+    
     
 
 }

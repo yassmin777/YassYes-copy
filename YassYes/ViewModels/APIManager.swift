@@ -37,8 +37,17 @@ struct Media {
         self.data = data
     }
 }*/
+extension String {
+    func toJSON() -> Any? {
+        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
+        return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+    }
+}
+
 class APIManger{
     static let shareInstence = APIManger()
+    var ClientToken : adminModel?
+
     /*
     func register(photo:UIImage,admin : adminModel,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("multipart/form-data")]
@@ -282,6 +291,105 @@ class APIManger{
         
     }
 */
+    var tokenString :String?
+    @Published var isAuthenticated : Bool = false
+
+    func loginGoogle(email:String,motdepasse:String,nom:String) {
+        
+        let defaults = UserDefaults.standard
+        
+        //Forced unwrapping with !
+        var request = URLRequest(url: URL(string: "http://localhost:3000/user/auth")!)
+        request.httpMethod = "post"
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        print("its working")
+        let postString = "email="+email+"&"+"motdepasse="+motdepasse+"&"+"nom="+nom+"&"
+    
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                // check for fundamental networking error
+                print("error=\(String(describing: error?.localizedDescription))")
+                return
+            }
+
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+            }
+
+            let responseString = String(data: data, encoding: .utf8)
+            let jsonData = responseString!.toJSON() as? [ String:AnyObject ]
+            self.tokenString = jsonData!["token"] as? String
+            print("token : ------------------")
+            print(self.tokenString!)
+            
+            defaults.setValue(self.tokenString, forKey: "jsonwebtoken")
+
+            
+            self.getuserfromtoken(token: (jsonData!["token"] as? String)!)
+            
+            if(responseString!.contains("true")){
+                print("status = true")
+                
+            }
+            else{
+                print("Status = false")
+            }
+        }
+        task.resume()
+    }
+    func getuserfromtoken(token : String){
+        var request = URLRequest(url: URL(string: "http://172.17.12.159:3000/Client/findToken")!)
+                 request.httpMethod = "post"
+                 request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+                 print("its working")
+
+                 request.addValue(token, forHTTPHeaderField: "authorization")
+                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                     guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                         print("error=\(String(describing: error?.localizedDescription))")
+                         return
+                     }
+
+                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                         print("response = \(String(describing: response))")
+                     }
+
+                     let responseString = String(data: data, encoding: .utf8)
+                     print("---------------------------------------------------")
+                     print("responseString = \(String(describing: responseString))")
+                     print("---------------------------------------------------")
+                     let jsonData = responseString!.toJSON() as? [ String:AnyObject ]
+                    
+                   var newuser = adminModel()
+                   
+                         newuser._id = (jsonData!["_id"] as? String)!
+                     newuser.nom = (jsonData!["userName"] as? String)!
+                     newuser.prenom = (jsonData!["prenom"] as? String)!
+                     newuser.email = (jsonData!["email"] as? String)!
+                     newuser.motdepasse = (jsonData!["motdepasse"] as? String)
+                     newuser.image = (jsonData!["image"] as? String)!
+             
+                         self.ClientToken = newuser
+                     
+                     
+                     
+                     if (responseString!.contains("_id")) {
+                         print("status = true")
+                   
+                     }
+                     else{
+                         print("Status = false")
+                         
+                     }
+                 }
+
+                 task.resume()
+                 
+    }
     func adduser(admin: adminModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
         print("hi")
         AF.upload(multipartFormData: { multipartFormData in

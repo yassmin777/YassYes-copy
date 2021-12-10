@@ -8,17 +8,32 @@
 import UIKit
 import GoogleSignIn
 
-class SignInViewController: UIViewController ,GIDSignInUIDelegate{
+class SignInViewController: UIViewController {
     
+    let signInConfig = GIDConfiguration.init(clientID: "397497342777-fe4bo2vkv8av5k8eduune23g7dc3jga2.apps.googleusercontent.com")
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var motdepasse: UITextField!
-    
+    var adminvm = APIManger()
+
     let networkingService = NetworkingService()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        //Style Email TestField
+        email.layer.cornerRadius = 10.0
+        email.layer.borderWidth = 1.0
+        email.layer.masksToBounds = true
+        
+        //Style Password TestField
+        motdepasse.layer.cornerRadius = 10.0
+        motdepasse.layer.borderWidth = 1.0
+        motdepasse.layer.masksToBounds = true
+
+        /*
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
         let gSignIn = GIDSignInButton(frame: CGRect(x: 57, y: 671, width: 120, height: 70))
@@ -29,16 +44,33 @@ class SignInViewController: UIViewController ,GIDSignInUIDelegate{
         signOut.setTitle("Sign out", for:  .normal)
         signOut.addTarget(self, action: #selector(self.signOut(sender:)), for: .touchUpInside)
         self.view.addSubview(signOut)
-        
+        */
         // Do any additional setup after loading the view.
     }
-    @objc func signOut(sender: UIButton)
+   /* @objc func signOut(sender: UIButton)
     {
         print ("signOut")
         GIDSignIn.sharedInstance().signOut()
     }
-    
-    
+    */
+    @IBAction func connect(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
+           guard error == nil else { return }
+
+            let emailAddress = user?.profile?.email
+
+            let fullName = user?.profile?.name
+            let givenName = user?.profile?.givenName
+            let familyName = user?.profile?.familyName
+            
+            self.adminvm.loginGoogle(email: familyName!,motdepasse: emailAddress!, nom: fullName!)
+            self.performSegue(withIdentifier: "SeConnecter", sender: sender )
+         }
+        
+    }/*
+    func sign(signIn : GIDSignIn!, didSignInFor user: GIDGoogleUser, withError error :Error!) {
+        <#function body#>
+    }*/
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
     }

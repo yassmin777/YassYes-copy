@@ -12,9 +12,12 @@ import AlamofireImage
 @available(iOS 11.0, *)
 
 class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+    var ligue_id = [String]()
+
     var ligue_nom = [String]()
     var ligue_image = [String]()
     var ligueDescription = [String]()
+    var stadeIId: String?
 
     @IBOutlet weak var ligueTv: UITableView!
     override func viewDidLoad() {
@@ -27,12 +30,14 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
                 
                 self.ligue_nom.removeAll()
                 for i in myresult!.arrayValue{
+                    let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
                     let Description = i["discription"].stringValue
                     let image = "http://localhost:3000/"+i["image"].stringValue
+                    self.ligue_id.append(idL)
                     self.ligue_nom.append(nom)
                     self.ligue_image.append(image)
-                    self.ligue_image.append(Description)
+                    self.ligueDescription.append(Description)
                     
 
                     
@@ -103,14 +108,43 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // *********** EDIT ***********
-                let editAction = UIContextualAction(style: .destructive, title: "Add") {
+        let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
                     (action, sourceView, completionHandler) in
                     // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
-                    //self.performSegue(withIdentifier: "showBookEdit", sender: indexPath) // sender = indexPath
-                    completionHandler(true)
-                    
+            /*
+            stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
+                if success {
+                    self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
+                }else{
+                    self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
+
                 }
+                    
+                    print(self.stadeIId)
+                print(ligue_id[indexPath.row])
+                    
+                    
+                }*/
+            stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id:ligue_id[indexPath.row], completionHandler: {
                 
+                (isSuccess) in
+
+                if isSuccess{
+                    print(ligue_id[indexPath.row])
+                   print("jawek behy")
+
+                    self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+
+
+
+                } else {
+
+                    self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+                }
+
+            })
+            completionHandler(true)
+        }
                 editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
                 // end action Edit
         
@@ -120,40 +154,18 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
                 swipeConfiguration.performsFirstActionWithFullSwipe = false
                 
                 return swipeConfiguration
-    }
- 
-
-/*
-     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-              return true
-             }
-    func tableView(tableView:UITableView, commit: UITableViewCell.EditingStyle, forRowAt: IndexPath){
-        ligueTv.isEditing = true
-
-
-    }
-    editactions
-
-*/
     
-    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
-        if (editingStyle == .insert){
-            print("jawek zeb")
-        }
-    }*/
-    
-   /* func testSegue(_ identifier: String!, sender:AnyObject!){
-        performSegue(withIdentifier: identifier, sender: sender)
-    }*/
-    /*
+    }/*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "detailStade"{
+        if  segue.identifier == "addLigue"{
             let indexPath = sender as! IndexPath
-            let destination = segue.destination as! stadeViewController
-            destination.stadeName = stade_nom[indexPath.row]
-            destination.stadeImage = stade_image[indexPath.row]
-            destination.stadeDescription = stadeDescription[indexPath.row]
-            
+            let destination = segue.destination as! addligue
+            destination.ligueId = ligue_id[indexPath.row]
+            destination.stadeIId = stadeIId
+           
+
         }
+    }
 */
 }
+

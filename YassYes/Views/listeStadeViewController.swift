@@ -14,6 +14,7 @@ import AlamofireImage
 class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
     var stade_nom = [String]()
+    var stade_id = [String]()
     var lati = [Double]()
     var longi = [Double]()
     var stade_image = [String]()
@@ -35,11 +36,13 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
                 
                 self.stade_nom.removeAll()
                 for i in myresult!.arrayValue{
+                    let id = i["_id"].stringValue
                     let nom = i["nom"].stringValue
                     let lat = i["lat"].doubleValue
                     let long = i["lon"].doubleValue
                     let stadeDescription = i["discription"].stringValue
                     let image = "http://localhost:3000/"+i["image"].stringValue
+                    self.stade_id.append(id)
                     self.stade_nom.append(nom)
                     self.lati.append(lat)
                     self.longi.append(long)
@@ -128,10 +131,11 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
         if  segue.identifier == "detailStade"{
             let indexPath = sender as! IndexPath
             let destination = segue.destination as! stadeViewController
-            destination.stadeName = stade_nom[indexPath.row]
+            destination.stadeId = stade_id[indexPath.row]
             destination.stadeImage = stade_image[indexPath.row]
             destination.stadeDescription = stadeDescription[indexPath.row]
-            
+            destination.stadeDescription = stadeDescription[indexPath.row]
+
         }
     }
     /*

@@ -23,12 +23,12 @@ struct  adminModel{
         self.motdepasse = motdepasse
         self.isProprietaireDestade = isProprietaireDestade
     }
-    let image : String?
-    let _id : String?
-    let nom : String?
-    let prenom : String?
-    let email : String?
-    let motdepasse : String?
+    var image : String?
+    var _id : String?
+    var nom : String?
+    var prenom : String?
+    var email : String?
+    var motdepasse : String?
     let isProprietaireDestade : String?
 
     //var isVerified : Bool?

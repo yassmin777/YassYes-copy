@@ -110,6 +110,66 @@ class stadeService{
                 }
             }
     }
+    //encoding: JSONEncoding.default
+    /*
+    func addLigueTostade(_id: String, ligues_id: String, completed: @escaping (Bool) -> Void ) {
+        print("hi")
+        let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!))
+]
+        AF.request("http://localhost:3000/stade/"+_id, method: .put,parameters:["ligue_id": ligues_id] ,  headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON{ response in
+            switch response.result{
+            case .success:
+                //let myresult = try? JSON(data: response.data!)
+                print("succsess")
+               
+                    
+                    
+
+                
+
+
+                completed(true)
+
+            case .failure:
+                completed(false)
+
+                print(response.error!)
+                break
+            }
+    }
+    }*/
+    func addLigueTostade(_id:String, ligues_id: String,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/stade/"+_id, method: .put,parameters:[ " ligues_id":ligues_id] , headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 200{
+                        let jsonData = JSON(response.data!)
+                        let user = self.makeItem(jsonItem: jsonData)
+                        completionHandler(true)
+
+                        print(user)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }/*
     func getAllstade(_id:String,completionHandler: @escaping (Bool, [stadeModel]?) -> Void ) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
@@ -126,7 +186,8 @@ class stadeService{
                 }
             }
     }
-    
+    */
+        /*
     func getstades(_id:String,completionHandler:@escaping (Bool,[stadeModel]?)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
@@ -160,7 +221,7 @@ class stadeService{
                 print(err.localizedDescription)
             }
         }
-    }/*
+    }*//*
     func getstades(_id:String,completionHandler:@escaping (Bool,[nom]?)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
@@ -217,4 +278,5 @@ class stadeService{
     }
     
 }
+
 
