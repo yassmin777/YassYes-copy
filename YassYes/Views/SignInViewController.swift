@@ -59,12 +59,20 @@ class SignInViewController: UIViewController {
 
             let emailAddress = user?.profile?.email
 
-            let fullName = user?.profile?.name
+            //let fullName = user?.profile?.name
             let givenName = user?.profile?.givenName
             let familyName = user?.profile?.familyName
             
-            self.adminvm.loginGoogle(email: familyName!,motdepasse: emailAddress!, nom: fullName!)
-            self.performSegue(withIdentifier: "SeConnecter", sender: sender )
+            APIManger.shareInstence.loginGoogle(nom:givenName!,prenom:familyName!,email: emailAddress!,motdepasse:"0000000"){
+                (isSuccess) in
+                if isSuccess{
+                    //self.present(Alert.makeAlert(titre: "Alert", message: "User register successfully"), animated: true)
+                    self.performSegue(withIdentifier: "SeConnecter", sender: nil)
+                } else {
+                    self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
+                }
+            }
+
          }
         
     }/*
