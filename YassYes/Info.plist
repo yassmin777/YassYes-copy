@@ -7,9 +7,21 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.397497342777-fe4bo2vkv8av5k8eduune23g7dc3jga2</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>---.YassYes</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>---.YassYes.payments</string>
 			</array>
 		</dict>
 	</array>

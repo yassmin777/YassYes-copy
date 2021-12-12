@@ -7,9 +7,13 @@
 
 import UIKit
 
-class addJoueurViewController: UIViewController {
+class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
-    @IBOutlet weak var addImage: UIImageView!
+    var currentPhoto : UIImage?
+
+    @IBOutlet weak var joueurPhoto: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
+
     
     @IBOutlet weak var prenomJoueur: UITextField!
     @IBOutlet weak var nomJoueur: UITextField!
@@ -21,11 +25,44 @@ class addJoueurViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
+        //Style Email TestField
+        nomJoueur.layer.cornerRadius = 10.0
+        nomJoueur.layer.borderWidth = 1.0
+        nomJoueur.layer.masksToBounds = true
+        
+        //Style Password TestField
+        prenomJoueur.layer.cornerRadius = 10.0
+        prenomJoueur.layer.borderWidth = 1.0
+        prenomJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        ageJoueur.layer.cornerRadius = 10.0
+        ageJoueur.layer.borderWidth = 1.0
+        ageJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        longJoueur.layer.cornerRadius = 10.0
+        longJoueur.layer.borderWidth = 1.0
+        longJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        poidsJoueur.layer.cornerRadius = 10.0
+        poidsJoueur.layer.borderWidth = 1.0
+        poidsJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        numJoueur.layer.cornerRadius = 10.0
+        numJoueur.layer.borderWidth = 1.0
+        numJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        descJoueur.layer.cornerRadius = 10.0
+        descJoueur.layer.borderWidth = 1.0
+        descJoueur.layer.masksToBounds = true //Style Password TestField
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
-
+/*
     @IBAction func addJoueurBtn(_ sender: Any) {
         let joueur = joueurModel(nom: nomJoueur.text!, prenom: prenomJoueur.text!,  age: ageJoueur.text!,  taille: poidsJoueur.text!,longueur: longJoueur.text!, num: numJoueur.text!, discription: descJoueur.text!)
 
@@ -41,4 +78,91 @@ class addJoueurViewController: UIViewController {
     
 
 }
+ */
+    @IBAction func ajoutEquipeBtn(_ sender: Any) {
+        if (currentPhoto == nil){
+            self.present(Alert.makeAlert(titre: "Avertissement", message: "Choisir une image"), animated: true)
+            return
+        }
+        if( self.nomJoueur.text!.isEmpty ||   self.prenomJoueur.text!.isEmpty ||   self.ageJoueur.text!.isEmpty ||   self.longJoueur.text!.isEmpty ||   self.descJoueur.text!.isEmpty   ||   self.poidsJoueur.text!.isEmpty   ||   self.numJoueur.text!.isEmpty ){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
+            return
+        }
+        
+        let joueurd = joueurModel(  nom: nomJoueur.text!,prenom: prenomJoueur.text!,age: ageJoueur.text!,taille: longJoueur.text!,longueur: poidsJoueur.text!, discription: descJoueur.text!)
+        JoueurService.shareinstance.addjoueur(joueur: joueurd, uiImage: currentPhoto!) { success in
+            if success {
+                self.present(Alert.makeAlert(titre: "Success", message: "joueur ajouté"),animated: true)
+            }else{
+                self.present(Alert.makeAlert(titre: "failed", message: " Joueur exist try again"),animated: true)
+
+            }
+        }
+    
+    }
+    @IBAction func changePhoto(_ sender: Any) {
+    showActionSheet()
+}
+    func camera()
+    {
+        let myPickerControllerCamera = UIImagePickerController()
+        myPickerControllerCamera.delegate = self
+        myPickerControllerCamera.sourceType = UIImagePickerController.SourceType.camera
+        myPickerControllerCamera.allowsEditing = true
+        self.present(myPickerControllerCamera, animated: true, completion: nil)
+
+    }
+  
+  
+  func gallery()
+  {
+
+      let myPickerControllerGallery = UIImagePickerController()
+      myPickerControllerGallery.delegate = self
+      myPickerControllerGallery.sourceType = UIImagePickerController.SourceType.photoLibrary
+      myPickerControllerGallery.allowsEditing = true
+      self.present(myPickerControllerGallery, animated: true, completion: nil)
+
+  }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            
+            return
+        }
+        
+        currentPhoto = selectedImage
+        joueurPhoto.image = selectedImage
+        addImageButton.isHidden = true
+        
+        
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func showActionSheet(){
+
+        let actionSheetController: UIAlertController = UIAlertController(title: NSLocalizedString("Upload Image", comment: ""), message: nil, preferredStyle: .actionSheet)
+        actionSheetController.view.tintColor = UIColor.black
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { action -> Void in
+            print("Cancel")
+        }
+        actionSheetController.addAction(cancelActionButton)
+
+        let saveActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default)
+        { action -> Void in
+            self.camera()
+        }
+        actionSheetController.addAction(saveActionButton)
+
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: NSLocalizedString("Choose From Gallery", comment: ""), style: .default)
+        { action -> Void in
+            self.gallery()
+        }
+        
+        actionSheetController.addAction(deleteActionButton)
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
+
 }

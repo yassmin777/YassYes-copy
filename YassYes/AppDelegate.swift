@@ -8,22 +8,24 @@
 import UIKit
 import CoreData
 import GoogleSignIn
+import Braintree
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
 //397497342777-fe4bo2vkv8av5k8eduune23g7dc3jga2.apps.googleusercontent.com
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-            if error != nil || user == nil {
+      //  GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+        //    if error != nil || user == nil {
               // Show the app's signed-out state.
-            } else {
+          //  } else {
               // Show the app's signed-in state.
-            }
-          }
-       
+            //}
+          //}
+        BTAppSwitch.setReturnURLScheme("---.YassYes.payments")
+
                return true
     }
+    
     
      func application(_ app: UIApplication,open url: URL, options:[UIApplication.OpenURLOptionsKey : Any] = [:]
      ) -> Bool {
@@ -33,12 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        if handled {
          return true
        }
+         if url.scheme?.localizedCaseInsensitiveCompare("---.YassYes.payments") == .orderedSame {
 
-       // Handle other custom URL types.
+                   return BTAppSwitch.handleOpen(url, options: options)
+             print("hiuuuuuu")
+               }
 
-       // If not handled by this app, return false.
-       return false
+               return false
      }
+   
     /*    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error{
         print("\(error.localizedDescription)")

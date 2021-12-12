@@ -25,6 +25,7 @@
 		43867C972752565200505137 /* joueurModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C962752565200505137 /* joueurModel.swift */; };
 		43867C99275263F000505137 /* equipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C98275263F000505137 /* equipeModel.swift */; };
 		43867C9B2752641F00505137 /* EquipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C9A2752641F00505137 /* EquipeService.swift */; };
+		439B019927654D7300B0AA2B /* paypalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B019827654D7300B0AA2B /* paypalViewController.swift */; };
 		439BF6BB275CD82700B26CA3 /* ligueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439BF6BA275CD82700B26CA3 /* ligueCell.swift */; };
 		43AB52792763ADB200A3522E /* addligue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB52782763ADB200A3522E /* addligue.swift */; };
 		43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7CA98275D61E300B717EA /* mapVCViewController.swift */; };
@@ -86,6 +87,7 @@
 		43867C962752565200505137 /* joueurModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurModel.swift; sourceTree = "<group>"; };
 		43867C98275263F000505137 /* equipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = equipeModel.swift; sourceTree = "<group>"; };
 		43867C9A2752641F00505137 /* EquipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeService.swift; sourceTree = "<group>"; };
+		439B019827654D7300B0AA2B /* paypalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paypalViewController.swift; sourceTree = "<group>"; };
 		439BF6BA275CD82700B26CA3 /* ligueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ligueCell.swift; sourceTree = "<group>"; };
 		43AB52782763ADB200A3522E /* addligue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addligue.swift; sourceTree = "<group>"; };
 		43C7CA98275D61E300B717EA /* mapVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapVCViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				439BF6BA275CD82700B26CA3 /* ligueCell.swift */,
 				43C7CA98275D61E300B717EA /* mapVCViewController.swift */,
 				43AB52782763ADB200A3522E /* addligue.swift */,
+				439B019827654D7300B0AA2B /* paypalViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				435FD9B3275282F60082806C /* ArbitreService.swift in Sources */,
 				4FFAB04F27391B7E00F09638 /* ViewController.swift in Sources */,
 				E4700E9E2742A690006621CA /* listeEquipesViewController.swift in Sources */,
+				439B019927654D7300B0AA2B /* paypalViewController.swift in Sources */,
 				E4700EA82742ABCE006621CA /* ligueViewController.swift in Sources */,
 				4314ECBD2755195800235E20 /* NetworkingService.swift in Sources */,
 				4360931E2753C0BC00101D21 /* profileViewController.swift in Sources */,

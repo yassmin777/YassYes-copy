@@ -7,11 +7,14 @@
 
 import UIKit
 import MapKit
+import Braintree
 
 class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecognizerDelegate,CLLocationManagerDelegate,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+   
+    
     
     var currentPhoto : UIImage?
-
+    var braintreeClient:BTAPIClient!
     
     @IBOutlet weak var stadePhoto: UIImageView!
     @IBOutlet weak var nomStade: UITextField!
@@ -49,6 +52,7 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
         let oLongTapGerture = UILongPressGestureRecognizer(target: self, action:#selector(addStadeViewController.handleLongtapGesture(gestureRecognizer:)))
         
         self.mapView.addGestureRecognizer(oLongTapGerture)
+       
         // Do any additional setup after loading the view.
     }
     
@@ -130,6 +134,8 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
 
             }
         }
+       
+           
     
     }
 
@@ -197,5 +203,11 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
         actionSheetController.addAction(deleteActionButton)
         self.present(actionSheetController, animated: true, completion: nil)
     }
-
+    
+    
+    @IBAction func payAction(_ sender: Any) {
+        
+       
+    
+}
 }

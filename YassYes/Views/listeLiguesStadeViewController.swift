@@ -155,7 +155,8 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
                 
                 return swipeConfiguration
     
-    }/*
+    }
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "addLigue"{
             let indexPath = sender as! IndexPath

@@ -9,6 +9,7 @@ import UIKit
 
 class profileViewController: UIViewController {
     
+    @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var nomP: UILabel!
     @IBOutlet weak var prenomP: UILabel!
     @IBOutlet weak var emailP: UILabel!
@@ -23,7 +24,7 @@ class profileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
-        
+        print("hi")
         intialiseProfile()
         // Do any additional setup after loading the view.
     }
@@ -32,14 +33,27 @@ class profileViewController: UIViewController {
     
     func intialiseProfile() {
         print("initializing profile")
-
-        APIManger.shareInstence.getProfile(_id: _id,completionHandler: {
+        imageProfile.layer.borderWidth = 1
+        imageProfile.layer.masksToBounds = false
+        imageProfile.layer.borderColor = UIColor.black.cgColor
+        imageProfile.layer.cornerRadius = imageProfile.frame.height/2
+        imageProfile.clipsToBounds = true;        APIManger.shareInstence.getProfile(_id: _id,completionHandler: {
             isSuccess, user in
             if isSuccess{
                 self.user = user
                 self.nomP.text = self.user?.nom
                 self.prenomP.text = self.user?.prenom
                 self.emailP.text = self.user?.email
+                print(user?.image!)
+                //let image = "http://localhost:3000/"+(self.user?.image)!
+
+                var imageUrl = self.user?.image?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                
+                imageUrl = imageUrl!.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+
+                let url = URL(string: imageUrl!)
+                
+                self.imageProfile.af.setImage(withURL: url!)
 
             }
         })

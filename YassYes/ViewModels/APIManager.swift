@@ -17,32 +17,7 @@ import Alamofire
 import SwiftyJSON
 import UIKit.UIImage
 
-/*extension Data {
-    mutating func append(_ string: String) {
-        if let data = string.data(using: .utf8) {
-            append(data)
-        }
-    }
-}
-struct Media {
-    let key: String
-    let filename: String
-    let data: Data
-    let mimeType: String
-    init?(withImage image: UIImage, forKey key: String) {
-        self.key = key
-        self.mimeType = "image/jpeg"
-        self.filename = "imagefile.jpg"
-        guard let data = image.jpegData(compressionQuality: 0.7) else { return nil }
-        self.data = data
-    }
-}*/
-extension String {
-    func toJSON() -> Any? {
-        guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
-        return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-    }
-}
+
 
 class APIManger{
     static let shareInstence = APIManger()
@@ -51,54 +26,8 @@ class APIManger{
    
     var tokenString :String?
     @Published var isAuthenticated : Bool = false
-/*
-    func loginGoogle(email:String,motdepasse:String,nom:String) {
-        
-        let defaults = UserDefaults.standard
-        
-        //Forced unwrapping with !
-        var request = URLRequest(url: URL(string: "http://localhost:3000/user/auth")!)
-        request.httpMethod = "post"
-        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        print("its working")
-        let postString = "email="+email+"&"+"motdepasse="+motdepasse+"&"+"nom="+nom+"&"
-    
-        request.httpBody = postString.data(using: .utf8)
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                // check for fundamental networking error
-                print("error=\(String(describing: error?.localizedDescription))")
-                return
-            }
 
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(String(describing: response))")
-            }
-
-            let responseString = String(data: data, encoding: .utf8)
-            let jsonData = responseString!.toJSON() as? [ String:AnyObject ]
-            self.tokenString = jsonData!["token"] as? String
-            print("token : ------------------")
-            print(self.tokenString!)
-            
-            defaults.setValue(self.tokenString, forKey: "jsonwebtoken")
-
-            
-            self.getuserfromtoken(token: (jsonData!["token"] as? String)!)
-            
-            if(responseString!.contains("true")){
-                print("status = true")
-                
-            }
-            else{
-                print("Status = false")
-            }
-        }
-        task.resume()
-    }
-    */
+   
     func loginGoogle(nom:String,prenom:String,email: String, motdepasse: String,completionHandler:@escaping (Bool)->()){
     let headers: HTTPHeaders = [.contentType("application/json")]
         AF.request("http://localhost:3000/user/google", method: .post, parameters: ["nom":nom,"prenom":prenom,"email":email, "motdepasse": motdepasse],encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
@@ -138,64 +67,13 @@ class APIManger{
         }
     }
 }
-    /*
-    func getuserfromtoken(token : String){
-        var request = URLRequest(url: URL(string: "http://172.17.12.159:3000/Client/findToken")!)
-                 request.httpMethod = "post"
-                 request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-                 print("its working")
-
-                 request.addValue(token, forHTTPHeaderField: "authorization")
-                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                     guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                         print("error=\(String(describing: error?.localizedDescription))")
-                         return
-                     }
-
-                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                         print("response = \(String(describing: response))")
-                     }
-
-                     let responseString = String(data: data, encoding: .utf8)
-                     print("---------------------------------------------------")
-                     print("responseString = \(String(describing: responseString))")
-                     print("---------------------------------------------------")
-                     let jsonData = responseString!.toJSON() as? [ String:AnyObject ]
-                    
-                   var newuser = adminModel()
-                   
-                         newuser._id = (jsonData!["_id"] as? String)!
-                     newuser.nom = (jsonData!["userName"] as? String)!
-                     newuser.prenom = (jsonData!["prenom"] as? String)!
-                     newuser.email = (jsonData!["email"] as? String)!
-                     newuser.motdepasse = (jsonData!["motdepasse"] as? String)
-                     newuser.image = (jsonData!["image"] as? String)!
-             
-                         self.ClientToken = newuser
-                     
-                     
-                     
-                     if (responseString!.contains("_id")) {
-                         print("status = true")
-                   
-                     }
-                     else{
-                         print("Status = false")
-                         
-                     }
-                 }
-
-                 task.resume()
-                 
-    }
-     */
+    
     func adduser(admin: adminModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
         print("hi")
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(uiImage.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
             
-            for (key, value) in
+            let ParametersS =
                     [
                         "nom": admin.nom!,
                         "prenom": admin.prenom!,
@@ -204,11 +82,19 @@ class APIManger{
                         "motdepasse": admin.motdepasse!,
                         //"date": publication.date!,
                         //"utilisateur": UserDefaults.standard.string(forKey: "userId")!
-                    ]
-            {
-                multipartFormData.append((value.data(using: .utf8))!, withName: key)
+                    ] as [String : Any]
+                    for (key, value) in ParametersS {
+                        if let temp = value as? String {
+                            multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+                        }
+                        if let temp = value as? Int {
+                            multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                        }
+                        if let temp = value as? Double {
+                            multipartFormData.append("\(temp)".data(using: .utf8)!, withName: key)
+                        
+                        }
             }
-            
         },to: "http://localhost:3000/user",
                   method: .post)
             .validate(statusCode: 200..<300)
@@ -274,7 +160,10 @@ class APIManger{
                     print(json)
                     if response.response?.statusCode == 200{
                         let jsonData = JSON(response.data!)
-                        let user = self.makeItem(jsonItem: jsonData)
+                        print("ttttttt")
+                        print(jsonData)
+                        print("ttttttt")
+                        let user = self.makeItem(jsonItem: jsonData["user"])
                         completionHandler(true,user)
 
                         print(user)
@@ -326,6 +215,7 @@ class APIManger{
         func makeItem(jsonItem: JSON) -> adminModel {
         //let isoDate = jsonItem["dateNaissance"]
         adminModel(
+            image: "http://localhost:3000/"+jsonItem["image"].stringValue,
             _id: jsonItem["_id"].stringValue,
             nom: jsonItem["nom"].stringValue,
             prenom: jsonItem["prenom"].stringValue,
@@ -337,506 +227,11 @@ class APIManger{
     }
 }
 
-/*
-class UserService  {
-
-    
-
-    
-
-    static let shared: UserService = {
-
-            let instance = UserService()
-
-            return instance
-
-        }()
-
-   
-
-    func addUser(image:UIImage,user:User?,successHandler: @escaping () -> (),errorHandler: @escaping () -> (),noResponseHandler: @escaping () -> ())
-
-    {
-
-            
-
-        let urlApi = "http://localhost:3000/register"
-
-        
-
-      
-
-        let headers: HTTPHeaders = ["Content-type": "multipart/form-data",
-
-                   "Content-Disposition" : "form-data"]
-
-        
-
-        
-
-        var parameters = ["":""]
-
-        
-
-        if let a = user
-
-        {
-
-            
-
-            parameters = ["name":a.name!,"email":a.email!,"password":a.password!]
-
-            
-
-        }
-
-        
-
-            
-
-        AF.upload(
-
-                
-
-            multipartFormData: { multipartFormData in
-
-                
-
-                multipartFormData.append(image.jpegData(compressionQuality: 0.5)!, withName: "image" , fileName: "image.jpeg", mimeType: "image/jpeg")
-
-               
-
-                for (key, value) in parameters {
-
-
-
-                    multipartFormData.append((value.data(using: .utf8))!, withName: key)
-
-
-
-                }
-
-            
-
-            },to: urlApi, method: .post ,headers: headers).response{ apiResponse in
-
-                    
-
-                        
-
-                guard apiResponse.response != nil else{
-
-                    
-
-                    noResponseHandler()
-
-                    return
-
-                }
-
-                    
-
-                switch apiResponse.response?.statusCode {
-
-                    
-
-                    case 200:
-
-                                            
-
-                        successHandler()
-
-        
-
-                    case 500:
-
-                        
-
-                        errorHandler()
-
-               
-
-                default:
-
-                
-
-                    print("error")
-
-                    errorHandler()
-
-                    
-
-                }
-
-                    
-
-        }
-
-        
-
-    }
-
-    
-
-    
-
-    
-
-    
-
-
-
-    func getUsers(successHandler: @escaping (_ anomalyList: [User]) -> (),errorHandler: @escaping () -> ())
-
-    {
-
-        
-
-        let url = "http://localhost:3000/users"
-
-        
-
-        AF.request(url, method: .get).validate().responseDecodable(of: [User].self, decoder: JSONDecoder()) { apiResponse in
-
-            
-
-            guard apiResponse.response != nil else{
-
-                
-
-                errorHandler()
-
-                return
-
-            }
-
-            
-
-            switch apiResponse.response?.statusCode {
-
-                
-
-                case 200:
-
-                successHandler(try! apiResponse.result.get())
-
-
-
-                    
-
-                case 500:
-
-                 
-
-                errorHandler()
-
-           
-
-            default:
-
-            
-
-              errorHandler()
-
-                
-
-            }
-
-            
-
-        }
-
-        
-
-    }
-
-    
-
-    
-
-    func getUser(parameter:[String:String],successHandler: @escaping (_ user: User) -> (),wrongCred: @escaping () -> (),errorHandler: @escaping () -> ())
-
-    {
-
-        
-
-        let url = "http://localhost:3000/login"
-
-      
-
-        AF.request(url, method: .post, parameters: ((parameter as NSDictionary) as! Parameters)).validate().responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
-
-            
-
-            
-
-            guard apiResponse.response != nil else{
-
-                
-
-                errorHandler()
-
-                return
-
-            }
-
-            
-
-            switch apiResponse.response?.statusCode {
-
-                
-
-                case 200:
-
-                    
-
-                    successHandler(try! apiResponse.result.get())
-
-                    
-
-                case 404:
-
-                    
-
-                    wrongCred()
-
-                    
-
-                case 500:
-
-                    
-
-                    errorHandler()
-
-           
-
-            default:
-
-            
-
-                errorHandler()
-
-                
-
-            }
-
-            
-
-        }
-
-        
-
-    }
-
-    
-
 
 
     
 
-    func updateUser(image:UIImage,user:User?,successHandler: @escaping () -> (),errorHandler: @escaping () -> ())
-
-    {
-
-    
-
-        let urlApi = "http://localhost:3000/updateUser/61abe4f312e1686a06cbd7cd"
-
-        
-
-        let headers: HTTPHeaders = ["Content-type": "multipart/form-data",
-
-            "Content-Disposition" : "form-data"]
-
-
-
-        
-
-        var parameters = ["":""]
-
-        
-
-        if let a = user
-
-        {
-
-            
-
-            parameters = ["_id":a._id!,"name":a.name!,"email":a.email!,"password":a.password!]
-
-            
-
-        }
-
-     
-
-        
-
-    AF.upload(
-
-            
-
-        multipartFormData: { multipartFormData in
-
-            
-
-            multipartFormData.append(image.jpegData(compressionQuality: 0.5)!, withName: "file" , fileName: "file.jpeg", mimeType: "image/jpeg")
-
-           
-
-            for (key, value) in parameters {
-
-
-
-                multipartFormData.append((value.data(using: .utf8))!, withName: key)
-
-
-
-            }
-
-        
-
-        },to: urlApi, method: .post , headers: headers).responseDecodable(of: User.self, decoder: JSONDecoder()) { apiResponse in
-
-            
-
-            
-
-            guard apiResponse.response != nil else{
-
-                
-
-                errorHandler()
-
-                return
-
-            }
-
-            
-
-            switch apiResponse.response?.statusCode {
-
-                
-
-                case 200:
-
-                    
-
-                    successHandler()
-
-  
-
-                case 500:
-
-                    
-
-                    errorHandler()
-
-           
-
-            default:
-
-            
-
-                errorHandler()
-
-                
-
-            }
-
-        }
-
-    
-
-    }
-
-    
-
-    
-
-    
-
-    func sendEmail(email:String,successHandler: @escaping () -> (),wrongCred: @escaping () -> (),errorHandler: @escaping () -> ())
-
-    {
-
-        
-
-        let url = "http://localhost:3000/sendEmail"
-
-      
-
-        AF.request(url, method: .post, parameters: ["email":email] ).validate().response { apiResponse in
-
-            
-
-                   
-
-            guard apiResponse.response != nil else{
-
-                
-
-                errorHandler()
-
-                return
-
-            }
-
-            
-
-            switch apiResponse.response?.statusCode {
-
-                
-
-                case 200:
-
-                    
-
-                    successHandler()
-
-                    
-
-                case 404:
-
-                    
-
-                    wrongCred()
-
-                    
-
-                case 500:
-
-                    
-
-                    errorHandler()
-
-           
-
-            default:
-
-            
-
-                errorHandler()
-
-                
-
-            }
-
-            
-
-        }
-
-        
-
-    }
-
-    
-
-
-
-    
-
-    
+    /*
 
     func updatePassword(email:String,password:String,successHandler: @escaping () -> (),errorHandler: @escaping () -> ())
 
