@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
 
     
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,21 +59,41 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         
         
+        */
+    var role:String?
+    @IBAction func choixRole(_ sender: UISegmentedControl) {
         
-}
-     */
+        if sender.selectedSegmentIndex == 0 {
+             role = "false"
+        }else if sender.selectedSegmentIndex == 1{
+            role = "true"
+            
+        }
+    }
     
+
+         
     @IBAction func validation(_ sender: UIButton) {
      
         if (currentPhoto == nil){
             self.present(Alert.makeAlert(titre: "Avertissement", message: "Choisir une image"), animated: true)
             return
         }
+        if( self.nom.text!.isEmpty ||  self.prenom.text!.isEmpty ||   self.email.text!.isEmpty||self.motdepasse.text!.isEmpty||self.confirmermotdepasse.text!.isEmpty  ){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
+            return
+        }
+        if(self.motdepasse.text != self.confirmermotdepasse.text!){
+            self.present(Alert.makeAlert(titre: "failed", message: "Please make sure to correct the password"), animated: true)
+            return
+        }
         
-        let user = adminModel(  nom: nom.text, prenom: prenom.text, email: email.text, motdepasse: motdepasse.text, isProprietaireDestade: isProprietaireDestade.text)
+        let user = adminModel(  nom: nom.text, prenom: prenom.text, email: email.text, motdepasse: motdepasse.text, isProprietaireDestade: role)
         APIManger.shareInstence.adduser(admin: user, uiImage: currentPhoto!) { success in
             if success {
-                self.present(Alert.makeAlert(titre: "Success", message: "user ajouté"),animated: true)
+                //self.present(Alert.makeAlert(titre: "Success", message: "user ajouté"),animated: true)
+                self.performSegue(withIdentifier: "verifier", sender: nil)
+
             }else{
                 self.present(Alert.makeAlert(titre: "failer", message: "Please try again "), animated: true)
             }
@@ -144,6 +165,19 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         actionSheetController.addAction(deleteActionButton)
         self.present(actionSheetController, animated: true, completion: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "verifier" {
+            //  let indexPath = sender as! IndexPath
+            let destination = segue.destination as! codeViewController
+            //destination.email = emailTextField.text
+            
+        }
+        
+        
+        
+    }
+    
 
 }
 

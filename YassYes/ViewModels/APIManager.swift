@@ -100,10 +100,29 @@ class APIManger{
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
-                switch response.result {
-                case .success:
-                    print("Success")
-                    completed(true)
+                    switch response.result{
+                    case .success(let data):
+                        do {
+                            let json  = try JSONSerialization.jsonObject(with: data, options: [])
+                            print(json)
+                            if response.response?.statusCode == 201{
+                                let jsonData = JSON(response.data!)
+                                UserDefaults.standard.setValue(jsonData["_id"].stringValue, forKey: "_id")
+                                UserDefaults.standard.setValue(jsonData["isVerified"].stringValue, forKey: "isVerified")
+                                
+                                print(jsonData["_id"].stringValue)
+                                completed(true)
+
+                            }else{
+                                completed(false)
+                            }
+                            
+                        } catch  {
+                            print(error.localizedDescription)
+                            completed(false)
+                            
+                            
+                        }
                 case let .failure(error):
                     completed(false)
                     print(error)
@@ -225,6 +244,38 @@ class APIManger{
 
         )
     }
+    
+    func verifyCode(_id:String,code: String,completionHandler:@escaping (Bool)->()){
+         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded") ,.authorization(bearerToken:(UserDefaults.standard.string(forKey: "_id")!))]
+        AF.request("http://localhost:3000/user/verifEmail/"+_id,  method:   .patch ,parameters: ["verifCode":code] ,  headers: headers ).response{ response in
+             switch response.result{
+             case .success(let data):
+                 do {
+                     let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                     print(json)
+                     if response.response?.statusCode == 201{
+                         //let jsonData = JSON(response.data!)
+                         print(code)
+                         //let user = self.makeItem(jsonItem: jsonData)
+                         completionHandler(true)
+
+                         //print(user)
+                     }else{
+                         completionHandler(false)
+                     }
+                     
+                 } catch  {
+                     print(error.localizedDescription)
+                     completionHandler(false)
+                     
+                     
+                 }
+             case .failure(let err):
+                 print("eeee")
+                 print(err.localizedDescription)
+             }
+         }
+     }
 }
 
 

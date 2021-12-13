@@ -13,7 +13,9 @@ class profileViewController: UIViewController {
     @IBOutlet weak var nomP: UILabel!
     @IBOutlet weak var prenomP: UILabel!
     @IBOutlet weak var emailP: UILabel!
-    @IBOutlet weak var roleP: UILabel!
+    
+    @IBOutlet weak var bgImage: UIImageView!
+
     
     var user : adminModel?
 
@@ -30,14 +32,23 @@ class profileViewController: UIViewController {
     }
     let _id = UserDefaults.standard.string(forKey: "_id")!
 
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.setValue("", forKey: "token")
+        UserDefaults.standard.setValue("", forKey: "_id")
+        performSegue(withIdentifier: "logout", sender: nil)
+
+    }
     
     func intialiseProfile() {
         print("initializing profile")
         imageProfile.layer.borderWidth = 1
-        imageProfile.layer.masksToBounds = false
-        imageProfile.layer.borderColor = UIColor.black.cgColor
+        imageProfile.layer.masksToBounds = true
+        imageProfile.layer.borderColor = UIColor(red:18/255, green:19/255, blue:38/255, alpha: 1).cgColor
         imageProfile.layer.cornerRadius = imageProfile.frame.height/2
-        imageProfile.clipsToBounds = true;        APIManger.shareInstence.getProfile(_id: _id,completionHandler: {
+        imageProfile.clipsToBounds = true;
+
+
+        APIManger.shareInstence.getProfile(_id: _id,completionHandler: {
             isSuccess, user in
             if isSuccess{
                 self.user = user

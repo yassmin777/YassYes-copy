@@ -25,6 +25,8 @@
 		43867C972752565200505137 /* joueurModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C962752565200505137 /* joueurModel.swift */; };
 		43867C99275263F000505137 /* equipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C98275263F000505137 /* equipeModel.swift */; };
 		43867C9B2752641F00505137 /* EquipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43867C9A2752641F00505137 /* EquipeService.swift */; };
+		438DDF44276688730033B38C /* sessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438DDF43276688730033B38C /* sessionViewController.swift */; };
+		438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438DDF4527669F8D0033B38C /* codeViewController.swift */; };
 		439B019927654D7300B0AA2B /* paypalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B019827654D7300B0AA2B /* paypalViewController.swift */; };
 		439BF6BB275CD82700B26CA3 /* ligueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439BF6BA275CD82700B26CA3 /* ligueCell.swift */; };
 		43AB52792763ADB200A3522E /* addligue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AB52782763ADB200A3522E /* addligue.swift */; };
@@ -87,6 +89,8 @@
 		43867C962752565200505137 /* joueurModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurModel.swift; sourceTree = "<group>"; };
 		43867C98275263F000505137 /* equipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = equipeModel.swift; sourceTree = "<group>"; };
 		43867C9A2752641F00505137 /* EquipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeService.swift; sourceTree = "<group>"; };
+		438DDF43276688730033B38C /* sessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sessionViewController.swift; sourceTree = "<group>"; };
+		438DDF4527669F8D0033B38C /* codeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeViewController.swift; sourceTree = "<group>"; };
 		439B019827654D7300B0AA2B /* paypalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paypalViewController.swift; sourceTree = "<group>"; };
 		439BF6BA275CD82700B26CA3 /* ligueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ligueCell.swift; sourceTree = "<group>"; };
 		43AB52782763ADB200A3522E /* addligue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addligue.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				43C7CA98275D61E300B717EA /* mapVCViewController.swift */,
 				43AB52782763ADB200A3522E /* addligue.swift */,
 				439B019827654D7300B0AA2B /* paypalViewController.swift */,
+				438DDF43276688730033B38C /* sessionViewController.swift */,
+				438DDF4527669F8D0033B38C /* codeViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				E4700E9227429D83006621CA /* SignUpViewController.swift in Sources */,
 				E4700E962742A124006621CA /* modifierJoueurViewController.swift in Sources */,
 				43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */,
+				438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */,
 				E4700EBA2742B46B006621CA /* addArbitreViewController.swift in Sources */,
 				43867C95275249FC00505137 /* JoueurService.swift in Sources */,
 				E4700EC02742CCFF006621CA /* debutMatchViewController.swift in Sources */,
@@ -427,6 +434,7 @@
 				E4700EB42742B2D2006621CA /* modifierStadeViewController.swift in Sources */,
 				435FD9B92752916D0082806C /* adminModel.swift in Sources */,
 				43867C972752565200505137 /* joueurModel.swift in Sources */,
+				438DDF44276688730033B38C /* sessionViewController.swift in Sources */,
 				4314ECC227556F3800235E20 /* Alert.swift in Sources */,
 				E4700E942742A0BC006621CA /* joueurViewController.swift in Sources */,
 				4FFAB04D27391B7E00F09638 /* SceneDelegate.swift in Sources */,
