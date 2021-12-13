@@ -10,8 +10,8 @@
 * swift 5.0+
 
 # Authors:
-(yassmin : ( yassmin.yedeas@esprit.tn ))
-(yassmin : (yassine.derbel1@esprit.tn))
+yassmin :  yassmin.yedeas@esprit.tn <br>
+yassin : yassine.derbel1@esprit.tn
 
 # Licence:
 
