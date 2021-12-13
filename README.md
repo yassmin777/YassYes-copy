@@ -5,12 +5,12 @@
 
 # Requirements:
 
-*iOS 11.0+
-*xCode 11.0+
-*swift 5.0+
+* iOS 11.0+
+* xCode 11.0+
+* swift 5.0+
 
-#Authors:
-(yassmin : (yassmin.yedeas@esprit.tn))
+# Authors:
+(yassmin : ( yassmin.yedeas@esprit.tn ))
 (yassmin : (yassine.derbel1@esprit.tn))
 
 # Licence:
