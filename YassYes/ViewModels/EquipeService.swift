@@ -55,9 +55,9 @@ class EquipeService{
     
     
     
-    func addLigueTostade(_id:String, ligues_id: String,completionHandler:@escaping (Bool)->()){
+    func addEquipeToligue(_id:String, equipes_ids: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/stade/"+_id, method: .put,parameters:[ " ligues_id":ligues_id] , headers: headers ).response{ response in
+        AF.request("http://localhost:3000/stade/"+_id, method: .put,parameters:[ " equipes_ids":equipes_ids] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {

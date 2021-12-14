@@ -147,18 +147,22 @@ class stadeService{
     }*/
     func addLigueTostade(_id:String, ligues_id: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/stade/"+_id, method: .put,parameters:[ " ligues_id":ligues_id] , headers: headers ).response{ response in
+        AF.request("http://localhost:3000/stade/"+_id, method: .put ,parameters:[ "ligues_id":ligues_id] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
                     let json  = try JSONSerialization.jsonObject(with: data!, options: [])
                     print(json)
-                    if response.response?.statusCode == 200{
-                        let jsonData = JSON(response.data!)
-                        let user = self.makeItem(jsonItem: jsonData)
+                    if response.response?.statusCode == 201{
+                        print("hhhhhh")
+                        print(ligues_id)
+                        print("hhhhhh")
+                        print(_id)
+                        //let jsonData = JSON(response.data!)
+                        //let user = self.makeItemstade(jsonItem: jsonData)
                         completionHandler(true)
 
-                        print(user)
+                        //print(user)
                     }else{
                         completionHandler(false)
                     }
@@ -256,16 +260,25 @@ class stadeService{
             }
         }
     }*/
-    func makeItem(jsonItem: JSON) -> stadeModel {
+    func makeItemligue(jsonItem: JSON) -> ligueModel {
+        //let isoDate = jsonItem["dateNaissance"]
+        ligueModel(
+            _id: jsonItem["_id"].stringValue,
+            admin: makeItemAdmin(jsonItem: jsonItem["_id"]),
+            nom: jsonItem["nom"].stringValue,
+            discription: jsonItem["discription"].stringValue
+
+        )
+    }
+    func makeItemstade(jsonItem: JSON) -> stadeModel {
         //let isoDate = jsonItem["dateNaissance"]
         stadeModel(
             _id: jsonItem["_id"].stringValue,
-            //admin: makeItemAdmin(jsonItem: jsonItem["_id"]),
+            admin: makeItemAdmin(jsonItem: jsonItem["_id"]),
             nom: jsonItem["nom"].stringValue,
             lat: jsonItem["lat"].doubleValue,
-            lon: jsonItem["lon"].doubleValue,
-            discription: jsonItem["discription"].stringValue
-            
+            lon: jsonItem["lon"].doubleValue
+
         )
     }
     func makeItemAdmin(jsonItem: JSON) -> adminModel {

@@ -9,12 +9,14 @@
 import Foundation
 struct ligueModel{
     internal init(_id: String?=nil,
+                  image:String?=nil,
                   admin: adminModel? = nil,
                   nom: String?=nil,
                   discription: String?=nil,
                   equipes_ids:[equipeModel]? = nil,
                   matchs_id:[matchModel]? = nil) {
         self._id = _id
+        self.image = image
         self.admin = admin
         self.nom = nom
         self.discription = discription
@@ -23,6 +25,7 @@ struct ligueModel{
 
     }
     let _id:String?
+    let image:String?
     let admin:adminModel?
     let nom:String?
     //var capacity: Int

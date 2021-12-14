@@ -8,7 +8,7 @@
 import UIKit
 
 class listJoueurEquipeViewController: UIViewController {
-
+    var equipeIId: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 

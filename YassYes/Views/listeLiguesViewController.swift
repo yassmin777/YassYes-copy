@@ -16,7 +16,6 @@ import AlamofireImage
 
         class listeLiguesViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
             var ligue_id = [String]()
-
             var ligue_nom = [String]()
             var ligue_image = [String]()
             var ligueDescription = [String]()
@@ -25,6 +24,9 @@ import AlamofireImage
             @IBOutlet weak var ligueTv: UITableView!
             override func viewDidLoad() {
                 super.viewDidLoad()
+                
+            }
+            override func viewDidAppear(_ animated: Bool) {
                 let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
                 AF.request("http://localhost:3000/ligue/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
                     switch response.result{
@@ -67,7 +69,7 @@ import AlamofireImage
                 return ligue_nom.count
             }
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ligueCellChoix" , for:indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ligueCellChoixChoix" , for:indexPath)
                 
                 let tv = cell.contentView
                 let ligue_Name = tv.viewWithTag(1) as! UILabel
@@ -106,9 +108,10 @@ import AlamofireImage
                 
             }
             func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                performSegue(withIdentifier: "ligueDetails", sender: indexPath)
 
 
-            }
+            }/*
             func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
                 // *********** EDIT ***********
                 let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
@@ -145,35 +148,25 @@ import AlamofireImage
                         
                         return swipeConfiguration
             
+            }*/
+            @IBAction func addjouterLigueBtn(_ sender: Any) {
+                self.performSegue(withIdentifier: "addLigue1", sender: nil)
             }
-            @IBAction func addjouterStadeBtn(_ sender: Any) {
-                self.performSegue(withIdentifier: "addLigue", sender: nil)
-
-            }
+        
            /* func testSegue(_ identifier: String!, sender:AnyObject!){
                 performSegue(withIdentifier: identifier, sender: sender)
             }*/
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if  segue.identifier == "ligueDetails"{
                     let indexPath = sender as! IndexPath
-                    let destination = segue.destination as! ligueViewController
-                    //destination.ligueId = ligue_id[indexPath.row]
+                    let destination = segue.destination as! DetailsLigueViewController
+                    destination.ligueId = ligue_id[indexPath.row]
                     destination.ligueName = ligue_nom[indexPath.row]
                     destination.ligueImage = ligue_image[indexPath.row]
                     destination.ligueDiscription = ligueDescription[indexPath.row]
 
                 }
-            }/*
-            override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if  segue.identifier == "addLigue"{
-                    let indexPath = sender as! IndexPath
-                    let destination = segue.destination as! addligue
-                    destination.ligueId = ligue_id[indexPath.row]
-                    destination.stadeIId = stadeIId
-                   
-
-                }
             }
-        */
+            
+        
         }
-

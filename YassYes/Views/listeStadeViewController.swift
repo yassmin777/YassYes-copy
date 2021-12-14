@@ -28,6 +28,9 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
@@ -124,7 +127,7 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
         self.performSegue(withIdentifier: "interfaceAddStade", sender: nil)
 
     }
-   /* func testSegue(_ identifier: String!, sender:AnyObject!){
+    /* func testSegue(_ identifier: String!, sender:AnyObject!){
         performSegue(withIdentifier: identifier, sender: sender)
     }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

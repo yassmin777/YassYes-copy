@@ -120,7 +120,7 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
             self.present(Alert.makeAlert(titre: "Avertissement", message: "Choisir une image"), animated: true)
             return
         }
-        if( self.nomStade.text!.isEmpty || latitudeVal! == 0 || longitudeVal! == 0 || self.descStade.text!.isEmpty){
+        if( self.nomStade.text!.isEmpty || latitudeVal! == 0 || longitudeVal! == 0 || self.descStade.text!.isEmpty  || latitudeVal == nil || longitudeVal == nil){
             self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
             return
         }

@@ -203,7 +203,7 @@ class APIManger{
     }
     
     func updateProfile(_id:String,nom:String,prenom:String,email:String,motdepasse:String,completionHandler:@escaping (Bool)->()){
-        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "Token")!)) ]
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/user/profile", method:   .put ,parameters:[ "_id":_id,"nom":nom,"prenom":prenom,"email":email,"motdepasse":motdepasse], headers: headers ).response{ response in
             switch response.result{
             case .success(let data):

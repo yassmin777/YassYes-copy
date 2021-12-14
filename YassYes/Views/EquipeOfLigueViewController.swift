@@ -1,8 +1,8 @@
 //
-//  listeEquipesLigueViewController.swift
+//  EquipeOfLigueViewController.swift
 //  YassYes
 //
-//  Created by Mac2021 on 15/11/2021.
+//  Created by Mac-Mini_2021 on 13/12/2021.
 //
 
 import UIKit
@@ -11,8 +11,7 @@ import AlamofireImage
 import SwiftyJSON
 @available(iOS 11.0, *)
 
-
-class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var equipe_id = [String]()
     var ligueIId:String?
 
@@ -49,7 +48,7 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
                     
 
                 }
-                self.equipeTv.reloadData()
+//                self.equipeTv.reloadData()
                 break
 
 
@@ -110,11 +109,26 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
 
 
     }
+    /*
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // *********** EDIT ***********
         let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
                     (action, sourceView, completionHandler) in
+                    // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
+            
+            /*stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
+                if success {
+                    self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
+                }else{
+                    self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
+
+                }
                     
+                    print(self.stadeIId)
+                print(ligue_id[indexPath.row])
+                    
+                    
+                }*/
             EquipeService.shareinstance.addEquipeToligue(_id: ligueIId!, equipes_ids:equipe_id[indexPath.row], completionHandler: {
                 
                 (isSuccess) in
@@ -146,6 +160,6 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
                 return swipeConfiguration
     
     }
-
+*/
 
 }

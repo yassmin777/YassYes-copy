@@ -22,6 +22,10 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
     @IBOutlet weak var ligueTv: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/ligue/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
@@ -54,7 +58,6 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
                 break
             }
         }
-        
         
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,8 +114,8 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
         let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
                     (action, sourceView, completionHandler) in
                     // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
-            /*
-            stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
+            
+            /*stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
                 if success {
                     self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
                 }else{
