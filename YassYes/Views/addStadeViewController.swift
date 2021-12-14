@@ -120,7 +120,8 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
             self.present(Alert.makeAlert(titre: "Avertissement", message: "Choisir une image"), animated: true)
             return
         }
-        if( self.nomStade.text!.isEmpty || latitudeVal! == 0 || longitudeVal! == 0 || self.descStade.text!.isEmpty  || latitudeVal == nil || longitudeVal == nil){
+        
+        if( self.nomStade.text!.isEmpty || latitudeVal == nil || longitudeVal == nil || self.descStade.text!.isEmpty ){
             self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
             return
         }
@@ -128,7 +129,9 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
         let staded = stadeModel(  nom: nomStade.text!, lat: latitudeVal!, lon: longitudeVal!, discription: descStade.text!)
         stadeService.shareInstence.addstade(stade: staded, uiImage: currentPhoto!) { success in
             if success {
-                self.present(Alert.makeAlert(titre: "Success", message: "stade ajouté"),animated: true)
+                //self.present(Alert.makeAlert(titre: "Success", message: "stade ajouté"),animated: true)
+                self.performSegue(withIdentifier: "payer", sender: nil)
+
             }else{
                 self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
 

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               // Show the app's signed-in state.
             //}
           //}
-        BTAppSwitch.setReturnURLScheme("---.YassYes.payments")
+        BTAppSwitch.setReturnURLScheme("com.YassYes.payments")
 
                return true
     }
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        if handled {
          return true
        }
-         if url.scheme?.localizedCaseInsensitiveCompare("---.YassYes.payments") == .orderedSame {
+         if url.scheme?.localizedCaseInsensitiveCompare("com.YassYes.payments") == .orderedSame {
 
                    return BTAppSwitch.handleOpen(url, options: options)
              print("hiuuuuuu")

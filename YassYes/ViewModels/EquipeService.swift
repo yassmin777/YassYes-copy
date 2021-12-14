@@ -37,8 +37,7 @@ class EquipeService{
                 
                 print(multipartFormData)
             }
-            },to: "http://localhost:3000/equipe",
-        method: .post,headers: headers)
+            },to: "http://localhost:3000/equipe", method: .post,headers: headers)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in

@@ -51,7 +51,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
                     
 
                 }
-//                self.equipeTv.reloadData()
+                self.equipeTv.reloadData()
                 break
 
 
@@ -96,11 +96,6 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
 
 
         equipeImage.af.setImage(withURL: url)
-
-           
-
-                
-
 
         
             return cell

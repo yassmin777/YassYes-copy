@@ -8,22 +8,25 @@
 import Foundation
 struct  arbitreModel{
     //let photo:String?
-    internal init(image:String?=nil,
+    internal init(
                   _id:String?=nil,
+                  image:String?=nil,
                   nom:String?=nil,
                   age:Int?=nil,
                   num:Int?=nil,
                   discription:String?=nil
     ){
-        self.image = image
+        
         self._id = _id
+        self.image = image
         self.nom = nom
         self.age = age
         self.num = num
         self.discription = discription
     }
-    let image : String?
+   
     let _id : String?
+    let image : String?
     let nom : String?
     let age : Int?
     let num : Int?
