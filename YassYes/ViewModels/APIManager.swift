@@ -108,7 +108,6 @@ class APIManger{
                             if response.response?.statusCode == 201{
                                 let jsonData = JSON(response.data!)
                                 UserDefaults.standard.setValue(jsonData["_id"].stringValue, forKey: "_id")
-                                UserDefaults.standard.setValue(jsonData["isVerified"].stringValue, forKey: "isVerified")
                                 
                                 print(jsonData["_id"].stringValue)
                                 completed(true)
@@ -143,6 +142,8 @@ class APIManger{
                         print(jsonData)
                         //UserDefaults.standard.set(jsonData["token"].stringValue, forKey: "token")
                         UserDefaults.standard.setValue(jsonData["token"].stringValue  , forKey: "token")
+                        UserDefaults.standard.setValue(jsonData["isProprietaireDestade"].boolValue, forKey: "isProprietaireDestade")
+
 
                         //let jsonData = JSON(response.data!)
                         UserDefaults.standard.set(jsonData["_id"].stringValue, forKey: "_id")
@@ -150,6 +151,7 @@ class APIManger{
                         //UserDefaults.standard.set(jsonData["email"].stringValue, forKey: "email")
 
                         print(UserDefaults.standard.string(forKey: "token")!)
+                        print(UserDefaults.standard.bool(forKey: "isProprietaireDestade"))
                         print(UserDefaults.standard.string(forKey: "_id")!)
 
                         completionHandler(true)

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import UIKit.UIImage
-
 class EquipeService{
     static let shareinstance = EquipeService()
 

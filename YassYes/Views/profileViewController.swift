@@ -38,6 +38,7 @@ class profileViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.setValue("", forKey: "token")
         UserDefaults.standard.setValue("", forKey: "_id")
+        UserDefaults.standard.setValue("", forKey: "isProprietaireDestade")
         performSegue(withIdentifier: "logout", sender: nil)
 
     }

@@ -66,8 +66,7 @@ class SignInViewController: UIViewController {
             APIManger.shareInstence.loginGoogle(nom:givenName!,prenom:familyName!,email: emailAddress!,motdepasse:"0000000"){
                 (isSuccess) in
                 if isSuccess{
-                    //self.present(Alert.makeAlert(titre: "Alert", message: "User register successfully"), animated: true)
-                    self.performSegue(withIdentifier: "SeConnecter", sender: nil)
+                   self.performSegue(withIdentifier: "SeConnecter", sender: nil)
                 } else {
                     self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
                 }
@@ -101,8 +100,9 @@ class SignInViewController: UIViewController {
         APIManger.shareInstence.login(email: email, motdepasse: motdepasse){
             (isSuccess) in
             if isSuccess{
-                //self.present(Alert.makeAlert(titre: "Alert", message: "User register successfully"), animated: true)
-                self.performSegue(withIdentifier: "SeConnecter", sender: nil)
+                if UserDefaults.standard.bool(forKey: "isProprietaireDestade")==false{
+                    self.performSegue(withIdentifier: "SimpleUser", sender: nil)
+                    }else{self.performSegue(withIdentifier: "SeConnecter", sender: nil)}
             } else {
                 self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
             }

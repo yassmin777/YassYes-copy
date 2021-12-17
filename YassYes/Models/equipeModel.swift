@@ -9,7 +9,7 @@ import Foundation
 struct equipeModel{
     internal init(_id: String?=nil,
 
-        photo:String?=nil,
+        image:String?=nil,
                   admin: adminModel? = nil,
                   nom: String?=nil,
                   discription: String?=nil,
@@ -20,7 +20,7 @@ struct equipeModel{
                   null:Int?=nil) {
         self._id = _id
 
-        self.photo = photo
+        self.image = image
         self.admin = admin
         self.nom = nom
         self.discription = discription
@@ -31,7 +31,7 @@ struct equipeModel{
         self.null = null
     }
     let _id:String?
-    let photo:String?
+    let image:String?
     let admin:adminModel?
     let nom:String?
     //var capacity: Int

@@ -104,7 +104,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "detailsEquipe ", sender: nil)
+        self.performSegue(withIdentifier: "detailsEquipe", sender: indexPath)
 
 
     }
@@ -116,7 +116,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
         performSegue(withIdentifier: identifier, sender: sender)
     }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "ligueDetails"{
+        if  segue.identifier == "detailsEquipe"{
             let indexPath = sender as! IndexPath
             let destination = segue.destination as! equipeViewController
             destination.equipe_id = equipe_id[indexPath.row]

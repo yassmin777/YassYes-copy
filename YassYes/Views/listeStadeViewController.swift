@@ -36,7 +36,7 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
-                
+                print(myresult)
                 self.stade_nom.removeAll()
                 for i in myresult!.arrayValue{
                     let id = i["_id"].stringValue
@@ -123,6 +123,10 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
 
     }
     
+    @IBAction func location(_ sender: Any) {
+        performSegue(withIdentifier: "mapLocation", sender: nil)
+
+    }
     @IBAction func addjouterStadeBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "interfaceAddStade", sender: nil)
 
