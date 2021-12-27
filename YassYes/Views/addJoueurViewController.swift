@@ -14,15 +14,14 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
     @IBOutlet weak var joueurPhoto: UIImageView!
     @IBOutlet weak var addImageButton: UIButton!
 
-    
-    @IBOutlet weak var prenomJoueur: UITextField!
     @IBOutlet weak var nomJoueur: UITextField!
+    @IBOutlet weak var prenomJoueur: UITextField!
     @IBOutlet weak var ageJoueur: UITextField!
-    @IBOutlet weak var longJoueur: UITextField!
+    @IBOutlet weak var longueurJoueur: UITextField!
     @IBOutlet weak var poidsJoueur: UITextField!
-    @IBOutlet weak var numJoueur: UITextField!
-    @IBOutlet weak var descJoueur: UITextField!
     
+    @IBOutlet weak var numJoueur: UITextField!
+    @IBOutlet weak var discriptionJoueur: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -41,9 +40,9 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
         ageJoueur.layer.borderWidth = 1.0
         ageJoueur.layer.masksToBounds = true //Style Password TestField
         
-        longJoueur.layer.cornerRadius = 10.0
-        longJoueur.layer.borderWidth = 1.0
-        longJoueur.layer.masksToBounds = true //Style Password TestField
+        longueurJoueur.layer.cornerRadius = 10.0
+        longueurJoueur.layer.borderWidth = 1.0
+        longueurJoueur.layer.masksToBounds = true //Style Password TestField
         
         poidsJoueur.layer.cornerRadius = 10.0
         poidsJoueur.layer.borderWidth = 1.0
@@ -53,9 +52,9 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
         numJoueur.layer.borderWidth = 1.0
         numJoueur.layer.masksToBounds = true //Style Password TestField
         
-        descJoueur.layer.cornerRadius = 10.0
-        descJoueur.layer.borderWidth = 1.0
-        descJoueur.layer.masksToBounds = true //Style Password TestField
+        discriptionJoueur.layer.cornerRadius = 10.0
+        discriptionJoueur.layer.borderWidth = 1.0
+        discriptionJoueur.layer.masksToBounds = true //Style Password TestField
         
         
         
@@ -84,13 +83,13 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
             self.present(Alert.makeAlert(titre: "Avertissement", message: "Choisir une image"), animated: true)
             return
         }
-        if( self.nomJoueur.text!.isEmpty ||   self.prenomJoueur.text!.isEmpty ||   self.ageJoueur.text!.isEmpty ||   self.longJoueur.text!.isEmpty ||   self.descJoueur.text!.isEmpty   ||   self.poidsJoueur.text!.isEmpty   ||   self.numJoueur.text!.isEmpty ){
+        if( self.nomJoueur.text!.isEmpty ||   self.prenomJoueur.text!.isEmpty ||   self.ageJoueur.text!.isEmpty ||   self.longueurJoueur.text!.isEmpty ||   self.discriptionJoueur.text!.isEmpty   ||   self.poidsJoueur.text!.isEmpty   ||   self.numJoueur.text!.isEmpty ){
             self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
             return
         }
         
-        let joueurd = joueurModel(  nom: nomJoueur.text!,prenom: prenomJoueur.text!,age: ageJoueur.text!,taille: longJoueur.text!,longueur: poidsJoueur.text!, discription: descJoueur.text!)
-        JoueurService.shareinstance.addjoueur(joueur: joueurd, uiImage: currentPhoto!) { success in
+        let joueurd = joueurModel(  nom: nomJoueur.text!,prenom: prenomJoueur.text!,age: ageJoueur.text!,taille: poidsJoueur.text!,longueur: longueurJoueur.text!, num:numJoueur.text!, discription: discriptionJoueur.text!)
+        JoueurService.shareinstance.addjoueurHH(joueur: joueurd, uiImage: currentPhoto!) { success in
             if success {
                 self.present(Alert.makeAlert(titre: "Success", message: "joueur ajouté"),animated: true)
             }else{

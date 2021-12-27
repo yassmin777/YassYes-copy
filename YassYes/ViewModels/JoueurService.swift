@@ -13,7 +13,7 @@ import UIKit.UIImage
 class JoueurService{
     static let shareinstance = JoueurService()
 
-    func addjoueur(joueur: joueurModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
+    func addjoueurHH(joueur: joueurModel, uiImage: UIImage, completed: @escaping (Bool) -> Void ) {
         print("hi")
         let headers: HTTPHeaders = [.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!))
 ]
@@ -57,9 +57,42 @@ class JoueurService{
                 }
             }
     }
+    func getJoueurProfile(_id:String,completionHandler:@escaping (Bool,joueurModel?)->()){
+        let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/joueur/"+_id, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 200{
+                        let jsonData = JSON(response.data!)
+                        print("ttttttt")
+                        print(jsonData)
+                        print("ttttttt")
+                        let joueur = self.makeItem(jsonItem: jsonData["joueur"])
+                        completionHandler(true,joueur)
+
+                        print(joueur)
+                    }else{
+                        completionHandler(false,nil)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false,nil)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
     func makeItem(jsonItem: JSON) -> joueurModel {
     //let isoDate = jsonItem["dateNaissance"]
     joueurModel(
+        image: jsonItem["image"].stringValue,
         _id: jsonItem["_id"].stringValue,
         nom: jsonItem["nom"].stringValue,
         prenom: jsonItem["prenom"].stringValue,

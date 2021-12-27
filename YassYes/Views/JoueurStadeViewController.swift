@@ -10,7 +10,7 @@ import SwiftyJSON
 import Alamofire
 import MapKit
 import AlamofireImage
-class JoueurStadeViewController: UIViewController {
+class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
  
    
         var stade_nom = [String]()
@@ -24,7 +24,7 @@ class JoueurStadeViewController: UIViewController {
         var coor = [CLLocationCoordinate2D]()
 
         //@IBOutlet weak var map: MKMapView!
-        @IBOutlet weak var tableVienStade: UITableView!
+        @IBOutlet weak var tableVienStadeJoueur: UITableView!
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -58,7 +58,7 @@ class JoueurStadeViewController: UIViewController {
                         
 
                     }
-                    self.tableVienStade.reloadData()
+                    self.tableVienStadeJoueur.reloadData()
                     break
 
 
@@ -71,14 +71,14 @@ class JoueurStadeViewController: UIViewController {
             
             
         }
-        func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return stade_nom.count
-        }
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ligueCell" , for:indexPath)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stade_nom.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StadeJ" , for:indexPath)
             
             let tv = cell.contentView
             let stade_Name = tv.viewWithTag(1) as! UILabel
@@ -117,28 +117,28 @@ class JoueurStadeViewController: UIViewController {
             
             
         }
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            performSegue(withIdentifier: "detailStade", sender: indexPath)
-
-
-        }
-        
-        @IBAction func location(_ sender: Any) {
-            performSegue(withIdentifier: "mapLocation", sender: nil)
-
-        }
-        
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if  segue.identifier == "detailStade"{
-                let indexPath = sender as! IndexPath
-                let destination = segue.destination as! stadeViewController
-                destination.stadeId = stade_id[indexPath.row]
-                destination.stadeImage = stade_image[indexPath.row]
-                destination.stadeDescription = stadeDescription[indexPath.row]
-                destination.stadeDescription = stadeDescription[indexPath.row]
-
-            }
-        }
+//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            performSegue(withIdentifier: "detailStade", sender: indexPath)
+//
+//
+//        }
+//        
+//        @IBAction func location(_ sender: Any) {
+//            performSegue(withIdentifier: "mapLocation", sender: nil)
+//
+//        }
+//        
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if  segue.identifier == "detailStade"{
+//                let indexPath = sender as! IndexPath
+//                let destination = segue.destination as! stadeViewController
+//                destination.stadeId = stade_id[indexPath.row]
+//                destination.stadeImage = stade_image[indexPath.row]
+//                destination.stadeDescription = stadeDescription[indexPath.row]
+//                destination.stadeDescription = stadeDescription[indexPath.row]
+//
+//            }
+//        }
         /*
         /**let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
          AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in

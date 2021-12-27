@@ -10,7 +10,7 @@ import UIKit
 class sessionViewController: UIViewController {
     
     let token: String? = nil
-    
+    let isProprietaireDestade: Bool? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -29,8 +29,9 @@ class sessionViewController: UIViewController {
                 performSegue(withIdentifier: "LoginSegue", sender: nil)
 
 
-            } else {
-                performSegue(withIdentifier: "registerSegue", sender: nil)        }
+            } else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") == true{
+                performSegue(withIdentifier: "registerSegue", sender: nil)}else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") == false{
+                    performSegue(withIdentifier: "joueurStade", sender: nil)}
         }else{
             performSegue(withIdentifier: "LoginSegue", sender: nil)
 
