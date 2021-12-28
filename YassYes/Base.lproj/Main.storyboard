@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="OBY-l5-7qR" customClass="joueurViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7c-Al-jJC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xIf-3g-OWE">
@@ -100,12 +100,16 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Modifier ">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="qi9-na-c3n" kind="show" id="n55-9b-YS7"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="6RH-jH-It6">
+                                <rect key="frame" x="-111" y="722" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nLY-0R-pKc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,7 +329,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="validation:" destination="e5R-gd-f4g" eventType="touchUpInside" id="D9g-UG-NL5"/>
@@ -334,7 +338,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-CA-2vI">
                                 <rect key="frame" x="17" y="499" width="380" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
                                     <segment title="Simple urilisateur"/>
                                     <segment title="Proprietaire de Stade"/>
@@ -346,7 +350,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MS-Mb-gPZ">
                                 <rect key="frame" x="134" y="176" width="146" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system" title=""/>
                                 <connections>
@@ -357,9 +361,13 @@
                                 <rect key="frame" x="96" y="96" width="222" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="aqJ-vy-c1t">
+                                <rect key="frame" x="-95" y="726" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nKc-Iq-4Jg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -398,7 +406,7 @@
                                 <rect key="frame" x="20" y="414" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.18562254310000001" green="0.28896814580000002" blue="0.74544650320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-hw-R5G">
@@ -423,12 +431,16 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="listeDeJoueurDuneLigue:" destination="7VH-Nq-bq4" eventType="touchUpInside" id="m1c-WA-zFy"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="Vqp-th-MJS">
+                                <rect key="frame" x="-35" y="720" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fOj-vN-XNa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -476,7 +488,7 @@
                                                     <rect key="frame" x="178" y="0.0" width="216" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -496,12 +508,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Ajouter une nouvelle equipe">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addjouterLigueBtn:" destination="n4y-fz-2eN" eventType="touchUpInside" id="TzA-SU-b1L"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="HdQ-C3-ewS">
+                                <rect key="frame" x="-34" y="720" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xfQ-wF-ePY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -548,7 +564,7 @@
                                                     <rect key="frame" x="178" y="42" width="216" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de la ligue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2M7-Y6-AMa">
@@ -575,7 +591,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Ajouter une nouvelle ligue">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addjouterLigueBtn:" destination="gQ2-8m-Zmw" eventType="touchUpInside" id="vzp-0F-kGb"/>
@@ -615,7 +631,7 @@
                                 <rect key="frame" x="20" y="380" width="337" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RuH-QN-u4e">
@@ -646,7 +662,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="listeEquipeduneligue:" destination="yUL-7e-xs0" eventType="touchUpInside" id="y4o-05-qwP"/>
@@ -664,12 +680,16 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="adduneequipeaunstadeBtn:" destination="yUL-7e-xs0" eventType="touchUpInside" id="sbZ-KU-me1"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="vPR-N5-wgW">
+                                <rect key="frame" x="-53" y="721" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gEQ-SC-1QT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -694,7 +714,7 @@
             <objects>
                 <viewController id="qi9-na-c3n" customClass="modifierJoueurViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kno-Ug-sOV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Prenom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QiE-8P-dZ0">
@@ -735,9 +755,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Modifier le joueur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnu-O2-taE">
-                                <rect key="frame" x="92" y="61" width="231" height="36"/>
+                                <rect key="frame" x="92" y="80" width="231" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FvM-1d-GeE">
@@ -760,7 +781,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="updateJoueurBtn:" destination="qi9-na-c3n" eventType="touchUpInside" id="ycU-7C-1rp"/>
@@ -774,7 +795,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVg-bA-fc0">
-                                <rect key="frame" x="129" y="120" width="150" height="150"/>
+                                <rect key="frame" x="129" y="128" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="89G-sj-5z4">
+                                <rect key="frame" x="-91" y="721" width="525" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -803,7 +828,7 @@
             <objects>
                 <viewController id="2ta-Zy-9AF" customClass="addJoueurViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pms-Ad-Ok9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longueur" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t28-av-S0G">
@@ -839,7 +864,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ajoutEquipeBtn:" destination="2ta-Zy-9AF" eventType="touchUpInside" id="Ygi-EF-Sxa"/>
@@ -866,7 +891,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLR-Aq-Prx">
                                 <rect key="frame" x="130" y="162" width="149" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
                                 <connections>
@@ -891,8 +916,13 @@
                                 <rect key="frame" x="30" y="90" width="348" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-cR-xHH">
+                                <rect key="frame" x="-78" y="721" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wuU-dr-9hg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -945,7 +975,7 @@
                                                     <rect key="frame" x="178" y="28" width="216" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -966,12 +996,16 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addJoueurBtn:" destination="hXN-Cj-cX9" eventType="touchUpInside" id="Ldb-8R-ve8"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="2a2-Ul-0Rl">
+                                <rect key="frame" x="-88" y="732" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5hm-By-zPP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1016,8 +1050,22 @@
                                 <rect key="frame" x="87" y="88" width="240" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhh-Jo-CbT">
+                                <rect key="frame" x="87" y="88" width="240" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="changePhoto:" destination="Eke-by-2GV" eventType="touchUpInside" id="NII-GQ-E9M"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="Tt4-Py-lrq">
+                                <rect key="frame" x="-76" y="724" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmU-vQ-ohx">
-                                <rect key="frame" x="54" y="561" width="300" height="70"/>
+                                <rect key="frame" x="54" y="560" width="300" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
@@ -1028,20 +1076,10 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ligueAddBtn:" destination="Eke-by-2GV" eventType="touchUpInside" id="9Bb-sj-zDb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhh-Jo-CbT">
-                                <rect key="frame" x="87" y="88" width="240" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="changePhoto:" destination="Eke-by-2GV" eventType="touchUpInside" id="NII-GQ-E9M"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1137,12 +1175,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Ajouter un nouveau stade">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addjouterStadeBtn:" destination="bAf-Th-Awi" eventType="touchUpInside" id="Zey-KF-QNA"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="DEq-eO-8BB">
+                                <rect key="frame" x="-94" y="721" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AsZ-QX-B9D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1185,7 +1227,7 @@
                                 <rect key="frame" x="20" y="414" width="323" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1C3-jo-HYH">
@@ -1209,7 +1251,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="listeLIgueDunstade:" destination="2EN-SA-n8z" eventType="touchUpInside" id="gdD-bb-NXR"/>
@@ -1227,7 +1269,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addjouterStadeBtn:" destination="2EN-SA-n8z" eventType="touchUpInside" id="Z4y-qP-RYL"/>
@@ -1240,6 +1282,10 @@
                                 <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="Ewg-gb-5LV">
+                                <rect key="frame" x="-31" y="725" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U12-Fq-TKJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1289,7 +1335,7 @@
                                                     <rect key="frame" x="178" y="62" width="216" height="42"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de l'equipe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-ec-BC5">
@@ -1309,6 +1355,10 @@
                                     <outlet property="delegate" destination="CJv-VH-aJY" id="gvT-Z8-yOB"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="d07-Yx-EgU">
+                                <rect key="frame" x="-47" y="722" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6As-fb-e7N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1342,7 +1392,7 @@
                                 <rect key="frame" x="54" y="88" width="338" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Mek-RT-dxx">
@@ -1386,7 +1436,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="validation:" destination="FOQ-0u-xSv" eventType="touchUpInside" id="Vfs-8d-QKh"/>
@@ -1402,6 +1452,10 @@
                                     <action selector="changePhoto:" destination="FOQ-0u-xSv" eventType="touchUpInside" id="TSN-VF-Bde"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="INS-lW-kca">
+                                <rect key="frame" x="-110" y="721" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="blX-WQ-ztR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1445,7 +1499,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOo-UI-m9G">
-                                <rect key="frame" x="30" y="738" width="364" height="65"/>
+                                <rect key="frame" x="25" y="694" width="364" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -1457,12 +1511,16 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="payment:" destination="ULF-TO-Blc" eventType="touchUpInside" id="hcG-Ki-4pN"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="Kj4-p2-VcP">
+                                <rect key="frame" x="-46" y="728" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="981-RJ-WMk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1496,7 +1554,7 @@
                                 <rect key="frame" x="97" y="248" width="221" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Discription" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UTC-mX-iuC">
@@ -1516,12 +1574,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Modifier">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="modifierStadeBtn:" destination="mkt-xt-6e1" eventType="touchUpInside" id="Yy1-hG-9dC"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="rq5-w1-Fyc">
+                                <rect key="frame" x="0.0" y="726" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EUd-bt-bSP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1566,7 +1628,7 @@
                                                     <rect key="frame" x="178" y="63" width="200" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de la ligue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0j-JB-FgW">
@@ -1586,6 +1648,10 @@
                                     <outlet property="delegate" destination="4rf-HM-EZR" id="UTz-lg-3Ty"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="MtP-s3-RWG">
+                                <rect key="frame" x="-37" y="721" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2S1-R1-hRZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1630,7 +1696,7 @@
             <objects>
                 <viewController title="Profile" id="NdC-sA-6x4" customClass="profileViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bzn-Rd-4QQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wmA-EW-e8S">
@@ -1641,21 +1707,21 @@
                                 <rect key="frame" x="20" y="585" width="103" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prenom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jr-bz-NVL">
                                 <rect key="frame" x="20" y="531" width="103" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDo-0m-CBh">
                                 <rect key="frame" x="20" y="475" width="103" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqg-r3-npo">
@@ -1689,7 +1755,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="modifierBtn:" destination="NdC-sA-6x4" eventType="touchUpInside" id="ckb-1g-XhL"/>
@@ -1717,17 +1783,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Zp-aj-sUS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="profile" id="rmv-8d-cQ0">
                         <imageReference key="image" image="person.fill" catalog="system" renderingMode="hierarchical-single">
                             <hierarchicalColors>
-                                <color red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color systemColor="secondaryLabelColor"/>
                                 <color systemColor="tertiaryLabelColor"/>
                             </hierarchicalColors>
                         </imageReference>
-                        <color key="badgeColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="badgeColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="tK1-4f-4HD"/>
                     <connections>
@@ -1755,7 +1821,7 @@
                                 <rect key="frame" x="60" y="48" width="306" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vO6-k0-Ybt">
@@ -1798,7 +1864,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="updateBtn:" destination="Jh5-fr-rSg" eventType="touchUpInside" id="fJG-xp-tHl"/>
@@ -1813,6 +1879,10 @@
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTl-vG-l9F">
                                 <rect key="frame" x="114" y="127" width="198" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="nvk-jU-yiS">
+                                <rect key="frame" x="-16" y="656" width="525" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -2050,7 +2120,7 @@
                                                     <rect key="frame" x="178" y="63" width="200" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de la ligue:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-HL-oST">
@@ -2070,6 +2140,10 @@
                                     <outlet property="delegate" destination="LoO-o6-5L4" id="n6a-5d-H3Z"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="iEk-U6-Teq">
+                                <rect key="frame" x="-98" y="722" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AQA-m2-poa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2136,7 +2210,7 @@
                                                     <rect key="frame" x="178" y="62" width="216" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de l'equipe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qo-ye-iww">
@@ -2156,6 +2230,10 @@
                                     <outlet property="delegate" destination="I6B-oT-hCA" id="DfD-OL-Pjb"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-SG-V9h">
+                                <rect key="frame" x="-36" y="722" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ilk-yR-opS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2237,7 +2315,7 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="EquipeAddBtn:" destination="feu-cN-u7W" eventType="touchUpInside" id="GKf-NF-9fX"/>
@@ -2246,13 +2324,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nb4-yK-PeV">
                                 <rect key="frame" x="87" y="88" width="240" height="212"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
                                 <connections>
                                     <action selector="changePhoto:" destination="feu-cN-u7W" eventType="touchUpInside" id="Dxb-Tb-13v"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="eKF-RW-w8H">
+                                <rect key="frame" x="-47" y="720" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cfb-86-17H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2276,7 +2358,7 @@
             <objects>
                 <viewController id="W2A-cn-u7X" customClass="JoueurStadeViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ul-sF-stg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TLX-ZG-Uy0">
@@ -2304,7 +2386,7 @@
                                                     <rect key="frame" x="139" y="43" width="149" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.090397082269191742" green="0.1535453200340271" blue="0.45502692461013794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom du stade:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGP-zc-9At">
@@ -2324,6 +2406,10 @@
                                     <outlet property="delegate" destination="W2A-cn-u7X" id="3nb-DT-ZIj"/>
                                 </connections>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="ugI-xe-TEY">
+                                <rect key="frame" x="-28" y="725" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="169-n6-mB1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2371,7 +2457,7 @@
             <objects>
                 <viewController id="xni-y8-mpP" customClass="listeJoueurViewController" customModule="YassYes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GGy-yg-3zy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zEe-rs-YRl">
@@ -2396,7 +2482,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nom de joueur:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCQ-Al-b81">
@@ -2421,12 +2507,16 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Ajouter un joueur">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="addJoueurBtn:" destination="xni-y8-mpP" eventType="touchUpInside" id="fzV-XF-5V1"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="KXj-E5-lVF">
+                                <rect key="frame" x="-44" y="723" width="525" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cFO-JH-kdc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2453,7 +2543,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="28b-CR-AKY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2467,11 +2557,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="46B-pa-m0K"/>
-        <segue reference="gIp-Ie-hPg"/>
+        <segue reference="wWu-34-HE9"/>
         <segue reference="l9o-aF-JIj"/>
-        <segue reference="LGp-9i-odU"/>
-        <segue reference="JoN-e1-SC4"/>
+        <segue reference="sul-fR-ZYO"/>
+        <segue reference="SRS-Tl-lsg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
