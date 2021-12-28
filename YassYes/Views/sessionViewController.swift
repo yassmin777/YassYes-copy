@@ -16,7 +16,7 @@ class sessionViewController: UIViewController {
       
         
     }
-    
+    //&& (UserDefaults.standard.string(forKey: "token")  != nil)
     override func viewDidAppear(_ animated: Bool) {
         isKeyPresentInUserDefaults(key: "token")
          print(token)
@@ -29,8 +29,9 @@ class sessionViewController: UIViewController {
                 performSegue(withIdentifier: "LoginSegue", sender: nil)
 
 
-            } else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") == true{
-                performSegue(withIdentifier: "registerSegue", sender: nil)}else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") == false{
+            } else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") != false {
+                performSegue(withIdentifier: "registerSegue", sender: nil)}
+            else if UserDefaults.standard.bool(forKey: "isProprietaireDestade") != true {
                     performSegue(withIdentifier: "joueurStade", sender: nil)}
         }else{
             performSegue(withIdentifier: "LoginSegue", sender: nil)

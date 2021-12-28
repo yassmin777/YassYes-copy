@@ -51,4 +51,37 @@ class LigueService{
                 }
             }
     }
+    func addEquipeToLigue(_id:String, equipes_ids: String,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/ligue/"+_id, method: .put ,parameters:[ "equipes_ids":equipes_ids] , headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 201{
+                        print("hhhhhh")
+                        print(equipes_ids)
+                        print("hhhhhh")
+                        print(_id)
+                        //let jsonData = JSON(response.data!)
+                        //let user = self.makeItemstade(jsonItem: jsonData)
+                        completionHandler(true)
+
+                        //print(user)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
 }

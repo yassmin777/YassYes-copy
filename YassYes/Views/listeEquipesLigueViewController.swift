@@ -69,42 +69,16 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipeCellChoix" , for:indexPath)
-        
-        let tv = cell.contentView
+                let tv = cell.contentView
         let equipe_Name = tv.viewWithTag(1) as! UILabel
         let equipeImage = tv.viewWithTag(3) as! UIImageView
-        
-        
-        equipe_Name.text = equipe_nom[indexPath.row]
-        
-
-        var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-
+                equipe_Name.text = equipe_nom[indexPath.row]
+                var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
-
-
-
                 let url = URL(string: path)!
-
-               
-
-
-
-                print(url)
-
-
+                               print(url)
         equipeImage.af.setImage(withURL: url)
-
-           
-
-                
-
-
-        
             return cell
-        
-        
-        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -115,7 +89,7 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
         let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
                     (action, sourceView, completionHandler) in
                     
-            EquipeService.shareinstance.addEquipeToligue(_id: ligueIId!, equipes_ids:equipe_id[indexPath.row], completionHandler: {
+            LigueService.shareinstance.addEquipeToLigue(_id: ligueIId!, equipes_ids:equipe_id[indexPath.row], completionHandler: {
                 
                 (isSuccess) in
 
@@ -146,6 +120,56 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
                 return swipeConfiguration
     
     }
+/*
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // *********** EDIT ***********
+        let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
+                    (action, sourceView, completionHandler) in
+                    // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
+            
+            /*stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
+                if success {
+                    self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
+                }else{
+                    self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
+
+                }
+                    
+                    print(self.stadeIId)
+                print(ligue_id[indexPath.row])
+                    
+                    
+                }*/
+            LigueService.shareinstance.addEquipeToLigue(_id: ligueIId!, ligues_id:ligue_id[indexPath.row], completionHandler: {
+                
+                (isSuccess) in
+
+                if isSuccess{
+                    print(ligue_id[indexPath.row])
+                   print("jawek behy")
+
+                    self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
 
 
+
+                } else {
+
+                    self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+                }
+
+            })
+            completionHandler(true)
+        }
+                editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
+                // end action Edit
+        
+        // SWIPE TO LEFT CONFIGURATION
+                let swipeConfiguration = UISwipeActionsConfiguration(actions: [ editAction])
+                // Delete should not delete automatically
+                swipeConfiguration.performsFirstActionWithFullSwipe = false
+                
+                return swipeConfiguration
+    
+    }
+ */
 }

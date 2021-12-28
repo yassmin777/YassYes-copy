@@ -1,9 +1,10 @@
 //
-//  listJoueurEquipeViewController.swift
+//  joueurStadeLigueEquipeJoueurViewController.swift
 //  YassYes
 //
-//  Created by Mac2021 on 15/11/2021.
+//  Created by Mac-Mini_2021 on 28/12/2021.
 //
+
 
     import UIKit
     import Alamofire
@@ -11,13 +12,22 @@
     import SwiftyJSON
     @available(iOS 11.0, *)
 
-    class listJoueurEquipeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
+    class joueurStadeLigueEquipeJoueurViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         var joueur_id = [String]()
         var equipeIId: String?
         var joueur_nom = [String]()
         var joueur_image = [String]()
         var joueurDescription = [String]()
 
+        
+        
+        
+        var toyToDemand : joueurModel?
+        var myToyList : [joueurModel]?
+        
+        var popUpChosenToy : joueurModel?=nil
+        //widgets
+        @IBOutlet weak var IMVToyToSwapWith: UIImageView!
         @IBOutlet weak var equipeTv: UITableView!
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -110,10 +120,60 @@
             
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        performSegue(withIdentifier: "detailsJoueur", sender: indexPath)
 
         }
+
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if  segue.identifier == "detailsJoueur"{
+                let indexPath = sender as! IndexPath
+                let destination = segue.destination as! detailsJoueur21ViewController
+                destination.joueurId = joueur_id[indexPath.row]
+
+        }
+        }
+        @IBAction func BtnSelectToy(_ sender: Any) {
+            performSegue(withIdentifier: "ToPopupSegue", sender: sender)
+        }
+        @IBAction func BtnSwapDemand(_ sender: Any) {
+            if popUpChosenToy == nil {
+                print("popUp field is empty")
+            }else {
+                var demand = Swap()
+                demand.IdClient1 = clientVM.ClientToken?._id!
+                demand.IdClient2 = toyToDemand?.OwnerId!
+                demand.IdToy1 = popUpChosenToy?._id!
+                demand.IdToy2 = toyToDemand?._id!
+                demand.Confirmed = "false"
+                print("demand swap begin")
+                print(demand)
+                print("demand swap end")
+                
+                SwapVM.addSwapDemand(swapDemand: demand, successHandler:{
+                    print("swap demand sucess")
+                } , errorHandler: {
+                    print("swap demand error")
+                }, noResponseHandler: {
+                    print("swap demand no response")
+                })
+            }
+            
+        }
+
     
+        func onChoose (_ data: joueurModel) -> () {
+            popUpChosenToy = data
+            print("chosen toy is ")
+            print(popUpChosenToy!)
+            
+            var path = String(Constantes.host + popUpChosenToy!.Image!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+            
+            let url = URL(string: path)!
+            IMVToyToSwapWith.af.setImage(withURL: url)
+            
+        }
 
     
 

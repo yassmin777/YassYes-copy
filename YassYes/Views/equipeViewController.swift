@@ -39,7 +39,7 @@ class equipeViewController: UIViewController {
    
     @IBAction func listeDeJoueurDuneLigue(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "equipeOfLigue", sender: nil)
+        self.performSegue(withIdentifier: "listeDeJoueur", sender: nil)
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,9 +47,6 @@ class equipeViewController: UIViewController {
            // let indexPath = sender as! IndexPath
             let destination = segue.destination as! listJoueurEquipeViewController
             destination.equipeIId = equipe_id
-
-        
-
 
     }
    

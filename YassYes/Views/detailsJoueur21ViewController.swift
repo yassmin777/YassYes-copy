@@ -1,13 +1,14 @@
 //
-//  joueurViewController.swift
+//  detailsJoueur21ViewController.swift
 //  YassYes
 //
-//  Created by Mac2021 on 15/11/2021.
+//  Created by Mac-Mini_2021 on 28/12/2021.
 //
 
 import UIKit
 
-class joueurViewController: UIViewController {
+class detailsJoueur21ViewController: UIViewController {
+
     var joueurId: String?
         @IBOutlet weak var ageJoueur: UILabel!
     @IBOutlet weak var longeurJoueur: UILabel!
@@ -61,8 +62,4 @@ class joueurViewController: UIViewController {
         })
                                            
     }
-    @IBAction func modifierJoueurBtn(_ sender: Any) {
-    }
-    
-
 }

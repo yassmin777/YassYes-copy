@@ -27,28 +27,33 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/equipe/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+        AF.request("http://localhost:3000/ligue/"+ligueIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
                 
-                self.equipe_nom.removeAll()
-                for i in myresult!.arrayValue{
-                    let idL = i["_id"].stringValue
-                    let nom = i["nom"].stringValue
-                    let Description = i["discription"].stringValue
-                    let image = "http://localhost:3000/"+i["image"].stringValue
-                    self.equipe_id.append(idL)
-                    self.equipe_nom.append(nom)
-                    self.equipe_image.append(image)
-                    self.equipeDescription.append(Description)
-                    
+                let equipes : [equipeModel]
+                for singleLeagueJson in myresult!["equipes_ids"] {
+                    //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
+                    print(singleLeagueJson.1)
+               // }
+               
+                    self.equipe_nom.removeAll()
+                    //for i in myresult!.arrayValue{
+                        let idL = singleLeagueJson.1["_id"].stringValue
+                        let nom = singleLeagueJson.1["nom"].stringValue
+                        let Description = singleLeagueJson.1["discription"].stringValue
+                        let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                        self.equipe_id.append(idL)
+                        self.equipe_nom.append(nom)
+                        self.equipe_image.append(image)
+                        self.equipeDescription.append(Description)
 
                     
                     
 
                 }
-//                self.equipeTv.reloadData()
+                self.equipeTv.reloadData()
                 break
 
 
@@ -67,10 +72,10 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
         return equipe_nom.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EquipeCellChoix" , for:indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EquipeCellChoix2" , for:indexPath)
         
         let tv = cell.contentView
-        let equipe_Name = tv.viewWithTag(1) as! UILabel
+        let equipe_Name = tv.viewWithTag(2) as! UILabel
         let equipeImage = tv.viewWithTag(3) as! UIImageView
         
         
