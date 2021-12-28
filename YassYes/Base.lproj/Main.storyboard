@@ -134,24 +134,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Se Connecter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-hE-pa3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se Connecter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-hE-pa3">
                                 <rect key="frame" x="119" y="66" width="182" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <color key="textColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.10895050317049026" green="0.49695092439651489" blue="0.089765869081020355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-fR-zdY">
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-fR-zdY">
                                 <rect key="frame" x="17" y="332" width="380" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="380" id="3zw-EA-ceh"/>
+                                    <constraint firstAttribute="height" constant="34" id="GMI-G6-hkN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ole-js-5n3">
+                                <rect key="frame" x="17" y="384" width="380" height="34"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfz-UA-T2D">
                                 <rect key="frame" x="238" y="442" width="191" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -167,7 +175,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Rh-5p-0Df">
-                                <rect key="frame" x="57" y="481" width="300" height="70"/>
+                                <rect key="frame" x="20" y="495" width="374" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
@@ -178,14 +186,14 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="logInBtn:" destination="uzW-LT-GzL" eventType="touchUpInside" id="W0o-th-tEk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uou-H1-aZU">
-                                <rect key="frame" x="57" y="571" width="300" height="70"/>
+                                <rect key="frame" x="20" y="557" width="374" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
@@ -196,42 +204,54 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="signUpBtn:" destination="uzW-LT-GzL" eventType="touchUpInside" id="oy0-2a-fhV"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-dh-ycx">
-                                <rect key="frame" x="87" y="129" width="240" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwv-fM-PWX">
-                                <rect key="frame" x="57" y="658" width="300" height="63"/>
+                                <rect key="frame" x="20" y="621" width="374" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="google.png" title=" Google login">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                    <color key="baseBackgroundColor" systemColor="systemBackgroundColor"/>
+                                <buttonConfiguration key="configuration" style="filled" image="google.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content=" Google login">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="21"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="connect:" destination="uzW-LT-GzL" eventType="touchUpInside" id="E5y-WH-LWy"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ole-js-5n3">
-                                <rect key="frame" x="17" y="384" width="380" height="34"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="poT-R6-TC5">
+                                <rect key="frame" x="-37" y="718" width="525" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="pngegg-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-dh-ycx">
+                                <rect key="frame" x="141" y="135" width="133" height="172"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S4j-iA-nop"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vnj-dh-ycx" firstAttribute="top" secondItem="EiE-hE-pa3" secondAttribute="bottom" constant="47" id="7VY-Is-AAz"/>
+                            <constraint firstItem="9Ty-fR-zdY" firstAttribute="leading" secondItem="S4j-iA-nop" secondAttribute="leading" constant="17" id="8Nm-pH-SyL"/>
+                            <constraint firstItem="S4j-iA-nop" firstAttribute="trailing" secondItem="9Ty-fR-zdY" secondAttribute="trailing" constant="17" id="IIn-Oa-NrK"/>
+                            <constraint firstItem="ole-js-5n3" firstAttribute="top" secondItem="9Ty-fR-zdY" secondAttribute="bottom" constant="18" id="JdK-vO-elY"/>
+                            <constraint firstItem="S4j-iA-nop" firstAttribute="trailing" secondItem="EiE-hE-pa3" secondAttribute="trailing" constant="113" id="LQx-aR-TVK"/>
+                            <constraint firstItem="9Ty-fR-zdY" firstAttribute="top" secondItem="Vnj-dh-ycx" secondAttribute="bottom" constant="37" id="NjF-7u-jYt"/>
+                            <constraint firstItem="EiE-hE-pa3" firstAttribute="top" secondItem="S4j-iA-nop" secondAttribute="top" constant="22" id="ROs-mo-1vH"/>
+                            <constraint firstItem="EiE-hE-pa3" firstAttribute="leading" secondItem="S4j-iA-nop" secondAttribute="leading" constant="119" id="ytw-4I-ZbH"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Acceuil" id="42B-7Q-7Gp"/>
                     <connections>
@@ -244,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dow-Zd-5Kl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4983" y="-1647"/>
+            <point key="canvasLocation" x="4982.608695652174" y="-1647.3214285714284"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="V8A-3l-PP1">
@@ -1827,7 +1847,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Ib-Zv-vOD"/>
-                        <color key="backgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.10895050317049026" green="0.49695092439651489" blue="0.089765869081020355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hn4-Zw-yss"/>
                     <connections>
@@ -1860,6 +1880,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirmation de compte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-nv-qi9">
+                                <rect key="frame" x="73" y="103" width="268" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <color key="textColor" red="0.090002052485942841" green="0.44656890630722046" blue="0.13961601257324219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ecrire le code" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfI-eJ-N0K">
                                 <rect key="frame" x="155" y="290" width="104" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1932,7 +1959,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJD-kb-xct">
-                                <rect key="frame" x="57" y="639" width="300" height="70"/>
+                                <rect key="frame" x="20" y="639" width="374" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
@@ -1943,18 +1970,16 @@
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseBackgroundColor" red="0.080128885805606842" green="0.1121513769030571" blue="0.32974517345428467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.0949205681681633" green="0.54416012763977051" blue="0.17553955316543579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="confirmVerif:" destination="tCX-ev-a6D" eventType="touchUpInside" id="6yS-QI-3j0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirmation de compte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQZ-nv-qi9">
-                                <rect key="frame" x="73" y="103" width="268" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass" translatesAutoresizingMaskIntoConstraints="NO" id="XMY-yQ-wcw">
+                                <rect key="frame" x="-22" y="717" width="525" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cVu-eO-aKF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2442,21 +2467,23 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="46B-pa-m0K"/>
         <segue reference="gIp-Ie-hPg"/>
         <segue reference="l9o-aF-JIj"/>
         <segue reference="LGp-9i-odU"/>
-        <segue reference="3qz-7U-hqb"/>
+        <segue reference="JoN-e1-SC4"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="Image" width="450" height="450"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="google.png" width="18" height="18"/>
+        <image name="grass" width="1280" height="370"/>
         <image name="location" catalog="system" width="128" height="118"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="pngegg-1" width="800" height="800"/>
         <image name="sifflet logo" width="1036" height="954"/>
         <image name="sportscourt" catalog="system" width="128" height="84"/>
         <image name="sportscourt.fill" catalog="system" width="128" height="84"/>
