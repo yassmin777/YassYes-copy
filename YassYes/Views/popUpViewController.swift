@@ -21,9 +21,10 @@
         var joueurAge = [String]()
         var myJoueurs : [joueurModel]?
         //variable function type specify the input and output parameters
-        var onChoose : ((_ data: joueurModel) -> ())?
+        var onChoose : ((_ data: String) -> ())?
+        //var onChoose : String?
 
-        //var stadeIId: String?
+        var equipeIId3: String?
 
         @IBOutlet weak var joueurTv: UITableView!
         override func viewDidLoad() {
@@ -71,7 +72,7 @@
             return joueur_nom.count
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "joueurI" , for:indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "popUp" , for:indexPath)
             
             let tv = cell.contentView
             let ligue_Name = tv.viewWithTag(1) as! UILabel
@@ -85,10 +86,50 @@
                 return cell
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            onChoose?( (myJoueurs?[indexPath.row])! )
-            print("toy selected from popup")
-            print((myJoueurs?[indexPath.row])!)
-            dismiss(animated: true)
+//            onChoose?( (joueur_id[indexPath.row]) )
+//            //onChoose = joueur_id[indexPath.row]
+//            print("toy selected from popup")
+//            print((joueur_id[indexPath.row]))
+            
+            //dismiss(animated: true)
+        }
+        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            // *********** EDIT ***********
+            let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
+                        (action, sourceView, completionHandler) in
+                        print(equipeIId3)
+                JoueurService.shareinstance.addJoueurToEquipe(_id:(UserDefaults.standard.string(forKey: "equipeIId3")!), joueurs_id:joueur_id[indexPath.row], completionHandler: {
+                    
+                    (isSuccess) in
+
+                    if isSuccess{
+                        print(joueur_id[indexPath.row])
+                       print("jawek behy")
+
+                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+
+
+
+                    } else {
+
+                        self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+                    }
+
+                })
+                completionHandler(true)
+            }
+                    editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
+                    // end action Edit
+            
+            // SWIPE TO LEFT CONFIGURATION
+                    let swipeConfiguration = UISwipeActionsConfiguration(actions: [ editAction])
+                    // Delete should not delete automatically
+                    swipeConfiguration.performsFirstActionWithFullSwipe = false
+            //dismiss(animated: true)
+
+                    return swipeConfiguration
+
+        
         }
         
         @IBAction func ClosePoPUp(_ sender: Any) {

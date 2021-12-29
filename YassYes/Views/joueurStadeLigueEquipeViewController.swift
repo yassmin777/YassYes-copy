@@ -37,7 +37,10 @@
                             //ligues.append(makeItem(makeItem(equipes_ids: singleLeagueJson.1)))
                             print(singleLeagueJson.1)
                        // }
-                        self.equipe_nom.removeAll()
+                            self.equipe_id.removeAll()
+                            self.equipe_nom.removeAll()
+                            self.equipe_image.removeAll()
+                            self.equipeDescription.removeAll()
                         //for i in myresult!.arrayValue{
                             let idL = singleLeagueJson.1["_id"].stringValue
                             let nom = singleLeagueJson.1["nom"].stringValue
@@ -94,8 +97,15 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if  segue.identifier == "listeJoueur1"{
         let indexPath = sender as! IndexPath
         let destination = segue.destination as! joueurStadeLigueEquipeJoueurViewController
-        destination.equipeIId = equipe_id[indexPath.row]
+        UserDefaults.standard.set(equipe_id[indexPath.row], forKey: "equipeIId3")
 
+        destination.equipeIId1 = equipe_id[indexPath.row]
+        print(equipe_id[indexPath.row])
+        print(equipe_id[indexPath.row])
+        print(equipe_id[indexPath.row])
+        print(equipe_id[indexPath.row])
+        print(equipe_id[indexPath.row])
+        
 }
 }
 

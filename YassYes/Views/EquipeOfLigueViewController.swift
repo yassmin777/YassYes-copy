@@ -31,14 +31,15 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
-                
+                print(myresult)
                 let equipes : [equipeModel]
+                self.equipe_nom.removeAll()
+
                 for singleLeagueJson in myresult!["equipes_ids"] {
                     //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
                     print(singleLeagueJson.1)
                // }
                
-                    self.equipe_nom.removeAll()
                     //for i in myresult!.arrayValue{
                         let idL = singleLeagueJson.1["_id"].stringValue
                         let nom = singleLeagueJson.1["nom"].stringValue

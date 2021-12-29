@@ -33,11 +33,12 @@
                     let myresult = try? JSON(data: response.data!)
 
                     let ligues : [ligueModel]
+                    self.ligue_nom.removeAll()
+print(myresult)
                     for singleLeagueJson in myresult!["ligues_id"] {
                         //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
                         print(singleLeagueJson.1)
                    // }
-                    self.ligue_nom.removeAll()
                     //for i in myresult!.arrayValue{
                         let idL = singleLeagueJson.1["_id"].stringValue
                         let nom = singleLeagueJson.1["nom"].stringValue

@@ -18,6 +18,8 @@
         var joueur_nom = [String]()
         var joueur_image = [String]()
         var joueurDescription = [String]()
+        var equipeIId1:String?
+        var equipeIId2:String?
 
         
         
@@ -25,7 +27,7 @@
         var toyToDemand : joueurModel?
         var myToyList : [joueurModel]?
         
-        var popUpChosenToy : joueurModel?=nil
+        var popUpChosenToy : String?=nil
         //widgets
         @IBOutlet weak var IMVToyToSwapWith: UIImageView!
         @IBOutlet weak var equipeTv: UITableView!
@@ -36,18 +38,22 @@
         }
         override func viewDidAppear(_ animated: Bool) {
             let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-            AF.request("http://localhost:3000/equipe/"+equipeIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+            AF.request("http://localhost:3000/equipe/"+equipeIId1!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
                 switch response.result{
                 case .success:
                     let myresult = try? JSON(data: response.data!)
-                    
-                    let equipes : [equipeModel]
-                    for singleLeagueJson in myresult!["equipes_ids"] {
+                    print(myresult)
+                    let joueurs : [joueurModel]
+                    self.joueur_id.removeAll()
+                    self.joueur_nom.removeAll()
+                    self.joueur_image.removeAll()
+                    self.joueurDescription.removeAll()
+
+                    for singleLeagueJson in myresult!["joueurs_id"] {
                         //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
                         print(singleLeagueJson.1)
-                   // }
-                   
-                        self.joueur_nom.removeAll()
+                        print(singleLeagueJson.1["_id"])
+//                        self.equipeIId2 = self.equipeIId1
                         //for i in myresult!.arrayValue{
                             let idL = singleLeagueJson.1["_id"].stringValue
                             let nom = singleLeagueJson.1["nom"].stringValue
@@ -130,51 +136,66 @@
                 let destination = segue.destination as! detailsJoueur21ViewController
                 destination.joueurId = joueur_id[indexPath.row]
 
+        }else if segue.identifier == "popUpViewController" {
+            let destination = segue.destination as! popUpViewController
+            //callback onchoose function to get the selected row data
+            //assign to function
+            //destination.onChoose = onChoose
+            destination.equipeIId3 = equipeIId2
+
+            print("hhhhhhhhhhhhh")
+            print(equipeIId1)
+
+            
         }
         }
         @IBAction func BtnSelectToy(_ sender: Any) {
-            performSegue(withIdentifier: "ToPopupSegue", sender: sender)
+            performSegue(withIdentifier: "ToPopupSegue", sender: nil)
         }
-        @IBAction func BtnSwapDemand(_ sender: Any) {
-            if popUpChosenToy == nil {
-                print("popUp field is empty")
-            }else {
-                var demand = Swap()
-                demand.IdClient1 = clientVM.ClientToken?._id!
-                demand.IdClient2 = toyToDemand?.OwnerId!
-                demand.IdToy1 = popUpChosenToy?._id!
-                demand.IdToy2 = toyToDemand?._id!
-                demand.Confirmed = "false"
-                print("demand swap begin")
-                print(demand)
-                print("demand swap end")
-                
-                SwapVM.addSwapDemand(swapDemand: demand, successHandler:{
-                    print("swap demand sucess")
-                } , errorHandler: {
-                    print("swap demand error")
-                }, noResponseHandler: {
-                    print("swap demand no response")
-                })
-            }
+
+//        func onChoose (_ data: String) -> () {
+//            popUpChosenToy = data
+//            print("chosen toy is ")
+//            print(popUpChosenToy!)
+
+            
+//            var path = String(Constantes.host + popUpChosenToy!.Image!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//            
+//            path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
+//            
+//            let url = URL(string: path)!
+//            IMVToyToSwapWith.af.setImage(withURL: url)
             
         }
+
+//        @IBAction func BtnSwapDemand(_ sender: Any) {
+//            if popUpChosenToy == nil {
+//                self.present(Alert.makeAlert(titre: "Avertissemt", message: "popUp field is empty"), animated: true)
+//
+//            }else {
+//                JoueurService.shareinstance.addJoueurToEquipe(_id: equipeIId1!, joueurs_id: popUpChosenToy!, completionHandler: {
+//
+//                    (isSuccess) in
+//
+//                    if isSuccess{
+//                        print(self.popUpChosenToy)
+//                       print("jawek behy")
+//
+//                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+//
+//
+//
+//                    } else {
+//
+//                        self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+//                    }
+//
+//                })
+//            }
+//
+//        }
 
     
-        func onChoose (_ data: joueurModel) -> () {
-            popUpChosenToy = data
-            print("chosen toy is ")
-            print(popUpChosenToy!)
-            
-            var path = String(Constantes.host + popUpChosenToy!.Image!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            
-            path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
-            
-            let url = URL(string: path)!
-            IMVToyToSwapWith.af.setImage(withURL: url)
-            
-        }
 
     
 
-}

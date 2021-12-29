@@ -32,7 +32,7 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
-                
+                print(myresult)
                 self.equipe_nom.removeAll()
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
@@ -94,7 +94,6 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
                 (isSuccess) in
 
                 if isSuccess{
-                    print(equipe_id[indexPath.row])
                    print("jawek behy")
 
                     self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
