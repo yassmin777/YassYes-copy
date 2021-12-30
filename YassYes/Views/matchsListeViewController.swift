@@ -84,18 +84,18 @@ print(myresult)
                         //ligues.append(makeItem(makeItem(equipes_ids: singleLeagueJson.1)))
                         print(singleLeagueJson)
                    // }
-                    //for i in myresult!.arrayValue{
-                        let idL = singleLeagueJson["_id"].stringValue
-                        let nom = singleLeagueJson["nom"].stringValue
-                        let Description = singleLeagueJson["discription"].stringValue
-                        let image = "http://localhost:3000/"+singleLeagueJson["image"].stringValue
+                    for i in singleLeagueJson["equipe_A_id"]{
+                        let idL = i.1["_id"].stringValue
+                        let nom = i.1["nom"].stringValue
+                        let Description = i.1["discription"].stringValue
+                        let image = "http://localhost:3000/"+i.1["image"].stringValue
                         self.equipe_idB.append(idL)
                         self.equipe_nomB.append(nom)
                         self.equipe_imageB.append(image)
                         self.equipeDescriptionB.append(Description)
 
 
-
+                    }
 
 
                     }
