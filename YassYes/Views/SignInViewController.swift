@@ -59,7 +59,7 @@ class SignInViewController: UIViewController {
 
             let emailAddress = user?.profile?.email
 
-            //let fullName = user?.profile?.name
+           // let hasImage = user?.profile?.imageURL(withDimension: 512)
             let givenName = user?.profile?.givenName
             let familyName = user?.profile?.familyName
             
@@ -74,10 +74,7 @@ class SignInViewController: UIViewController {
 
          }
         
-    }/*
-    func sign(signIn : GIDSignIn!, didSignInFor user: GIDGoogleUser, withError error :Error!) {
-        <#function body#>
-    }*/
+    }
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
     }
@@ -100,7 +97,7 @@ class SignInViewController: UIViewController {
         APIManger.shareInstence.login(email: email, motdepasse: motdepasse){
             (isSuccess) in
             if isSuccess{
-                if UserDefaults.standard.bool(forKey: "isProprietaireDestade")==false{
+                if UserDefaults.standard.string(forKey: "isProprietaireDestade")=="SimpleUser"{
                     self.performSegue(withIdentifier: "SimpleUser", sender: nil)
                     }else{self.performSegue(withIdentifier: "SeConnecter", sender: nil)}
             } else {

@@ -35,20 +35,17 @@ class APIManger{
         case .success(let data):
             do {
                 let json  = try JSONSerialization.jsonObject(with: data!, options: [])
-                //print(json)
+                print(json)
                 if response.response?.statusCode == 200{
             
                     let jsonData = JSON(response.data!)
                     print(jsonData)
-                    //UserDefaults.standard.set(jsonData["token"].stringValue, forKey: "token")
                     UserDefaults.standard.setValue(jsonData["token"].stringValue  , forKey: "token")
-
-                    //let jsonData = JSON(response.data!)
+                    UserDefaults.standard.setValue(jsonData["isProprietaireDeStade"].stringValue, forKey: "isProprietaireDestade")
                     UserDefaults.standard.set(jsonData["_id"].stringValue, forKey: "_id")
-                    //UserDefaults.standard.set(jsonData["prenom"].stringValue, forKey: "prenom")
-                    //UserDefaults.standard.set(jsonData["email"].stringValue, forKey: "email")
-
+                    
                     print(UserDefaults.standard.string(forKey: "token")!)
+                    print(UserDefaults.standard.string(forKey: "isProprietaireDestade"))
                     print(UserDefaults.standard.string(forKey: "_id")!)
 
                     completionHandler(true)
@@ -140,30 +137,21 @@ class APIManger{
                 
                         let jsonData = JSON(response.data!)
                         print(jsonData)
-                        //UserDefaults.standard.set(jsonData["token"].stringValue, forKey: "token")
                         UserDefaults.standard.setValue(jsonData["token"].stringValue  , forKey: "token")
-                        UserDefaults.standard.setValue(jsonData["isProprietaireDestade"].boolValue, forKey: "isProprietaireDestade")
-
-
-                        //let jsonData = JSON(response.data!)
+                        UserDefaults.standard.setValue(jsonData["isProprietaireDeStade"].stringValue, forKey: "isProprietaireDestade")
                         UserDefaults.standard.set(jsonData["_id"].stringValue, forKey: "_id")
-                        //UserDefaults.standard.set(jsonData["prenom"].stringValue, forKey: "prenom")
-                        //UserDefaults.standard.set(jsonData["email"].stringValue, forKey: "email")
 
                         print(UserDefaults.standard.string(forKey: "token")!)
-                        print(UserDefaults.standard.bool(forKey: "isProprietaireDestade"))
+                        print(UserDefaults.standard.string(forKey: "isProprietaireDestade")!)
                         print(UserDefaults.standard.string(forKey: "_id")!)
 
                         completionHandler(true)
                     }else{
                         completionHandler(false)
                     }
-                    
                 } catch  {
                     print(error.localizedDescription)
                     completionHandler(false)
-                    
-                    
                 }
             case .failure(let err):
                 print(err.localizedDescription)

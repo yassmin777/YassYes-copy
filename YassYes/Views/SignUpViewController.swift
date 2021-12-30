@@ -60,13 +60,13 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         
         
         */
-    var role:String?
-    @IBAction func choixRole(_ sender: UISegmentedControl) {
+    var role="SimpleUser"
+    @IBAction func choixRole(_ sender: UISwitch) {
         
-        if sender.selectedSegmentIndex == 0 {
-             role = "false"
-        }else if sender.selectedSegmentIndex == 1{
-            role = "true"
+        if sender.isOn {
+             role = "SimpleUser"
+        }else{
+            role = "ProprietaireDestade"
             
         }
     }
@@ -95,6 +95,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 self.performSegue(withIdentifier: "verifier", sender: nil)
 
             }else{
+                print(self.role)
                 self.present(Alert.makeAlert(titre: "failer", message: "Please try again "), animated: true)
             }
         }

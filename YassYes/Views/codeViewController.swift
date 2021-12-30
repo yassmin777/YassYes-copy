@@ -10,7 +10,7 @@ import UIKit
 
     class codeViewController: UIViewController, UITextFieldDelegate {
         
-        let isVerified = UserDefaults.standard.string(forKey: "isVerified")!
+        //let isVerified = UserDefaults.standard.string(forKey: "isVerified")!
         var x :String!="false"
         
 

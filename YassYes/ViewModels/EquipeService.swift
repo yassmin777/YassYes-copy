@@ -50,7 +50,57 @@ class EquipeService{
                 }
             }
     }
-    
+    func sccore(id: String, score: Int,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/match/"+id, method: .put, parameters:[ "score":score] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 201{
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+    func donnerDesPoint(idA: String, idB: String,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/match/up", method: .put, parameters:[ "idA":idA,"idB":idB] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 201{
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+
     
     
     func addJoueurToEquipe(_id:String, joueurs_id: String,completionHandler:@escaping (Bool)->()){

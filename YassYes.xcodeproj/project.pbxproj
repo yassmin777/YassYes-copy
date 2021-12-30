@@ -40,6 +40,7 @@
 		438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438DDF4527669F8D0033B38C /* codeViewController.swift */; };
 		439B019927654D7300B0AA2B /* paypalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439B019827654D7300B0AA2B /* paypalViewController.swift */; };
 		43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C7CA98275D61E300B717EA /* mapVCViewController.swift */; };
+		43D3B666277E2F4C00D5BA12 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */; };
 		43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9E9275BC65E00E08B81 /* stadeService.swift */; };
 		43D8A9EC275BC6D700E08B81 /* stadeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9EB275BC6D700E08B81 /* stadeModel.swift */; };
 		43D8A9F2275BD19C00E08B81 /* stadeAnnotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8A9F1275BD19C00E08B81 /* stadeAnnotion.swift */; };
@@ -111,6 +112,7 @@
 		438DDF4527669F8D0033B38C /* codeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeViewController.swift; sourceTree = "<group>"; };
 		439B019827654D7300B0AA2B /* paypalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paypalViewController.swift; sourceTree = "<group>"; };
 		43C7CA98275D61E300B717EA /* mapVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapVCViewController.swift; sourceTree = "<group>"; };
+		43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		43D8A9E9275BC65E00E08B81 /* stadeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeService.swift; sourceTree = "<group>"; };
 		43D8A9EB275BC6D700E08B81 /* stadeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeModel.swift; sourceTree = "<group>"; };
 		43D8A9F1275BD19C00E08B81 /* stadeAnnotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeAnnotion.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				430DB37D277B73740000D31C /* detailsJoueur21ViewController.swift */,
 				430DB37F277B86A30000D31C /* popUpViewController.swift */,
 				4332C860277CA73200460B7D /* matchsListeViewController.swift */,
+				43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				43442033275A47BC001D1297 /* APIManager.swift in Sources */,
 				43867C99275263F000505137 /* equipeModel.swift in Sources */,
 				E4700E982742A21B006621CA /* listeJoueurViewController.swift in Sources */,
+				43D3B666277E2F4C00D5BA12 /* ScoreViewController.swift in Sources */,
 				435FD9B727528EB20082806C /* SignUpService.swift in Sources */,
 				4332C861277CA73200460B7D /* matchsListeViewController.swift in Sources */,
 				E4700EA62742AA30006621CA /* addLigueViewController.swift in Sources */,

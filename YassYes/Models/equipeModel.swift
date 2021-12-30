@@ -17,7 +17,8 @@ struct equipeModel{
                   point:Int?=nil,
                   win:Int?=nil,
                   lose:Int?=nil,
-                  null:Int?=nil) {
+                  null:Int?=nil,
+                  score:Int?=nil) {
         self._id = _id
 
         self.image = image
@@ -29,6 +30,7 @@ struct equipeModel{
         self.win = win
         self.lose = lose
         self.null = null
+        self.score = score
     }
     let _id:String?
     let image:String?
@@ -41,4 +43,5 @@ struct equipeModel{
     let win:Int?
     let lose:Int?
     let null:Int?
+    let score:Int?
 }
