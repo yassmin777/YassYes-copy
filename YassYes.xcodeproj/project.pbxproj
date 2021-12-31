@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4307B135277F6E420025E92B /* mapSimpleUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4307B134277F6E420025E92B /* mapSimpleUserViewController.swift */; };
 		430A0898276794700076799F /* listeDeLigueDunStadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430A0897276794700076799F /* listeDeLigueDunStadeViewController.swift */; };
 		430A089C2767BBFD0076799F /* DetailsLigueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430A089B2767BBFD0076799F /* DetailsLigueViewController.swift */; };
 		430A089E2767C1CF0076799F /* EquipeOfLigueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430A089D2767C1CF0076799F /* EquipeOfLigueViewController.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4307B134277F6E420025E92B /* mapSimpleUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapSimpleUserViewController.swift; sourceTree = "<group>"; };
 		430A0897276794700076799F /* listeDeLigueDunStadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listeDeLigueDunStadeViewController.swift; sourceTree = "<group>"; };
 		430A089B2767BBFD0076799F /* DetailsLigueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLigueViewController.swift; sourceTree = "<group>"; };
 		430A089D2767C1CF0076799F /* EquipeOfLigueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipeOfLigueViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				430DB37F277B86A30000D31C /* popUpViewController.swift */,
 				4332C860277CA73200460B7D /* matchsListeViewController.swift */,
 				43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */,
+				4307B134277F6E420025E92B /* mapSimpleUserViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				E4700E9E2742A690006621CA /* listeEquipesViewController.swift in Sources */,
 				430A089E2767C1CF0076799F /* EquipeOfLigueViewController.swift in Sources */,
 				439B019927654D7300B0AA2B /* paypalViewController.swift in Sources */,
+				4307B135277F6E420025E92B /* mapSimpleUserViewController.swift in Sources */,
 				430DB37C277B70510000D31C /* joueurStadeLigueEquipeJoueurViewController.swift in Sources */,
 				4319BA22277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift in Sources */,
 				4319BA20277B27C60014FE9A /* joueurStadeLigueViewController.swift in Sources */,

@@ -138,15 +138,18 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
             let indexPath = sender as! IndexPath
             let destination = segue.destination as! joueurStadeLigueViewController
             destination.stadeIId = stade_id[indexPath.row]
+            destination.lon1 = lati[indexPath.row]
+            destination.lat1 = longi[indexPath.row]
+            destination.nom1 = stade_nom[indexPath.row]
 
         }
     }
-//        
-//        @IBAction func location(_ sender: Any) {
-//            performSegue(withIdentifier: "mapLocation", sender: nil)
-//
-//        }
-//        
+        
+        @IBAction func location(_ sender: Any) {
+            performSegue(withIdentifier: "mapLocation", sender: nil)
+
+        }
+        
 //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //            if  segue.identifier == "detailStade"{
 //                let indexPath = sender as! IndexPath

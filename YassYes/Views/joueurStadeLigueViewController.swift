@@ -16,10 +16,14 @@
     class joueurStadeLigueViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
         var ligue_id = [String]()
 
+        @IBOutlet weak var QRImage: UIImageView!
         var ligue_nom = [String]()
         var ligue_image = [String]()
         var ligueDescription = [String]()
         var stadeIId: String?
+        var nom1: String?
+        var lat1: Double?
+        var lon1: Double?
         //let _id = self().stadeIId!
 
         @IBOutlet weak var ligueTv: UITableView!
@@ -119,9 +123,27 @@
         performSegue(withIdentifier: "lesEquipe", sender: indexPath)
 
  }
-        @IBAction func classementJoueur(_ sender: Any) {
-
+        @IBAction func generateAction(_ sender: Any) {
+            let myName = nom1
+            let myLat = lat1
+            let myLong = lon1
+            if let name = myName{
+                let combinedString = "\(name)\n\(Date())est le nom de stade\(myLat!)\n\(Date())est la latitude\(myLong!)\n\(Date())est la longitude"
+                QRImage.image = GenerateQRCode(Name:combinedString)
+            }
         }
+        func GenerateQRCode(Name:String)->UIImage?{
+            let name_data = Name.data(using:String.Encoding.ascii)
+            if let filter = CIFilter(name:"CIQRCodeGenerator"){
+                filter.setValue(name_data, forKey: "inputMessage")
+                let transform = CGAffineTransform(scaleX: 3, y: 3)
+                if let output = filter.outputImage?.transformed(by: transform){
+                    return UIImage(ciImage: output)
+                }
+            }
+            return nil
+        }
+
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if  segue.identifier == "lesEquipe"{
                 let indexPath = sender as! IndexPath
