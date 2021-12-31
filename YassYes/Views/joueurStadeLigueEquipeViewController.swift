@@ -15,7 +15,7 @@
         class joueurStadeLigueEquipeViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
             var equipe_id = [String]()
             var ligueIId:String?
-
+            
             var equipe_nom = [String]()
             var equipe_image = [String]()
             var equipeDescription = [String]()
@@ -33,14 +33,15 @@
                     case .success:
                         let myresult = try? JSON(data: response.data!)
                         let equipes : [equipeModel]
+                        self.equipe_id.removeAll()
+                        self.equipe_nom.removeAll()
+                        self.equipe_image.removeAll()
+                        self.equipeDescription.removeAll()
+
                         for singleLeagueJson in myresult!["equipes_ids"] {
                             //ligues.append(makeItem(makeItem(equipes_ids: singleLeagueJson.1)))
                             print(singleLeagueJson.1)
                        // }
-                            self.equipe_id.removeAll()
-                            self.equipe_nom.removeAll()
-                            self.equipe_image.removeAll()
-                            self.equipeDescription.removeAll()
                         //for i in myresult!.arrayValue{
                             let idL = singleLeagueJson.1["_id"].stringValue
                             let nom = singleLeagueJson.1["nom"].stringValue
@@ -56,7 +57,7 @@
                             
 
                         }
-                        self.equipeTv.reloadData()
+                        self.equipeTv.reloadWithAnimation77()
                         break
 
 
@@ -106,9 +107,19 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(equipe_id[indexPath.row])
         print(equipe_id[indexPath.row])
         
-}
+}else if  segue.identifier == "classmentJoueur"{
+    //let indexPath = sender as! IndexPath
+    let destination = segue.destination as! classementViewController
+    destination.ligueIId = ligueIId
+
 }
 
+}
+            @IBAction func classemnetJoueur(_ sender: Any) {
+                performSegue(withIdentifier: "classmentJoueur", sender: nil)
+
+            }
+            
 
             /*
             func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -164,4 +175,39 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         */
 
         
+}
+extension UITableView {
+
+
+
+    func reloadWithAnimation77() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
 }

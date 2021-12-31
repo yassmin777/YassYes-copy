@@ -29,37 +29,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     }
     
     
-    /*
-    @IBAction func saveBtn(_ sender: Any) {
-        
-        guard let photoUser = self.photoUser.image else{return}
-        guard let nom = self.nom.text else{return}
-        guard let prenom = self.prenom.text else{return}
-        guard let email = self.email.text else{return}
-        guard let motdepasse = self.motdepasse.text else{return}
-        guard let isProprietaireDestade = self.isProprietaireDestade.text else{return}
-        let admin = adminModel(photo: "", _id:"",nom: nom, prenom: prenom, email: email, motdepasse: motdepasse, isProprietaireDestade: isProprietaireDestade)
-        if( self.nom.text!.isEmpty || self.prenom.text!.isEmpty || self.email.text!.isEmpty || self.motdepasse.text!.isEmpty || self.isProprietaireDestade.text!.isEmpty){
-            self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
-            return
-        }else
-            if (!(self.confirmermotdepasse.text! == self.motdepasse.text!)){
-                                         self.present(Alert.makeAlert(titre: "Error", message: "Passwords don't match, please verify and try again"), animated: true)
-            return
-                         }
-        APIManger.shareInstence.register(photo:photoUser,admin: admin){
-            (isSuccess) in
-            if isSuccess{
-                self.present(Alert.makeAlert(titre: "Alert", message: "User register successfully"), animated: true)
-            } else {
-                self.present(Alert.makeAlert(titre: "Alert", message: "Please try again "), animated: true)
-            }
-        }
-
-        
-        
-        
-        */
+   
     var role="SimpleUser"
     @IBAction func choixRole(_ sender: UISwitch) {
         

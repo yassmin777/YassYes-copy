@@ -14,7 +14,9 @@ struct stadeModel{
                   lat: Double?=nil,
                   lon: Double?=nil,
                   discription: String?=nil,
-                  ligues_id: [ligueModel]?=nil
+                  ligues_id: [ligueModel]?=nil,
+                  num : String? = nil
+
 ) {
         self._id = _id
 
@@ -25,6 +27,8 @@ struct stadeModel{
         self.lon = lon
         self.discription = discription
         self.ligues_id = ligues_id
+        self.num = num
+
     }
     let _id:String?
     let admin:adminModel?
@@ -35,4 +39,6 @@ struct stadeModel{
     //var capacity: Int
     let discription:String?
     let ligues_id: [ligueModel]?
+    let num:String?
+
 }

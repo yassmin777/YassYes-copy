@@ -17,6 +17,7 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
         var stade_id = [String]()
         var lati = [Double]()
         var longi = [Double]()
+        var num = [String]()
         var stade_image = [String]()
         var stadeDescription = [String]()
 
@@ -37,18 +38,27 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
                 case .success:
                     let myresult = try? JSON(data: response.data!)
                     print(myresult)
+                    self.stade_id.removeAll()
                     self.stade_nom.removeAll()
+                    self.num.removeAll()
+                    self.longi.removeAll()
+                    self.lati.removeAll()
+                    self.stade_image.removeAll()
+                    self.stadeDescription.removeAll()
+                    self.coor.removeAll()
                     for i in myresult!.arrayValue{
                         let id = i["_id"].stringValue
                         let nom = i["nom"].stringValue
                         let lat = i["lat"].doubleValue
                         let long = i["lon"].doubleValue
+                        let num = i["num"].stringValue
                         let stadeDescription = i["discription"].stringValue
                         let image = "http://localhost:3000/"+i["image"].stringValue
                         self.stade_id.append(id)
                         self.stade_nom.append(nom)
                         self.lati.append(lat)
                         self.longi.append(long)
+                        self.num.append(num)
                         self.stade_image.append(image)
                         self.stadeDescription.append(stadeDescription)
                         let Coords = CLLocationCoordinate2D(latitude: lat, longitude: long)
@@ -84,9 +94,11 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
             let stade_Name = tv.viewWithTag(1) as! UILabel
             let mapp = tv.viewWithTag(2) as! MKMapView
             let stadeImage = tv.viewWithTag(3) as! UIImageView
+            let stadeNum = tv.viewWithTag(4) as! UILabel
+
             
-            
-            stade_Name.text = stade_nom[indexPath.row]
+        stade_Name.text = stade_nom[indexPath.row]
+        stadeNum.text = num[indexPath.row]
             mapp.setRegion(MKCoordinateRegion(center: coor[indexPath.row], span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)), animated: true)
 
             var path = String(stade_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!

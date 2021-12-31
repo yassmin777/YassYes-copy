@@ -63,3 +63,5 @@ class detailsJoueur21ViewController: UIViewController {
                                            
     }
 }
+
+

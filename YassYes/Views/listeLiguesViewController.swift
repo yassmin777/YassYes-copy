@@ -33,7 +33,10 @@ import AlamofireImage
                     case .success:
                         let myresult = try? JSON(data: response.data!)
                         
+                        self.ligue_id.removeAll()
                         self.ligue_nom.removeAll()
+                        self.ligue_image.removeAll()
+                        self.ligueDescription.removeAll()
                         for i in myresult!.arrayValue{
                             let idL = i["_id"].stringValue
                             let nom = i["nom"].stringValue
@@ -49,7 +52,7 @@ import AlamofireImage
                             
 
                         }
-                        self.ligueTv.reloadData()
+                        self.ligueTv.reloadWithAnimation22()
                         break
 
 
@@ -170,3 +173,38 @@ import AlamofireImage
             
         
         }
+extension UITableView {
+
+
+
+    func reloadWithAnimation22() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
+}

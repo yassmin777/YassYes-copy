@@ -49,6 +49,10 @@ class DetailsLigueViewController: UIViewController {
         self.performSegue(withIdentifier: "listeDesMatchs", sender: nil)
 
     }
+    @IBAction func classement(_ sender: Any) {
+        self.performSegue(withIdentifier: "Classment", sender: nil)
+
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "addEquipeToLigue"{
            // let indexPath = sender as! IndexPath
@@ -65,7 +69,13 @@ class DetailsLigueViewController: UIViewController {
               let destination = segue.destination as! matchsListeViewController
               destination.ligueIId = ligueId
 
-          }
+          }else if  segue.identifier == "Classment"{
+              // let indexPath = sender as! IndexPath
+               let destination = segue.destination as! classementViewController
+               destination.ligueIId = ligueId
+
+           }
+
 
 
     }

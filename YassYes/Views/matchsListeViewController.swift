@@ -42,6 +42,10 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                 self.equipe_nomA.removeAll()
                 self.equipe_imageA.removeAll()
                 self.equipeDescriptionA.removeAll()
+                self.equipe_idB.removeAll()
+                self.equipe_nomB.removeAll()
+                self.equipe_imageB.removeAll()
+                self.equipeDescriptionB.removeAll()
                 for singleLeagueJson in myresult!["equipe_A_id"] {
                     //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
                     print(singleLeagueJson.1)
@@ -87,7 +91,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                                 
                                 
                             }
-                            self.matchTv.reloadData()
+                            self.matchTv.reloadWithAnimation2()
                             break
                         case .failure:
                             print(response.error!)
@@ -148,13 +152,13 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
             if isSuccess{
                 print("jawek behy")
                 
-                self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+                self.present(Alert.makeAlert(titre: "Sucsses", message: "Matchs gérer"), animated: true)
                 
                 
                 
             } else {
                 
-                self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+                self.present(Alert.makeAlert(titre: "Error", message: " Nombre des equipes est insuffisant"), animated: true)
             }
             
         })
@@ -182,4 +186,39 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
             
         }
     }
+}
+extension UITableView {
+
+
+
+    func reloadWithAnimation2() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
 }

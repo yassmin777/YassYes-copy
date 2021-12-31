@@ -18,6 +18,7 @@ public class Alert {
     
         static func makeActionAlert(titre: String?, message: String?, action: UIAlertAction) -> UIAlertController {
         let alert = UIAlertController(title: titre, message: message, preferredStyle: .alert)
+            
         alert.addAction(action)
         return(alert)
     }

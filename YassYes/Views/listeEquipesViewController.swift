@@ -10,10 +10,7 @@ import SwiftyJSON
 import Alamofire
 import MapKit
 import AlamofireImage
-
-
-        @available(iOS 11.0, *)
-
+@available(iOS 11.0, *)
 class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     var equipe_id = [String]()
     //var ligueIId:String?
@@ -25,8 +22,6 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
     @IBOutlet weak var equipeTv: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
@@ -35,7 +30,11 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
             case .success:
                 let myresult = try? JSON(data: response.data!)
                 
+                self.equipe_id.removeAll()
                 self.equipe_nom.removeAll()
+                self.equipe_image.removeAll()
+                self.equipeDescription.removeAll()
+
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
@@ -45,23 +44,14 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
                     self.equipe_nom.append(nom)
                     self.equipe_image.append(image)
                     self.equipeDescription.append(Description)
-                    
-
-                    
-                    
-
                 }
-                self.equipeTv.reloadData()
+                self.equipeTv.reloadWithAnimation1()
                 break
-
-
-                
             case .failure:
                 print(response.error!)
                 break
             }
         }
-        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -83,38 +73,17 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
         var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
                path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
-
-
-
                 let url = URL(string: path)!
-
-               
-
-
-
                 print(url)
-
-
         equipeImage.af.setImage(withURL: url)
-
-        
             return cell
-        
-        
-        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "detailsEquipe", sender: indexPath)
-
-
     }
     @IBAction func addjouterLigueBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "addEquipe", sender: nil)
     }
-
-   /* func testSegue(_ identifier: String!, sender:AnyObject!){
-        performSegue(withIdentifier: identifier, sender: sender)
-    }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "detailsEquipe"{
             let indexPath = sender as! IndexPath
@@ -126,4 +95,39 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
 
         }
     }
+}
+extension UITableView {
+
+
+
+    func reloadWithAnimation1() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
 }

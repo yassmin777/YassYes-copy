@@ -33,7 +33,10 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
                 let myresult = try? JSON(data: response.data!)
                 print(myresult)
                 let equipes : [equipeModel]
+                self.equipe_id.removeAll()
                 self.equipe_nom.removeAll()
+                self.equipe_image.removeAll()
+                self.equipeDescription.removeAll()
 
                 for singleLeagueJson in myresult!["equipes_ids"] {
                     //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
@@ -54,7 +57,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
                     
 
                 }
-                self.equipeTv.reloadData()
+                self.equipeTv.reloadWithAnimation55()
                 break
 
 
@@ -167,5 +170,40 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
     
     }
 */
+
+}
+extension UITableView {
+
+
+
+    func reloadWithAnimation55() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
 
 }

@@ -68,7 +68,7 @@
                         
 
                     }
-                    self.equipeTv.reloadData()
+                    self.equipeTv.reloadWithAnimation88()
                     break
 
 
@@ -152,50 +152,57 @@
         @IBAction func BtnSelectToy(_ sender: Any) {
             performSegue(withIdentifier: "ToPopupSegue", sender: nil)
         }
-
-//        func onChoose (_ data: String) -> () {
-//            popUpChosenToy = data
-//            print("chosen toy is ")
-//            print(popUpChosenToy!)
-
-            
-//            var path = String(Constantes.host + popUpChosenToy!.Image!).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//            
-//            path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
-//            
-//            let url = URL(string: path)!
-//            IMVToyToSwapWith.af.setImage(withURL: url)
-            
         }
 
-//        @IBAction func BtnSwapDemand(_ sender: Any) {
-//            if popUpChosenToy == nil {
-//                self.present(Alert.makeAlert(titre: "Avertissemt", message: "popUp field is empty"), animated: true)
-//
-//            }else {
-//                JoueurService.shareinstance.addJoueurToEquipe(_id: equipeIId1!, joueurs_id: popUpChosenToy!, completionHandler: {
-//
-//                    (isSuccess) in
-//
-//                    if isSuccess{
-//                        print(self.popUpChosenToy)
-//                       print("jawek behy")
-//
-//                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
-//
-//
-//
-//                    } else {
-//
-//                        self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
-//                    }
-//
-//                })
-//            }
-//
-//        }
+
+    
+extension UITableView {
+
+
+
+    func reloadWithAnimation88() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
+}
+
+
+
+
+
+
 
     
 
-    
+
+
+
+
+
 

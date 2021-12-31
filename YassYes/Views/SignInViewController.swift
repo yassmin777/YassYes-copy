@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import LocalAuthentication
 
 class SignInViewController: UIViewController {
     
@@ -101,7 +102,7 @@ class SignInViewController: UIViewController {
                     self.performSegue(withIdentifier: "SimpleUser", sender: nil)
                     }else{self.performSegue(withIdentifier: "SeConnecter", sender: nil)}
             } else {
-                self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
+                self.present(Alert.makeAlert(titre: "Alert", message: "Please try again "), animated: true)
             }
         }
 
@@ -149,4 +150,31 @@ class SignInViewController: UIViewController {
         }
         
     }
+    
+    
+    
+    @IBAction func touchID(_ sender: Any) {
+        let localString = "Biometric Authentication"
+        let context = LAContext()
+           var error: NSError?
+
+           if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+               let reason = "Identify yourself!"
+
+               context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                   [weak self] success, authenticationError in
+
+                   DispatchQueue.main.async {
+                       if success {
+                           self!.performSegue(withIdentifier: "SimpleUser", sender: IndexPath.self)
+                       } else {
+                           // error
+                       }
+                   }
+               }
+           } else {
+               // no biometry
+    }
+    }
+    
 }

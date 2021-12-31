@@ -22,10 +22,11 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
 
     var locationManager: CLLocationManager!
 
-    var mapView: MKMapView!
+    //var mapView: MKMapView!
 
     
-
+    @IBOutlet var mapView: MKMapView!
+    
     let centerMapButton: UIButton = {
 
         let button = UIButton(type: .system)
@@ -50,8 +51,11 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
 
     
     var annotationsLocation = [[String : Any]]()
+//    let annotationsLocation = [
+// ["longitude": 10.689226695846768, "latitude": 34.770598137766015, "title": "Nill"], ["title": "yassine", "latitude": 36.76721868062337, "longitude": 10.190588335688258]]
 
     override func viewDidAppear(_ animated: Bool) {
+
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
@@ -63,10 +67,27 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
                     let lat = i["lat"].doubleValue
                     let long = i["lon"].doubleValue
                     self.annotationsLocation.append(
-                        ["title": nom, "latitude": lat, "longitude": long]
-                    )
+                        ["title": nom, "latitude": lat, "longitude": long])
+                    let annotations = MKPointAnnotation()
+
+                    annotations.title = nom as? String
+                    print("hhhhhhhhhghhgghghghgghg")
+                    print(lat)
+
+                    print("hhhhhhhhhghhgghghghgghg")
+
+
+                    annotations.coordinate = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees, longitude: long as! CLLocationDegrees)
+
+
+
+                    
+
+                    self.mapView.addAnnotation(annotations)
+
 
                 }
+                //self.mapView.region
                 print(self.annotationsLocation)
                 break
 
@@ -77,13 +98,13 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
                 break
             }
         }
-        configureLocationManager()
-
-        configureMapView()
-
-        enableLocationServices()
-
-        createAnnotation(locations:annotationsLocation)
+//        configureLocationManager()
+//
+//        configureMapView()
+//
+//        enableLocationServices()
+//
+//        createAnnotation(locations:annotationsLocation)
 
 
     }
@@ -174,8 +195,6 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
 
     
 
-//   let annotationsLocation = [
-//["longitude": 10.689226695846768, "latitude": 34.770598137766015, "title": "Nill"], ["title": "yassine", "latitude": 36.76721868062337, "longitude": 10.190588335688258]]
 //
 //        ["title": "Nill", "latitude": 34.770598137766015, "longitude": 10.689226695846768],
     //    ["title": "yassine", "latitude": 36.76721868062337, "longitude": 10.190588335688258]
@@ -220,6 +239,11 @@ class mapVCViewController: UIViewController , UISearchBarDelegate{
             let annotations = MKPointAnnotation()
 
             annotations.title = location["title"] as? String
+            print("hhhhhhhhhghhgghghghgghg")
+            print(location["title"])
+
+            print("hhhhhhhhhghhgghghghgghg")
+
 
             annotations.coordinate = CLLocationCoordinate2D(latitude: location["latitude"]as! CLLocationDegrees, longitude: location["longitude"] as! CLLocationDegrees)
 

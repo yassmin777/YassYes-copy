@@ -172,4 +172,23 @@ class ProfileView: UIViewController, ModalDelegate {
     }
 }
 */
+    @IBOutlet weak var switchthemeBtn: UIButton!
+    
+    @IBAction func switchTheme(_ sender: Any) {
+        let window = UIApplication.shared.keyWindow
+            if #available(iOS 13.0, *) {
+                if window?.overrideUserInterfaceStyle == .dark {
+                   
+                    switchthemeBtn.setTitle("Light mode", for: .normal)
+                    window?.overrideUserInterfaceStyle = .light
+                } else {
+                  
+                    window?.overrideUserInterfaceStyle = .dark
+                    switchthemeBtn.setTitle("Dark mode", for: .normal)
+                }
+            }
+    }
+    
+    
+    
 }

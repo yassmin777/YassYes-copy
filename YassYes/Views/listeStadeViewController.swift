@@ -38,6 +38,12 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
                 let myresult = try? JSON(data: response.data!)
                 print(myresult)
                 self.stade_nom.removeAll()
+                self.stade_id.removeAll()
+                self.lati.removeAll()
+                self.longi.removeAll()
+                self.stade_image.removeAll()
+                self.stadeDescription.removeAll()
+                self.coor.removeAll()
                 for i in myresult!.arrayValue{
                     let id = i["_id"].stringValue
                     let nom = i["nom"].stringValue
@@ -58,7 +64,7 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
                     
 
                 }
-                self.tableVienStade.reloadData()
+                self.tableVienStade.reloadWithAnimation6()
                 break
 
 
@@ -131,9 +137,6 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
         self.performSegue(withIdentifier: "interfaceAddStade", sender: nil)
 
     }
-    /* func testSegue(_ identifier: String!, sender:AnyObject!){
-        performSegue(withIdentifier: identifier, sender: sender)
-    }*/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  segue.identifier == "detailStade"{
             let indexPath = sender as! IndexPath
@@ -145,78 +148,40 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
 
         }
     }
-    /*
-    /**let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-     AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
-     switch response.result{
-     case .success(let data):
-     do {
-     let json  = try JSONSerialization.jsonObject(with: data!, options: [])
-     self.stadeName.removeAll()
-     for i in json!.arrayValue {
-     let nom = i["nom"].stringValue
-     self.stadeName.append(contentsOf: nom)
-     }
-     self.listeStadeViewController.reloadData()
-     }
-     case .failure(let err):
-     print(err.localizedDescription)
-     }
-     }*/
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    /* func setupCell(ligue:ligueModel,stade:stadeModel){
-     print("initializing profile")
-     
-     stadeService.shareInstence.getAllChat(_id: _id,completionHandler: {
-     isSuccess, [stade] in
-     if isSuccess{
-     self.stade=stade
-     //self.ligue=ligue
-     //self.nomLigue.text = self.ligue.nom
-     self.stadeName.removeAll()
-     //for (key,value) in stade as! [String: Any] {
-     sta
-     
-     
-     
-     //self.nomStade.text = self.stade.nom
-     }
-     
-     })
-     }
-     */
-    func intialiseStade() {
-        print("initializing stade")
-        
-        stadeService.shareInstence.getstades(_id: _id,completionHandler: {
-            isSuccess, stadess in
-            if isSuccess{
-                self.stades = stadess!
-                self.tableVienStade.reloadData()
-                
-            }
-        })
-        
-        
-        
+   
+}
+extension UITableView {
 
-        
-        
-        
-        
-        
-        
+
+
+    func reloadWithAnimation6() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
     }
-      */
 
 }

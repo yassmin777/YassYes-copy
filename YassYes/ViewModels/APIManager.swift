@@ -138,11 +138,11 @@ class APIManger{
                         let jsonData = JSON(response.data!)
                         print(jsonData)
                         UserDefaults.standard.setValue(jsonData["token"].stringValue  , forKey: "token")
-                        UserDefaults.standard.setValue(jsonData["isProprietaireDeStade"].stringValue, forKey: "isProprietaireDestade")
+                        UserDefaults.standard.setValue(jsonData["isProprietaireDestade"].stringValue, forKey: "isProprietaireDestade")
                         UserDefaults.standard.set(jsonData["_id"].stringValue, forKey: "_id")
-
+                        
                         print(UserDefaults.standard.string(forKey: "token")!)
-                        print(UserDefaults.standard.string(forKey: "isProprietaireDestade")!)
+                        print(UserDefaults.standard.string(forKey: "isProprietaireDestade"))
                         print(UserDefaults.standard.string(forKey: "_id")!)
 
                         completionHandler(true)

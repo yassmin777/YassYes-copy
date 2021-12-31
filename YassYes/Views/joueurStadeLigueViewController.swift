@@ -59,7 +59,7 @@
                         
 
                     }
-                    self.ligueTv.reloadData()
+                    self.ligueTv.reloadWithAnimation66()
                     break
 
 
@@ -119,77 +119,18 @@
         performSegue(withIdentifier: "lesEquipe", sender: indexPath)
 
  }
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if  segue.identifier == "lesEquipe"{
-             let indexPath = sender as! IndexPath
-             let destination = segue.destination as! joueurStadeLigueEquipeViewController
-             destination.ligueIId = ligue_id[indexPath.row]
+        @IBAction func classementJoueur(_ sender: Any) {
 
-         }
-        
-        /*
-        func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            // *********** EDIT ***********
-            let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
-                        (action, sourceView, completionHandler) in
-                        // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
-                /*
-                stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
-                    if success {
-                        self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
-                    }else{
-                        self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
-
-                    }
-                        
-                        print(self.stadeIId)
-                    print(ligue_id[indexPath.row])
-                        
-                        
-                    }*/
-                stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id:ligue_id[indexPath.row], completionHandler: {
-                    
-                    (isSuccess) in
-
-                    if isSuccess{
-                        print(ligue_id[indexPath.row])
-                       print("jawek behy")
-
-                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
-
-
-
-                    } else {
-
-                        self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
-                    }
-
-                })
-                completionHandler(true)
-            }
-                    editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
-                    // end action Edit
-            
-            // SWIPE TO LEFT CONFIGURATION
-                    let swipeConfiguration = UISwipeActionsConfiguration(actions: [ editAction])
-                    // Delete should not delete automatically
-                    swipeConfiguration.performsFirstActionWithFullSwipe = false
-                    
-                    return swipeConfiguration
-        
-        }*/
-        /*
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if  segue.identifier == "addLigue"{
-                let indexPath = sender as! IndexPath
-                let destination = segue.destination as! addligue
-                destination.ligueId = ligue_id[indexPath.row]
-                destination.stadeIId = stadeIId
-               
-
-            }
         }
-    */
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if  segue.identifier == "lesEquipe"{
+                let indexPath = sender as! IndexPath
+                let destination = segue.destination as! joueurStadeLigueEquipeViewController
+                destination.ligueIId = ligue_id[indexPath.row]
+
+           
+            }
+        
         func makeItem(jsonItem: JSON) -> ligueModel {
         //let isoDate = jsonItem["dateNaissance"]
             ligueModel(
@@ -202,3 +143,38 @@
     }
     }
     }
+extension UITableView {
+
+
+
+    func reloadWithAnimation66() {
+
+        self.reloadData()
+
+        let tableViewHeight = self.bounds.size.height
+
+        let cells = self.visibleCells
+
+        var delayCounter = 0
+
+        for cell in cells {
+
+            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
+
+        }
+
+        for cell in cells {
+
+            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+
+                cell.transform = CGAffineTransform.identity
+
+            }, completion: nil)
+
+            delayCounter += 1
+
+        }
+
+    }
+
+}

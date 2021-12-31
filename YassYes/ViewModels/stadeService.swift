@@ -83,7 +83,8 @@ class stadeService{
             let ParametersS = [ "nom": stade.nom!,
                                 "lat": stade.lat!,
                                 "lon": stade.lon!,
-                                "discription": stade.discription!
+                                "discription": stade.discription!,
+                                "num": stade.num!
             ] as [String : Any]
             for (key, value) in ParametersS {
                 if let temp = value as? String {

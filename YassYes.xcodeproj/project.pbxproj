@@ -69,12 +69,7 @@
 		E4700EB02742B196006621CA /* stadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EAF2742B196006621CA /* stadeViewController.swift */; };
 		E4700EB22742B280006621CA /* listeLiguesStadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EB12742B280006621CA /* listeLiguesStadeViewController.swift */; };
 		E4700EB42742B2D2006621CA /* modifierStadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EB32742B2D2006621CA /* modifierStadeViewController.swift */; };
-		E4700EB62742B3AB006621CA /* listeArbitreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EB52742B3AB006621CA /* listeArbitreViewController.swift */; };
-		E4700EB82742B400006621CA /* arbitreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EB72742B400006621CA /* arbitreViewController.swift */; };
-		E4700EBA2742B46B006621CA /* addArbitreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EB92742B46B006621CA /* addArbitreViewController.swift */; };
-		E4700EBC2742C83F006621CA /* arbitreHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EBB2742C83F006621CA /* arbitreHomeViewController.swift */; };
 		E4700EBE2742CAB0006621CA /* classementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EBD2742CAB0006621CA /* classementViewController.swift */; };
-		E4700EC02742CCFF006621CA /* debutMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4700EBF2742CCFF006621CA /* debutMatchViewController.swift */; };
 		E4E5E18A2740063600084FFA /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5E1892740063600084FFA /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,12 +140,7 @@
 		E4700EAF2742B196006621CA /* stadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stadeViewController.swift; sourceTree = "<group>"; };
 		E4700EB12742B280006621CA /* listeLiguesStadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listeLiguesStadeViewController.swift; sourceTree = "<group>"; };
 		E4700EB32742B2D2006621CA /* modifierStadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modifierStadeViewController.swift; sourceTree = "<group>"; };
-		E4700EB52742B3AB006621CA /* listeArbitreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listeArbitreViewController.swift; sourceTree = "<group>"; };
-		E4700EB72742B400006621CA /* arbitreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arbitreViewController.swift; sourceTree = "<group>"; };
-		E4700EB92742B46B006621CA /* addArbitreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addArbitreViewController.swift; sourceTree = "<group>"; };
-		E4700EBB2742C83F006621CA /* arbitreHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arbitreHomeViewController.swift; sourceTree = "<group>"; };
 		E4700EBD2742CAB0006621CA /* classementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classementViewController.swift; sourceTree = "<group>"; };
-		E4700EBF2742CCFF006621CA /* debutMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debutMatchViewController.swift; sourceTree = "<group>"; };
 		E4E5E1892740063600084FFA /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,12 +177,7 @@
 				E4700EAF2742B196006621CA /* stadeViewController.swift */,
 				E4700EB12742B280006621CA /* listeLiguesStadeViewController.swift */,
 				E4700EB32742B2D2006621CA /* modifierStadeViewController.swift */,
-				E4700EB52742B3AB006621CA /* listeArbitreViewController.swift */,
-				E4700EB72742B400006621CA /* arbitreViewController.swift */,
-				E4700EB92742B46B006621CA /* addArbitreViewController.swift */,
-				E4700EBB2742C83F006621CA /* arbitreHomeViewController.swift */,
 				E4700EBD2742CAB0006621CA /* classementViewController.swift */,
-				E4700EBF2742CCFF006621CA /* debutMatchViewController.swift */,
 				4360931D2753C0BC00101D21 /* profileViewController.swift */,
 				4360931F2753D4B500101D21 /* updateProfileViewController.swift */,
 				43D8A9F3275BE37500E08B81 /* listeStadeViewController.swift */,
@@ -436,12 +421,10 @@
 				E4700EA82742ABCE006621CA /* ligueViewController.swift in Sources */,
 				4314ECBD2755195800235E20 /* NetworkingService.swift in Sources */,
 				4360931E2753C0BC00101D21 /* profileViewController.swift in Sources */,
-				E4700EB82742B400006621CA /* arbitreViewController.swift in Sources */,
 				43867C9B2752641F00505137 /* EquipeService.swift in Sources */,
 				E4700EAA2742AD2C006621CA /* listeEquipesLigueViewController.swift in Sources */,
 				4350D439276CDBD5007FD3A1 /* AddEquipeViewController.swift in Sources */,
 				E4E5E18A2740063600084FFA /* PaymentViewController.swift in Sources */,
-				E4700EB62742B3AB006621CA /* listeArbitreViewController.swift in Sources */,
 				431DEC01276257E400AEB066 /* matchModel.swift in Sources */,
 				E4700E9A2742A287006621CA /* addJoueurViewController.swift in Sources */,
 				43D8A9F4275BE37500E08B81 /* listeStadeViewController.swift in Sources */,
@@ -455,10 +438,7 @@
 				E4700E962742A124006621CA /* modifierJoueurViewController.swift in Sources */,
 				43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */,
 				438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */,
-				E4700EBA2742B46B006621CA /* addArbitreViewController.swift in Sources */,
 				43867C95275249FC00505137 /* JoueurService.swift in Sources */,
-				E4700EC02742CCFF006621CA /* debutMatchViewController.swift in Sources */,
-				E4700EBC2742C83F006621CA /* arbitreHomeViewController.swift in Sources */,
 				E4700EB42742B2D2006621CA /* modifierStadeViewController.swift in Sources */,
 				435FD9B92752916D0082806C /* adminModel.swift in Sources */,
 				43867C972752565200505137 /* joueurModel.swift in Sources */,
@@ -641,6 +621,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YassYes/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Siflet would like to access Biometrics";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -671,6 +652,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YassYes/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Siflet would like to access Biometrics";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

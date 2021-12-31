@@ -87,6 +87,16 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
             self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
             return
         }
+        if( Int(ageJoueur.text!) == nil || Int(longueurJoueur.text!) == nil || Int(poidsJoueur.text!) == nil || Int(numJoueur.text!) == nil){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "il faut entre un numero"), animated: true)
+            return
+        }
+        if(  numJoueur.text!.count != 8){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "il faut entrer 8  numero"), animated: true)
+            return
+        }
+
+
         
         let joueurd = joueurModel(  nom: nomJoueur.text!,prenom: prenomJoueur.text!,age: ageJoueur.text!,taille: poidsJoueur.text!,longueur: longueurJoueur.text!, num:numJoueur.text!, discription: discriptionJoueur.text!)
         JoueurService.shareinstance.addjoueurHH(joueur: joueurd, uiImage: currentPhoto!) { success in

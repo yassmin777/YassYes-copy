@@ -20,6 +20,7 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
     @IBOutlet weak var nomStade: UITextField!
     @IBOutlet weak var descStade: UITextField!
    
+    @IBOutlet weak var numStade: UITextField!
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -62,7 +63,7 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
             let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
             latitudeVal = locationCoordinate.latitude
             longitudeVal = locationCoordinate.longitude
-            print("Cliker sur latitude: \(locationCoordinate.latitude), Longitude\(locationCoordinate.longitude)")
+            print("latitude: \(locationCoordinate.latitude), Longitude:  \(locationCoordinate.longitude)")
             
             let myPin = MKPointAnnotation()
             myPin.coordinate = locationCoordinate
@@ -81,39 +82,6 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
     }
 
 
-        @IBAction func saveStadeBtn(_ sender: Any) {
-            /*
-        guard let nom = self.nomStade.text else{return}
-        guard let descStade = self.descStade.text else{return}
-
-            let admin = adminModel(photo:"",_id:"",nom: "", prenom: "", email: "", motdepasse: "", isProprietaireDestade: "")
-        
-        if( self.nomStade.text!.isEmpty || latitudeVal! == 0 || longitudeVal! == 0 || self.descStade.text!.isEmpty){
-            self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
-            return
-        }
-            let stade = stadeModel(_id:"",admin :admin,nom: nom, lat: latitudeVal!, lon: longitudeVal!, discription: descStade)
-        stadeService.shareInstence.addStade(stade: stade){
-            (isSuccess) in
-            if isSuccess{
-                self.present(Alert.makeAlert(titre: "Alert", message: "Stade register successfully"), animated: true)
-            } else {
-                self.present(Alert.makeAlert(titre: "Alert", message: "Please try again "), animated: true)
-            }
-        }
-
-
-        
-        
-        */
-
-    }
-    /*func mapView(mapV:MKMapView, rendererFor overlay: MKOverlay) ->MKOverlayRenderer {
-        let render = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        
-        renderer.strokeColor = .bluerendrer
-    }
-*/
     @IBAction func validation(_ sender: UIButton) {
      
         if (currentPhoto == nil){
@@ -121,12 +89,20 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
             return
         }
         
-        if( self.nomStade.text!.isEmpty || latitudeVal == nil || longitudeVal == nil || self.descStade.text!.isEmpty ){
+        if( self.nomStade.text!.isEmpty || latitudeVal == nil || longitudeVal == nil || self.descStade.text!.isEmpty || self.numStade.text!.isEmpty ){
             self.present(Alert.makeAlert(titre: "Missing info !", message: "Please make sure to fill all the form and try again"), animated: true)
             return
         }
+        if( Int(numStade.text!) == nil ){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "il faut entre un numero"), animated: true)
+            return
+        }
+        if(  numStade.text!.count != 8){
+            self.present(Alert.makeAlert(titre: "Missing info !", message: "il faut entrer 8  numero"), animated: true)
+        }
+
         
-        let staded = stadeModel(  nom: nomStade.text!, lat: latitudeVal!, lon: longitudeVal!, discription: descStade.text!)
+        let staded = stadeModel(  nom: nomStade.text!, lat: latitudeVal!, lon: longitudeVal!, discription: descStade.text!,num:numStade.text!)
         stadeService.shareInstence.addstade(stade: staded, uiImage: currentPhoto!) { success in
             if success {
                 //self.present(Alert.makeAlert(titre: "Success", message: "stade ajouté"),animated: true)

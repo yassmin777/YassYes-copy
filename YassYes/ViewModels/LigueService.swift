@@ -117,7 +117,40 @@ class LigueService{
             }
         }
     }
-    
+    func triClassement(_id:String,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request("http://localhost:3000/ligue/triclassement/"+_id, method: .put , headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 201{
+                        print("hhhhhh")
+                        print(_id)
+                        print("hhhhhh")
+                        print(_id)
+                        //let jsonData = JSON(response.data!)
+                        //let user = self.makeItemstade(jsonItem: jsonData)
+                        completionHandler(true)
+
+                        //print(user)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
+
     func classement(idA: String, idB: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request("http://localhost:3000/ligue/classement", method: .put, parameters:[ "idA":idA,"idB":idB] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
