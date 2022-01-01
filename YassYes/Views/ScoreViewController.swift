@@ -90,15 +90,7 @@ class ScoreViewController: UIViewController {
 
             }
         }
-        EquipeService.shareinstance.sccore(id: equipeIdB!, score: Int(scoreb)!) { success in
-            if success {
-                self.present(Alert.makeAlert(titre: "Success", message: "sccore ajouté"),animated: true)
 
-            }else{
-                self.present(Alert.makeAlert(titre: "failed", message: " Equipe exist try again"),animated: true)
-
-            }
-        }
     }
 
 
