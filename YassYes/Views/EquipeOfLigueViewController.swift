@@ -18,6 +18,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
     var equipe_nom = [String]()
     var equipe_image = [String]()
     var equipeDescription = [String]()
+    var nombreDeJoueur = [Int]()
 
     @IBOutlet weak var equipeTv: UITableView!
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
                 self.equipe_nom.removeAll()
                 self.equipe_image.removeAll()
                 self.equipeDescription.removeAll()
+                self.nombreDeJoueur.removeAll()
 
                 for singleLeagueJson in myresult!["equipes_ids"] {
                     //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
@@ -45,13 +47,15 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
                
                     //for i in myresult!.arrayValue{
                         let idL = singleLeagueJson.1["_id"].stringValue
-                        let nom = singleLeagueJson.1["nom"].stringValue
+                    let nom = singleLeagueJson.1["nom"].stringValue
+                    let nbJ = singleLeagueJson.1["nbJ"].intValue
                         let Description = singleLeagueJson.1["discription"].stringValue
                         let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
                         self.equipe_id.append(idL)
                         self.equipe_nom.append(nom)
                         self.equipe_image.append(image)
-                        self.equipeDescription.append(Description)
+                    self.equipeDescription.append(Description)
+                    self.nombreDeJoueur.append(nbJ)
 
                     
                     
@@ -80,10 +84,12 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
         
         let tv = cell.contentView
         let equipe_Name = tv.viewWithTag(2) as! UILabel
+        let nb_joueur = tv.viewWithTag(10) as! UILabel
         let equipeImage = tv.viewWithTag(3) as! UIImageView
-        
+
         
         equipe_Name.text = equipe_nom[indexPath.row]
+        nb_joueur.text = String(nombreDeJoueur[indexPath.row])
         
 
         var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!

@@ -19,6 +19,7 @@ import AlamofireImage
             var ligue_nom = [String]()
             var ligue_image = [String]()
             var ligueDescription = [String]()
+            var nombreDeLigue = [Int]()
             //var stadeIId: String?
 
             @IBOutlet weak var ligueTv: UITableView!
@@ -37,16 +38,19 @@ import AlamofireImage
                         self.ligue_nom.removeAll()
                         self.ligue_image.removeAll()
                         self.ligueDescription.removeAll()
+                        self.nombreDeLigue.removeAll()
                         for i in myresult!.arrayValue{
                             let idL = i["_id"].stringValue
                             let nom = i["nom"].stringValue
                             let Description = i["discription"].stringValue
+                            let nbE = i["nbE"].intValue
                             let image = "http://localhost:3000/"+i["image"].stringValue
                             self.ligue_id.append(idL)
                             self.ligue_nom.append(nom)
                             self.ligue_image.append(image)
                             self.ligueDescription.append(Description)
-                            
+                            self.nombreDeLigue.append(nbE)
+
 
                             
                             
@@ -76,11 +80,13 @@ import AlamofireImage
                 
                 let tv = cell.contentView
                 let ligue_Name = tv.viewWithTag(1) as! UILabel
+                let nb_Equipe = tv.viewWithTag(10) as! UILabel
                 let ligueImage = tv.viewWithTag(3) as! UIImageView
                 
                 
                 ligue_Name.text = ligue_nom[indexPath.row]
-                
+                nb_Equipe.text = String(nombreDeLigue[indexPath.row]
+)
 
                 var path = String(ligue_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 
@@ -114,22 +120,55 @@ import AlamofireImage
                 performSegue(withIdentifier: "ligueDetails", sender: indexPath)
 
 
-            }/*
+            }
             func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
                 // *********** EDIT ***********
-                let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
+                let editAction = UIContextualAction(style: .destructive, title: "Delete") { [self]
                             (action, sourceView, completionHandler) in
-                           
-                    /*
-                    stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id:ligue_id[indexPath.row], completionHandler: {
+                            
+                    LigueService.shareinstance.deleteLigue(_id: ligue_id[indexPath.row], completionHandler: {
                         
                         (isSuccess) in
 
                         if isSuccess{
-                            print(ligue_id[indexPath.row])
                            print("jawek behy")
+                            self.present(Alert.makeAlert(titre: "Sucsses", message: "Ligue supprimer"), animated: true)
+                            let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+                            AF.request("http://localhost:3000/ligue/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+                                switch response.result{
+                                case .success:
+                                    let myresult = try? JSON(data: response.data!)
+                                    
+                                    self.ligue_id.removeAll()
+                                    self.ligue_nom.removeAll()
+                                    self.ligue_image.removeAll()
+                                    self.ligueDescription.removeAll()
+                                    for i in myresult!.arrayValue{
+                                        let idL = i["_id"].stringValue
+                                        let nom = i["nom"].stringValue
+                                        let Description = i["discription"].stringValue
+                                        let image = "http://localhost:3000/"+i["image"].stringValue
+                                        self.ligue_id.append(idL)
+                                        self.ligue_nom.append(nom)
+                                        self.ligue_image.append(image)
+                                        self.ligueDescription.append(Description)
+                                        
 
-                            self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+                                        
+                                        
+
+                                    }
+                                    self.ligueTv.reloadData()
+                                    break
+
+
+                                    
+                                case .failure:
+                                    print(response.error!)
+                                    break
+                                }
+                            }
+                            
 
 
 
@@ -138,10 +177,10 @@ import AlamofireImage
                             self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
                         }
 
-                    })*/
+                    })
                     completionHandler(true)
                 }
-                        editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
+                        editAction.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.5, alpha: 1)
                         // end action Edit
                 
                 // SWIPE TO LEFT CONFIGURATION
@@ -151,14 +190,11 @@ import AlamofireImage
                         
                         return swipeConfiguration
             
-            }*/
+            }
             @IBAction func addjouterLigueBtn(_ sender: Any) {
                 self.performSegue(withIdentifier: "addLigue1", sender: nil)
             }
         
-           /* func testSegue(_ identifier: String!, sender:AnyObject!){
-                performSegue(withIdentifier: identifier, sender: sender)
-            }*/
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if  segue.identifier == "ligueDetails"{
                     let indexPath = sender as! IndexPath

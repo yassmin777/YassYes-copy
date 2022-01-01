@@ -91,7 +91,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                                 
                                 
                             }
-                            self.matchTv.reloadWithAnimation2()
+                            self.matchTv.reloadData()
                             break
                         case .failure:
                             print(response.error!)
@@ -102,7 +102,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                     
                     
                 }
-                //self.matchTv.reloadData()
+                //self.matchTv.reloadWithAnimation2()
                 break
                 
                 
@@ -186,39 +186,4 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
             
         }
     }
-}
-extension UITableView {
-
-
-
-    func reloadWithAnimation2() {
-
-        self.reloadData()
-
-        let tableViewHeight = self.bounds.size.height
-
-        let cells = self.visibleCells
-
-        var delayCounter = 0
-
-        for cell in cells {
-
-            cell.transform = CGAffineTransform(translationX: 0, y: tableViewHeight)
-
-        }
-
-        for cell in cells {
-
-            UIView.animate(withDuration: 0.5, delay: 0.08 * Double(delayCounter),usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-
-                cell.transform = CGAffineTransform.identity
-
-            }, completion: nil)
-
-            delayCounter += 1
-
-        }
-
-    }
-
 }

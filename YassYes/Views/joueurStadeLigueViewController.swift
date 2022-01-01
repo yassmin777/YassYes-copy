@@ -20,6 +20,7 @@
         var ligue_nom = [String]()
         var ligue_image = [String]()
         var ligueDescription = [String]()
+        var nombreDesEquipe = [Int]()
         var stadeIId: String?
         var nom1: String?
         var lat1: Double?
@@ -43,6 +44,7 @@
                     self.ligue_nom.removeAll()
                     self.ligue_image.removeAll()
                     self.ligueDescription.removeAll()
+                    self.nombreDesEquipe.removeAll()
 
                     for singleLeagueJson in myresult!["ligues_id"] {
                         //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
@@ -51,13 +53,15 @@
                     //for i in myresult!.arrayValue{
                         let idL = singleLeagueJson.1["_id"].stringValue
                         let nom = singleLeagueJson.1["nom"].stringValue
+                        let nbE = singleLeagueJson.1["nbE"].intValue
                         let Description = singleLeagueJson.1["discription"].stringValue
                         let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
                         self.ligue_id.append(idL)
                         self.ligue_nom.append(nom)
                         self.ligue_image.append(image)
                         self.ligueDescription.append(Description)
-                        
+                        self.nombreDesEquipe.append(nbE)
+
 
                         
                         
@@ -85,11 +89,13 @@
             
             let tv = cell.contentView
             let ligue_Name = tv.viewWithTag(1) as! UILabel
+            let nb_equipe = tv.viewWithTag(10) as! UILabel
             let ligueImage = tv.viewWithTag(3) as! UIImageView
             
             
             ligue_Name.text = ligue_nom[indexPath.row]
-            
+            nb_equipe.text = String(nombreDesEquipe[indexPath.row])
+
 
             var path = String(ligue_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 

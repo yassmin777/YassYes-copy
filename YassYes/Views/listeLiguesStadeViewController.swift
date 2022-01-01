@@ -17,6 +17,7 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
     var ligue_nom = [String]()
     var ligue_image = [String]()
     var ligueDescription = [String]()
+    var nombreDesEquipe = [Int]()
     var stadeIId: String?
 
     @IBOutlet weak var ligueTv: UITableView!
@@ -33,16 +34,22 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
                 let myresult = try? JSON(data: response.data!)
                 
                 self.ligue_nom.removeAll()
+                self.ligue_id.removeAll()
+                self.ligue_image.removeAll()
+                self.ligueDescription.removeAll()
+                self.nombreDesEquipe.removeAll()
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
                     let Description = i["discription"].stringValue
+                    let nbE = i["nbE"].intValue
                     let image = "http://localhost:3000/"+i["image"].stringValue
                     self.ligue_id.append(idL)
                     self.ligue_nom.append(nom)
                     self.ligue_image.append(image)
                     self.ligueDescription.append(Description)
-                    
+                    self.nombreDesEquipe.append(nbE)
+
 
                     
                     
@@ -71,10 +78,12 @@ class listeLiguesStadeViewController: UIViewController ,UITableViewDelegate,UITa
         
         let tv = cell.contentView
         let ligue_Name = tv.viewWithTag(1) as! UILabel
+        let nb_Equipe = tv.viewWithTag(10) as! UILabel
         let ligueImage = tv.viewWithTag(3) as! UIImageView
         
         
         ligue_Name.text = ligue_nom[indexPath.row]
+        nb_Equipe.text = String(nombreDesEquipe[indexPath.row])
         
 
         var path = String(ligue_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!

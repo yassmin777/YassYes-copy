@@ -19,6 +19,7 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
     var equipe_nom = [String]()
     var equipe_image = [String]()
     var equipeDescription = [String]()
+    var nombreDesJoueurs = [Int]()
 
     @IBOutlet weak var equipeTv: UITableView!
     override func viewDidLoad() {
@@ -37,16 +38,19 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
                 self.equipe_nom.removeAll()
                 self.equipe_image.removeAll()
                 self.equipeDescription.removeAll()
+                self.nombreDesJoueurs.removeAll()
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
                     let Description = i["discription"].stringValue
+                    let nbJ = i["nbJ"].intValue
                     let image = "http://localhost:3000/"+i["image"].stringValue
                     self.equipe_id.append(idL)
                     self.equipe_nom.append(nom)
                     self.equipe_image.append(image)
                     self.equipeDescription.append(Description)
-                    
+                    self.nombreDesJoueurs.append(nbJ)
+
 
                     
                     
@@ -74,8 +78,10 @@ class listeEquipesLigueViewController: UIViewController ,UITableViewDelegate,UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "EquipeCellChoix" , for:indexPath)
                 let tv = cell.contentView
         let equipe_Name = tv.viewWithTag(1) as! UILabel
+        let nb_joueurs = tv.viewWithTag(10) as! UILabel
         let equipeImage = tv.viewWithTag(3) as! UIImageView
-                equipe_Name.text = equipe_nom[indexPath.row]
+        equipe_Name.text = equipe_nom[indexPath.row]
+        nb_joueurs.text = String(nombreDesJoueurs[indexPath.row])
                 var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                 let url = URL(string: path)!
