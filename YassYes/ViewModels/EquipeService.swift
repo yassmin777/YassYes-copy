@@ -36,7 +36,7 @@ class EquipeService{
                 
                 print(multipartFormData)
             }
-            },to: "http://localhost:3000/equipe", method: .post,headers: headers)
+            },to: Host+"/equipe", method: .post,headers: headers)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { response in
@@ -52,7 +52,7 @@ class EquipeService{
     }
     func sccore(id: String, score: Int,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/match/"+id, method: .put, parameters:[ "score":score] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+        AF.request(Host+"/match/"+id, method: .put, parameters:[ "score":score] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
             switch response.result{
             case .success(let data):
                 do {
@@ -77,7 +77,7 @@ class EquipeService{
     }
     func donnerDesPoint(idA: String, idB: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/match/up", method: .put, parameters:[ "idA":idA,"idB":idB] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+        AF.request(Host+"/match/up", method: .put, parameters:[ "idA":idA,"idB":idB] ,encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
             switch response.result{
             case .success(let data):
                 do {
@@ -105,7 +105,7 @@ class EquipeService{
     
     func addJoueurToEquipe(_id:String, joueurs_id: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/equipe/"+_id, method: .put,parameters:[ " joueurs_id":joueurs_id] , headers: headers ).response{ response in
+        AF.request(Host+"/equipe/"+_id, method: .put,parameters:[ " joueurs_id":joueurs_id] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {

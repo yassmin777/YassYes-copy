@@ -53,7 +53,7 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
                         let long = i["lon"].doubleValue
                         let num = i["num"].stringValue
                         let stadeDescription = i["discription"].stringValue
-                        let image = "http://localhost:3000/"+i["image"].stringValue
+                        let image = Host+"/"+i["image"].stringValue
                         self.stade_id.append(id)
                         self.stade_nom.append(nom)
                         self.lati.append(lat)

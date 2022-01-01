@@ -18,6 +18,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
     var equipe_nom = [String]()
     var equipe_image = [String]()
     var equipeDescription = [String]()
+    var nobreDesJoueur = [Int]()
 
     @IBOutlet weak var equipeTv: UITableView!
     override func viewDidLoad() {
@@ -25,7 +26,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/equipe/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+        AF.request(Host+"/equipe/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
@@ -34,16 +35,19 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
                 self.equipe_nom.removeAll()
                 self.equipe_image.removeAll()
                 self.equipeDescription.removeAll()
+                self.nobreDesJoueur.removeAll()
 
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
+                    let nbJ = i["nbJ"].intValue
                     let Description = i["discription"].stringValue
-                    let image = "http://localhost:3000/"+i["image"].stringValue
+                    let image = Host+"/"+i["image"].stringValue
                     self.equipe_id.append(idL)
                     self.equipe_nom.append(nom)
                     self.equipe_image.append(image)
                     self.equipeDescription.append(Description)
+                    self.nobreDesJoueur.append(nbJ)
                 }
                 self.equipeTv.reloadWithAnimation1()
                 break
@@ -64,11 +68,13 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
         
         let tv = cell.contentView
         let equipe_Name = tv.viewWithTag(1) as! UILabel
+        let nb_joueur = tv.viewWithTag(10) as! UILabel
         let equipeImage = tv.viewWithTag(3) as! UIImageView
         
         
         equipe_Name.text = equipe_nom[indexPath.row]
-        
+        nb_joueur.text = String(nobreDesJoueur[indexPath.row])
+
 
         var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
 

@@ -42,7 +42,7 @@ class JoueurService{
                 
                 print(multipartFormData)
             }
-            },to: "http://localhost:3000/joueur",
+            },to: Host+"/joueur",
         method: .post,headers: headers)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -59,7 +59,7 @@ class JoueurService{
     }
     func getJoueurProfile(_id:String,completionHandler:@escaping (Bool,joueurModel?)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/joueur/"+_id, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
+        AF.request(Host+"/joueur/"+_id, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
@@ -91,7 +91,7 @@ class JoueurService{
     }
     func addJoueurToEquipe(_id:String, joueurs_id: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/equipe/"+_id, method: .put ,parameters:[ "joueurs_id":joueurs_id] , headers: headers ).response{ response in
+        AF.request(Host+"/equipe/"+_id, method: .put ,parameters:[ "joueurs_id":joueurs_id] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {

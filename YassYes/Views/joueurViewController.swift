@@ -47,7 +47,7 @@ class joueurViewController: UIViewController {
                 self.ageJoueur.text = self.joueur?.age
                 self.discription.text = self.joueur?.discription
                 //print(joueur?.image!)
-                let image = "http://localhost:3000/"+(self.joueur?.image)!
+                let image = Host+"/"+(self.joueur?.image)!
 
                 var imageUrl = image.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 

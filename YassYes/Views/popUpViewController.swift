@@ -49,7 +49,7 @@
                         let longueur = i["longueur"].stringValue
                         let num = i["num"].stringValue
                         let Description = i["discription"].stringValue
-                        let image = "http://localhost:3000/"+i["image"].stringValue
+                        let image = Host+"/"+i["image"].stringValue
                         self.joueur_id.append(idL)
                         self.joueur_nom.append(nom)
                         self.joueur_image.append(image)

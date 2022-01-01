@@ -26,23 +26,27 @@
         }
         override func viewDidAppear(_ animated: Bool) {
             let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-            AF.request("http://localhost:3000/equipe/"+equipeIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+            AF.request(Host+"/equipe/"+equipeIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
                 switch response.result{
                 case .success:
                     let myresult = try? JSON(data: response.data!)
                     
                     let equipes : [equipeModel]
+                    self.joueur_id.removeAll()
+                    self.joueur_nom.removeAll()
+                    self.joueur_image.removeAll()
+                    self.joueurDescription.removeAll()
+
                     for singleLeagueJson in myresult!["joueurs_id"] {
                         //ligues.append(makeItem(makeItem(jsonItem: singleLeagueJson.1)))
                         print(singleLeagueJson.1)
                    // }
                    
-                        self.joueur_nom.removeAll()
                         //for i in myresult!.arrayValue{
                             let idL = singleLeagueJson.1["_id"].stringValue
                             let nom = singleLeagueJson.1["nom"].stringValue
                             let Description = singleLeagueJson.1["discription"].stringValue
-                            let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                            let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                             self.joueur_id.append(idL)
                             self.joueur_nom.append(nom)
                             self.joueur_image.append(image)

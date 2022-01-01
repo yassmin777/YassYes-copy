@@ -32,7 +32,7 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+        AF.request(Host+"/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
@@ -50,7 +50,7 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
                     let lat = i["lat"].doubleValue
                     let long = i["lon"].doubleValue
                     let stadeDescription = i["discription"].stringValue
-                    let image = "http://localhost:3000/"+i["image"].stringValue
+                    let image = Host+"/"+i["image"].stringValue
                     self.stade_id.append(id)
                     self.stade_nom.append(nom)
                     self.lati.append(lat)

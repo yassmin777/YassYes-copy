@@ -28,7 +28,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/ligue/"+ligueIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+        AF.request(Host+"/ligue/"+ligueIId!, method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
@@ -50,7 +50,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
                     let nom = singleLeagueJson.1["nom"].stringValue
                     let nbJ = singleLeagueJson.1["nbJ"].intValue
                         let Description = singleLeagueJson.1["discription"].stringValue
-                        let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                        let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                         self.equipe_id.append(idL)
                         self.equipe_nom.append(nom)
                         self.equipe_image.append(image)

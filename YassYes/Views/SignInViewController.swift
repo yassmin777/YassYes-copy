@@ -16,7 +16,6 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var motdepasse: UITextField!
     var adminvm = APIManger()
 
-    let networkingService = NetworkingService()
     
     
     

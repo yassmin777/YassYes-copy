@@ -30,7 +30,7 @@ class APIManger{
    
     func loginGoogle(nom:String,prenom:String,email: String, motdepasse: String,completionHandler:@escaping (Bool)->()){
     let headers: HTTPHeaders = [.contentType("application/json")]
-        AF.request("http://localhost:3000/user/google", method: .post, parameters: ["nom":nom,"prenom":prenom,"email":email, "motdepasse": motdepasse],encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+        AF.request(Host+"/user/google", method: .post, parameters: ["nom":nom,"prenom":prenom,"email":email, "motdepasse": motdepasse],encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
         switch response.result{
         case .success(let data):
             do {
@@ -92,7 +92,7 @@ class APIManger{
                         
                         }
             }
-        },to: "http://localhost:3000/user",
+        },to: Host+"/user",
                   method: .post)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
@@ -127,7 +127,7 @@ class APIManger{
     }
         func login(email: String, motdepasse: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/json")]
-        AF.request("http://localhost:3000/user/login", method: .post, parameters: ["email":email, "motdepasse": motdepasse],encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
+        AF.request(Host+"/user/login", method: .post, parameters: ["email":email, "motdepasse": motdepasse],encoder: JSONParameterEncoder.default, headers: headers ).response{ response in debugPrint(response)
             switch response.result{
             case .success(let data):
                 do {
@@ -161,7 +161,7 @@ class APIManger{
     
     func getProfile(_id:String,completionHandler:@escaping (Bool,adminModel?)->()){
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/user/profile", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
+        AF.request(Host+"/user/profile", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
@@ -194,7 +194,7 @@ class APIManger{
     
     func updateProfile(_id:String,nom:String,prenom:String,email:String,motdepasse:String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/user/profile", method:   .put ,parameters:[ "_id":_id,"nom":nom,"prenom":prenom,"email":email,"motdepasse":motdepasse], headers: headers ).response{ response in
+        AF.request(Host+"/user/profile", method:   .put ,parameters:[ "_id":_id,"nom":nom,"prenom":prenom,"email":email,"motdepasse":motdepasse], headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
@@ -224,7 +224,7 @@ class APIManger{
         func makeItem(jsonItem: JSON) -> adminModel {
         //let isoDate = jsonItem["dateNaissance"]
         adminModel(
-            image: "http://localhost:3000/"+jsonItem["image"].stringValue,
+            image: Host+"/"+jsonItem["image"].stringValue,
             _id: jsonItem["_id"].stringValue,
             nom: jsonItem["nom"].stringValue,
             prenom: jsonItem["prenom"].stringValue,
@@ -272,84 +272,7 @@ class APIManger{
 
     
 
-    /*
-
-    func updatePassword(email:String,password:String,successHandler: @escaping () -> (),errorHandler: @escaping () -> ())
-
-    {
-
-        
-
-        let url = "http://localhost:3000/updatePassword"
-
-      
-
-        AF.request(url, method: .put, parameters: ["email":email,"password":password] ).validate().response { apiResponse in
-
-            
-
-                   
-
-            guard apiResponse.response != nil else{
-
-                
-
-                errorHandler()
-
-                return
-
-            }
-
-            
-
-            switch apiResponse.response?.statusCode {
-
-                
-
-                case 200:
-
-                    
-
-                    successHandler()
-
-                    
-
-                case 404:
-
-                    
-
-                    errorHandler()
-
-                    
-
-                case 500:
-
-                    
-
-                    errorHandler()
-
-           
-
-            default:
-
-            
-
-                errorHandler()
-
-                
-
-            }
-
-            
-
-        }
-
-        
-
-    }
-
-  */
-
+  
 
 
     

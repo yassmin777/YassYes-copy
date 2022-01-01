@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+var Host="http://localhost:3000"
+
 public class Alert {
     static func makeAlert(titre: String?, message: String?) -> UIAlertController {
         let alert = UIAlertController(title: titre, message: message, preferredStyle: .alert)

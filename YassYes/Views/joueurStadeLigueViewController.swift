@@ -55,7 +55,7 @@
                         let nom = singleLeagueJson.1["nom"].stringValue
                         let nbE = singleLeagueJson.1["nbE"].intValue
                         let Description = singleLeagueJson.1["discription"].stringValue
-                        let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                        let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                         self.ligue_id.append(idL)
                         self.ligue_nom.append(nom)
                         self.ligue_image.append(image)
@@ -163,7 +163,7 @@
         //let isoDate = jsonItem["dateNaissance"]
             ligueModel(
             _id: jsonItem["_id"].stringValue,
-            image: "http://localhost:3000/"+jsonItem["image"].stringValue,
+            image: Host+"/"+jsonItem["image"].stringValue,
             nom: jsonItem["nom"].stringValue,
             discription: jsonItem["discription"].stringValue
 

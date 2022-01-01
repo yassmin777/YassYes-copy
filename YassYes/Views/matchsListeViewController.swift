@@ -33,7 +33,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/ligue/Als/"+ligueIId!,  method: .get, headers: headers ).responseJSON{ [self] response in
+        AF.request(Host+"/ligue/Als/"+ligueIId!,  method: .get, headers: headers ).responseJSON{ [self] response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)
@@ -54,7 +54,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                     let idL = singleLeagueJson.1["_id"].stringValue
                     let nom = singleLeagueJson.1["nom"].stringValue
                     let Description = singleLeagueJson.1["discription"].stringValue
-                    let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                    let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                     self.equipe_idA.append(idL)
                     self.equipe_nomA.append(nom)
                     self.equipe_imageA.append(image)
@@ -62,7 +62,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                     
                     
                     
-                    AF.request("http://localhost:3000/ligue/Bls/"+ligueIId!,  method: .get, headers: headers ).responseJSON{ response in
+                    AF.request(Host+"/ligue/Bls/"+ligueIId!,  method: .get, headers: headers ).responseJSON{ response in
                         switch response.result{
                         case .success:
                             let myresult = try? JSON(data: response.data!)
@@ -79,7 +79,7 @@ class matchsListeViewController: UIViewController ,UITableViewDelegate,UITableVi
                                 let idL = singleLeagueJson.1["_id"].stringValue
                                 let nom = singleLeagueJson.1["nom"].stringValue
                                 let Description = singleLeagueJson.1["discription"].stringValue
-                                let image = "http://localhost:3000/"+singleLeagueJson.1["image"].stringValue
+                                let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                                 self.equipe_idB.append(idL)
                                 self.equipe_nomB.append(nom)
                                 self.equipe_imageB.append(image)

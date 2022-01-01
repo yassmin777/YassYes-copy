@@ -152,7 +152,7 @@ class LigueService{
     }
     func deleteLigue(_id:String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/ligue/deleteligue/"+_id, method: .delete , headers: headers ).response{ response in
+        AF.request(Host+"/ligue/deleteligue/"+_id, method: .delete , headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
