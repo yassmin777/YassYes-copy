@@ -58,7 +58,35 @@ class stadeService{
                 }
             }
     }
-   
+    func check(lat: Double,lon: Double,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+        AF.request(Host+"/stade/pay/paypay", method:   .get ,parameters:[ "lon":lon,"lat":lat], headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 304{
+                        //let jsonData = JSON(response.data!)
+                        //let user = self.makeItem(jsonItem: jsonData)
+                        completionHandler(true)
+
+                        //print(user)
+                    }else{
+                        completionHandler(false)
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    
+                    
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
     func addLigueTostade(_id:String, ligues_id: String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
         AF.request(Host+"/stade/"+_id, method: .put ,parameters:[ "ligues_id":ligues_id] , headers: headers ).response{ response in
