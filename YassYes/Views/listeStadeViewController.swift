@@ -148,7 +148,85 @@ class listeStadeViewController: UIViewController ,UITableViewDelegate,UITableVie
 
         }
     }
-   
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // *********** EDIT ***********
+        let editAction = UIContextualAction(style: .destructive, title: "Delete") { [self]
+                    (action, sourceView, completionHandler) in
+                    
+            stadeService.shareInstence.deleteStade(_id: stade_id[indexPath.row], completionHandler: {
+                
+                (isSuccess) in
+
+                if isSuccess{
+                   print("jawek behy")
+                    self.present(Alert.makeAlert(titre: "Sucsses", message: "Stade supprimer"), animated: true)
+                    let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+                    AF.request(Host+"/stade/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+                        switch response.result{
+                        case .success:
+                            let myresult = try? JSON(data: response.data!)
+                            
+                            self.stade_nom.removeAll()
+                            self.stade_id.removeAll()
+                            self.lati.removeAll()
+                            self.longi.removeAll()
+                            self.stade_image.removeAll()
+                            self.stadeDescription.removeAll()
+                            self.coor.removeAll()
+                            for i in myresult!.arrayValue{
+                                let id = i["_id"].stringValue
+                                let nom = i["nom"].stringValue
+                                let lat = i["lat"].doubleValue
+                                let long = i["lon"].doubleValue
+                                let stadeDescription = i["discription"].stringValue
+                                let image = Host+"/"+i["image"].stringValue
+                                self.stade_id.append(id)
+                                self.stade_nom.append(nom)
+                                self.lati.append(lat)
+                                self.longi.append(long)
+                                self.stade_image.append(image)
+                                self.stadeDescription.append(stadeDescription)
+                                let Coords = CLLocationCoordinate2D(latitude: lat, longitude: long)
+
+                                self.coor.append(Coords)
+                                
+                                
+
+                            }
+                            self.tableVienStade.reloadData()
+                            break
+
+
+                            
+                        case .failure:
+                            print(response.error!)
+                            break
+                        }
+                    }
+                    
+
+
+
+                } else {
+
+                    self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
+                }
+
+            })
+            completionHandler(true)
+        }
+                editAction.backgroundColor = UIColor(red: 0.8, green: 0.1, blue: 0.5, alpha: 1)
+                // end action Edit
+        
+        // SWIPE TO LEFT CONFIGURATION
+                let swipeConfiguration = UISwipeActionsConfiguration(actions: [ editAction])
+                // Delete should not delete automatically
+                swipeConfiguration.performsFirstActionWithFullSwipe = false
+                
+                return swipeConfiguration
+    
+    }
+
 }
 extension UITableView {
 

@@ -147,7 +147,7 @@ import AlamofireImage
                                         let idL = i["_id"].stringValue
                                         let nom = i["nom"].stringValue
                                         let Description = i["discription"].stringValue
-                                        let image = "http://localhost:3000/"+i["image"].stringValue
+                                        let image = Host+"/"+i["image"].stringValue
                                         self.ligue_id.append(idL)
                                         self.ligue_nom.append(nom)
                                         self.ligue_image.append(image)

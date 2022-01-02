@@ -124,58 +124,7 @@ class EquipeOfLigueViewController: UIViewController ,UITableViewDelegate,UITable
 
 
     }
-    /*
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // *********** EDIT ***********
-        let editAction = UIContextualAction(style: .destructive, title: "Add") { [self]
-                    (action, sourceView, completionHandler) in
-                    // 1. Segue to Edit view MUST PASS INDEX PATH as Sender to the prepareSegue function
-            
-            /*stadeService.shareInstence.addLigueTostade(_id: stadeIId!, ligues_id: ligue_id[indexPath.row]){ success in
-                if success {
-                    self.present(Alert.makeAlert(titre: "Success", message: "ligue ajouté"),animated: true)
-                }else{
-                    self.present(Alert.makeAlert(titre: "failed", message: "try again"),animated: true)
 
-                }
-                    
-                    print(self.stadeIId)
-                print(ligue_id[indexPath.row])
-                    
-                    
-                }*/
-            EquipeService.shareinstance.addEquipeToligue(_id: ligueIId!, equipes_ids:equipe_id[indexPath.row], completionHandler: {
-                
-                (isSuccess) in
-
-                if isSuccess{
-                    print(equipe_id[indexPath.row])
-                   print("jawek behy")
-
-                    self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
-
-
-
-                } else {
-
-                    self.present(Alert.makeAlert(titre: "Error", message: " try again"), animated: true)
-                }
-
-            })
-            completionHandler(true)
-        }
-                editAction.backgroundColor = UIColor(red: 0/255, green: 209/255, blue: 45/255, alpha: 1.0)
-                // end action Edit
-        
-        // SWIPE TO LEFT CONFIGURATION
-                let swipeConfiguration = UISwipeActionsConfiguration(actions: [ editAction])
-                // Delete should not delete automatically
-                swipeConfiguration.performsFirstActionWithFullSwipe = false
-                
-                return swipeConfiguration
-    
-    }
-*/
 
 }
 extension UITableView {
