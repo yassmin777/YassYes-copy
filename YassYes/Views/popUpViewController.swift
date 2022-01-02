@@ -106,7 +106,8 @@
                         print(joueur_id[indexPath.row])
                        print("jawek behy")
 
-                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+//                        self.present(Alert.makeAlert(titre: "Sucsses", message: "mrigel"), animated: true)
+                        self.present(Alert.makeActionAlert(titre: "Success", message: "Joueur ajouté", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
 
 
 

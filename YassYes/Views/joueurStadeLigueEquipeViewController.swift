@@ -20,6 +20,8 @@
             var equipe_image = [String]()
             var equipeDescription = [String]()
 
+            var nombreDeJoueur = [Int]()
+
             @IBOutlet weak var equipeTv: UITableView!
             override func viewDidLoad() {
                 super.viewDidLoad()
@@ -37,6 +39,7 @@
                         self.equipe_nom.removeAll()
                         self.equipe_image.removeAll()
                         self.equipeDescription.removeAll()
+                        self.nombreDeJoueur.removeAll()
 
                         for singleLeagueJson in myresult!["equipes_ids"] {
                             //ligues.append(makeItem(makeItem(equipes_ids: singleLeagueJson.1)))
@@ -45,19 +48,21 @@
                         //for i in myresult!.arrayValue{
                             let idL = singleLeagueJson.1["_id"].stringValue
                             let nom = singleLeagueJson.1["nom"].stringValue
+                            let nbj = singleLeagueJson.1["nbJ"].intValue
                             let Description = singleLeagueJson.1["discription"].stringValue
                             let image = Host+"/"+singleLeagueJson.1["image"].stringValue
                             self.equipe_id.append(idL)
                             self.equipe_nom.append(nom)
                             self.equipe_image.append(image)
                             self.equipeDescription.append(Description)
-                            
+                            self.nombreDeJoueur.append(nbj)
+
 
                             
                             
 
                         }
-                        self.equipeTv.reloadWithAnimation77()
+                        self.equipeTv.reloadData()
                         break
 
 
@@ -80,7 +85,9 @@
                 let tv = cell.contentView
                 let equipe_Name = tv.viewWithTag(1) as! UILabel
                 let equipeImage = tv.viewWithTag(3) as! UIImageView
+                let nb_de_joueur = tv.viewWithTag(10) as! UILabel
                 equipe_Name.text = equipe_nom[indexPath.row]
+                nb_de_joueur.text = String(nombreDeJoueur[indexPath.row])
                 var path = String(equipe_image[indexPath.row]).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                        path = path.replacingOccurrences(of: "%5C", with: "/", options: NSString.CompareOptions.literal, range: nil)
                         let url = URL(string: path)!
@@ -121,7 +128,11 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             }
             
 
+            @IBAction func matches(_ sender: Any) {
+                performSegue(withIdentifier: "matchess", sender: nil)
 
+            }
+            
         
 }
 extension UITableView {

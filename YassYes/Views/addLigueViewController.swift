@@ -31,7 +31,9 @@ class addLigueViewController: UIViewController,UIGestureRecognizerDelegate,UITex
         let ligued = ligueModel(  nom: nomLigue.text!, discription: descLigue.text!)
         LigueService.shareinstance.addligue(ligue: ligued, uiImage: currentPhoto!) { success in
             if success {
-                self.present(Alert.makeAlert(titre: "Success", message: "equipe ajouté"),animated: true)
+//                self.present(Alert.makeAlert(titre: "Success", message: "equipe ajouté"),animated: true)
+                self.present(Alert.makeActionAlert(titre: "Success", message: "equipe ajouté", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
+
             }else{
                 self.present(Alert.makeAlert(titre: "failed", message: " Equipe exist try again"),animated: true)
 

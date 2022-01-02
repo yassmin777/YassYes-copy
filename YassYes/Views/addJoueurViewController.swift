@@ -101,7 +101,9 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
         let joueurd = joueurModel(  nom: nomJoueur.text!,prenom: prenomJoueur.text!,age: ageJoueur.text!,taille: poidsJoueur.text!,longueur: longueurJoueur.text!, num:numJoueur.text!, discription: discriptionJoueur.text!)
         JoueurService.shareinstance.addjoueurHH(joueur: joueurd, uiImage: currentPhoto!) { success in
             if success {
-                self.present(Alert.makeAlert(titre: "Success", message: "joueur ajouté"),animated: true)
+//                self.present(Alert.makeAlert(titre: "Success", message: "joueur ajouté"),animated: true)
+                self.present(Alert.makeActionAlert(titre: "Success", message: "joueur ajouté", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
+
             }else{
                 self.present(Alert.makeAlert(titre: "failed", message: " Joueur exist try again"),animated: true)
 

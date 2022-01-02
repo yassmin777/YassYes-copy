@@ -39,7 +39,11 @@ class listeJoueurViewController: UIViewController ,UITableViewDelegate,UITableVi
             case .success:
                 let myresult = try? JSON(data: response.data!)
                 
+                self.joueur_image.removeAll()
                 self.joueur_nom.removeAll()
+                self.joueur_id.removeAll()
+                self.joueurDescription.removeAll()
+                self.joueurNum.removeAll()
                 for i in myresult!.arrayValue{
                     let idL = i["_id"].stringValue
                     let nom = i["nom"].stringValue
@@ -54,7 +58,7 @@ class listeJoueurViewController: UIViewController ,UITableViewDelegate,UITableVi
                     self.joueur_image.append(image)
                     self.joueurDescription.append(Description)
                     self.joueurDescription.append(age)
-                    self.joueurDescription.append(num)
+                    self.joueurNum.append(num)
 
 
                     

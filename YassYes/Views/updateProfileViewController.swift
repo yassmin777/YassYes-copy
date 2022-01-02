@@ -65,7 +65,9 @@ class updateProfileViewController: UIViewController {
         APIManger.shareInstence.updateProfile(_id: _id, nom: nom, prenom: prenom, email: email, motdepasse: motdepasse,completionHandler: {
             (isSuccess) in
             if isSuccess{
-                self.present(Alert.makeAlert(titre: "Alert", message: "User updated successfully"), animated: true)
+//                self.present(Alert.makeAlert(titre: "Alert", message: "User updated successfully"), animated: true)
+                self.present(Alert.makeActionAlert(titre: "Success", message: "User updated successfully", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
+
             } else {
                 self.present(Alert.makeAlert(titre: "Alert", message: "Please try again "), animated: true)
             }

@@ -16,6 +16,7 @@
 		430DB380277B86A30000D31C /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430DB37F277B86A30000D31C /* popUpViewController.swift */; };
 		4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECBE27552EC400235E20 /* ErrorResponse.swift */; };
 		4314ECC227556F3800235E20 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4314ECC127556F3800235E20 /* Alert.swift */; };
+		4317D48C2781C75800EE6DD2 /* matchessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4317D48B2781C75800EE6DD2 /* matchessViewController.swift */; };
 		4319BA20277B27C60014FE9A /* joueurStadeLigueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4319BA1F277B27C60014FE9A /* joueurStadeLigueViewController.swift */; };
 		4319BA22277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4319BA21277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift */; };
 		431DEC01276257E400AEB066 /* matchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DEC00276257E400AEB066 /* matchModel.swift */; };
@@ -80,6 +81,7 @@
 		430DB37F277B86A30000D31C /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		4314ECBE27552EC400235E20 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		4314ECC127556F3800235E20 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		4317D48B2781C75800EE6DD2 /* matchessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchessViewController.swift; sourceTree = "<group>"; };
 		4319BA1F277B27C60014FE9A /* joueurStadeLigueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurStadeLigueViewController.swift; sourceTree = "<group>"; };
 		4319BA21277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurStadeLigueEquipeViewController.swift; sourceTree = "<group>"; };
 		431DEC00276257E400AEB066 /* matchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchModel.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				4332C860277CA73200460B7D /* matchsListeViewController.swift */,
 				43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */,
 				4307B134277F6E420025E92B /* mapSimpleUserViewController.swift */,
+				4317D48B2781C75800EE6DD2 /* matchessViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */,
 				43867C95275249FC00505137 /* JoueurService.swift in Sources */,
 				E4700EB42742B2D2006621CA /* modifierStadeViewController.swift in Sources */,
+				4317D48C2781C75800EE6DD2 /* matchessViewController.swift in Sources */,
 				435FD9B92752916D0082806C /* adminModel.swift in Sources */,
 				43867C972752565200505137 /* joueurModel.swift in Sources */,
 				438DDF44276688730033B38C /* sessionViewController.swift in Sources */,
@@ -602,8 +606,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A093C270F82BCA9C5BF4C96 /* Pods-YassYes.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -633,8 +638,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6B7404EEE6BA158B9AE71A7 /* Pods-YassYes.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";

@@ -44,26 +44,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                return false
      }
    
-    /*    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error{
-        print("\(error.localizedDescription)")
-        }
-    else{
-        let userId = user.userID
-        let emailAddress = user.profile?.email
-
-        let fullName = user.profile?.name
-        let givenName = user.profile?.givenName
-        let familyName = user.profile?.familyName
-
-        let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-        print (fullName)
-    }
-}
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        print ("User has disconnected")
-    }
-*/
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
