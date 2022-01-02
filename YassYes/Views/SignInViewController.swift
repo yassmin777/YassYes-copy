@@ -17,12 +17,18 @@ class SignInViewController: UIViewController {
     var adminvm = APIManger()
 
     
+    @IBOutlet weak var photoo: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
-        
+        photoo.layer.borderWidth = 1
+        photoo.layer.masksToBounds = true
+        photoo.layer.borderColor = UIColor(red:18/255, green:19/255, blue:38/255, alpha: 1).cgColor
+        photoo.layer.cornerRadius = photoo.frame.height/2
+        photoo.clipsToBounds = true;
+
         //Style Email TestField
         email.layer.cornerRadius = 10.0
         email.layer.borderWidth = 1.0
