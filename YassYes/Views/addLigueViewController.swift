@@ -32,10 +32,10 @@ class addLigueViewController: UIViewController,UIGestureRecognizerDelegate,UITex
         LigueService.shareinstance.addligue(ligue: ligued, uiImage: currentPhoto!) { success in
             if success {
 //                self.present(Alert.makeAlert(titre: "Success", message: "equipe ajouté"),animated: true)
-                self.present(Alert.makeActionAlert(titre: "Success", message: "equipe ajouté", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
+                self.present(Alert.makeActionAlert(titre: "Success", message: "Ligue ajouté", action: UIAlertAction(title: "Ok", style: .default, handler: { UIAlertAction in self.navigationController?.popViewController(animated: true)})),animated: true)
 
             }else{
-                self.present(Alert.makeAlert(titre: "failed", message: " Equipe exist try again"),animated: true)
+                self.present(Alert.makeAlert(titre: "failed", message: " Ligue exist déja again"),animated: true)
 
             }
         }

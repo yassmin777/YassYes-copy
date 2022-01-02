@@ -119,9 +119,15 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let destination = segue.destination as! classementViewController
     destination.ligueIId = ligueIId
 
+}else if  segue.identifier == "matchess"{
+    //let indexPath = sender as! IndexPath
+    let destination = segue.destination as! matchessViewController
+    destination.ligueIId = ligueIId
+
 }
 
 }
+            
             @IBAction func classemnetJoueur(_ sender: Any) {
                 performSegue(withIdentifier: "classmentJoueur", sender: nil)
 
