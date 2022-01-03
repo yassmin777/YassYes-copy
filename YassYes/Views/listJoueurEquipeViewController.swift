@@ -21,6 +21,7 @@
         @IBOutlet weak var equipeTv: UITableView!
         override func viewDidLoad() {
             super.viewDidLoad()
+            initializeHideKeyboard()
             
             
         }

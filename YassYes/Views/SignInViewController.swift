@@ -38,27 +38,9 @@ class SignInViewController: UIViewController {
         motdepasse.layer.cornerRadius = 10.0
         motdepasse.layer.borderWidth = 1.0
         motdepasse.layer.masksToBounds = true
+        initializeHideKeyboard()
 
-        /*
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
-        let gSignIn = GIDSignInButton(frame: CGRect(x: 57, y: 671, width: 120, height: 70))
-        view.addSubview(gSignIn)
-        
-        let signOut = UIButton (frame: CGRect(x: 220, y: 671, width: 120, height: 44))
-        signOut.backgroundColor = UIColor.red
-        signOut.setTitle("Sign out", for:  .normal)
-        signOut.addTarget(self, action: #selector(self.signOut(sender:)), for: .touchUpInside)
-        self.view.addSubview(signOut)
-        */
-        // Do any additional setup after loading the view.
     }
-   /* @objc func signOut(sender: UIButton)
-    {
-        print ("signOut")
-        GIDSignIn.sharedInstance().signOut()
-    }
-    */
     @IBAction func connect(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
            guard error == nil else { return }

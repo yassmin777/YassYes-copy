@@ -12,6 +12,7 @@ class emailViewController: UIViewController {
     @IBOutlet weak var emailM: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
         emailM.layer.cornerRadius = 10.0
         emailM.layer.borderWidth = 1.0
         emailM.layer.masksToBounds = true

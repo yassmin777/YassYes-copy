@@ -28,13 +28,13 @@ class listeJoueurViewController: UIViewController ,UITableViewDelegate,UITableVi
     @IBOutlet weak var imageJoueur: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializeHideKeyboard()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request("http://localhost:3000/joueur/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+        AF.request(Host+"/joueur/my", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
             switch response.result{
             case .success:
                 let myresult = try? JSON(data: response.data!)

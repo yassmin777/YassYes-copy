@@ -29,7 +29,9 @@
         @IBOutlet weak var matchTv: UITableView!
         
         override func viewDidLoad() {
+            
             super.viewDidLoad()
+            initializeHideKeyboard()
             
             
         }

@@ -23,7 +23,7 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var imageA: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializeHideKeyboard()
         // Do any additional setup after loading the view.
     }
     

@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController,UIImagePickerControllerDelegate,UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializeHideKeyboard()
     
     }
     

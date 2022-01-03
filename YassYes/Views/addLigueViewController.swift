@@ -43,6 +43,7 @@ class addLigueViewController: UIViewController,UIGestureRecognizerDelegate,UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
 
         // Do any additional setup after loading the view.
     }

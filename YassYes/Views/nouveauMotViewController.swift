@@ -13,6 +13,7 @@ class nouveauMotViewController: UIViewController {
     @IBOutlet weak var mdp: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
 
         // Do any additional setup after loading the view.
     }

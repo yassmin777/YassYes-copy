@@ -23,6 +23,7 @@ class listeEquipesViewController: UIViewController ,UITableViewDelegate,UITableV
     @IBOutlet weak var equipeTv: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
     }
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]

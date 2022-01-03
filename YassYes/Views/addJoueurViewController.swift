@@ -24,6 +24,7 @@ class addJoueurViewController: UIViewController,UIGestureRecognizerDelegate,UITe
     @IBOutlet weak var discriptionJoueur: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         //Style Email TestField

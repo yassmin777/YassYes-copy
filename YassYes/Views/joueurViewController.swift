@@ -25,6 +25,7 @@ class joueurViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         intialiseProfile()
+        initializeHideKeyboard()
 
     }
     func intialiseProfile() {

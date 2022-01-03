@@ -33,7 +33,7 @@ class JoueurStadeViewController: UIViewController ,UITableViewDelegate,UITableVi
         }
         override func viewDidAppear(_ animated: Bool) {
             let headers: HTTPHeaders = [.contentType("application/json"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-            AF.request("http://localhost:3000/stade", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
+            AF.request(Host+"/stade", method: .get,parameters:[ "_id":UserDefaults.standard.value(forKey: "_id")!] , headers: headers ).responseJSON{ response in
                 switch response.result{
                 case .success:
                     let myresult = try? JSON(data: response.data!)

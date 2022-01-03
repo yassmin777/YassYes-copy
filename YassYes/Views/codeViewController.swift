@@ -38,6 +38,7 @@ import UIKit
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            initializeHideKeyboard()
             self.firstDigit.delegate = self
             self.secondDigit.delegate = self
             self.thirrdDigit.delegate = self

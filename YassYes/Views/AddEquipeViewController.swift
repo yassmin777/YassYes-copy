@@ -43,7 +43,7 @@ class AddEquipeViewController: UIViewController,UIGestureRecognizerDelegate,UITe
             
             override func viewDidLoad() {
                 super.viewDidLoad()
-
+                initializeHideKeyboard()
                 // Do any additional setup after loading the view.
             }
             @IBAction func changePhoto(_ sender: Any) {

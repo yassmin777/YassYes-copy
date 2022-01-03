@@ -45,6 +45,7 @@ class addStadeViewController: UIViewController,MKMapViewDelegate,UIGestureRecogn
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeHideKeyboard()
         braintreeClient = BTAPIClient(authorization: "sandbox_s9c6p322_9f9q8ndwsws4xcws")
 
         locationManager.delegate = self
