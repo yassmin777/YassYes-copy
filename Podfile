@@ -17,6 +17,7 @@ target 'YassYes' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'AlamofireImage', '~> 4.1'
   pod 'Braintree', '~> 4.22.0'
+  pod 'AppCenter'
 
 
 

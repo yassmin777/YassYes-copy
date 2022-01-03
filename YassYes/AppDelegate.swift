@@ -9,11 +9,18 @@ import UIKit
 import CoreData
 import GoogleSignIn
 import Braintree
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //397497342777-fe4bo2vkv8av5k8eduune23g7dc3jga2.apps.googleusercontent.com
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        AppCenter.start(withAppSecret: "1b6c1eec-896c-456d-8d9f-805f8aac7774", services:[
+          Analytics.self,
+          Crashes.self
+        ])
       //  GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
         //    if error != nil || user == nil {
               // Show the app's signed-out state.
