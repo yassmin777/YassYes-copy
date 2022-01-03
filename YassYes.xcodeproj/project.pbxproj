@@ -20,6 +20,9 @@
 		4319BA20277B27C60014FE9A /* joueurStadeLigueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4319BA1F277B27C60014FE9A /* joueurStadeLigueViewController.swift */; };
 		4319BA22277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4319BA21277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift */; };
 		431DEC01276257E400AEB066 /* matchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431DEC00276257E400AEB066 /* matchModel.swift */; };
+		432C02C627833AB0009D9E16 /* emailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C02C527833AB0009D9E16 /* emailViewController.swift */; };
+		432C02C827833F32009D9E16 /* confirmationducodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C02C727833F32009D9E16 /* confirmationducodeViewController.swift */; };
+		432C02CA27834220009D9E16 /* nouveauMotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C02C927834220009D9E16 /* nouveauMotViewController.swift */; };
 		4332C861277CA73200460B7D /* matchsListeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4332C860277CA73200460B7D /* matchsListeViewController.swift */; };
 		43442033275A47BC001D1297 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43442032275A47BC001D1297 /* APIManager.swift */; };
 		4350D439276CDBD5007FD3A1 /* AddEquipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4350D438276CDBD5007FD3A1 /* AddEquipeViewController.swift */; };
@@ -85,6 +88,9 @@
 		4319BA1F277B27C60014FE9A /* joueurStadeLigueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurStadeLigueViewController.swift; sourceTree = "<group>"; };
 		4319BA21277B2B730014FE9A /* joueurStadeLigueEquipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joueurStadeLigueEquipeViewController.swift; sourceTree = "<group>"; };
 		431DEC00276257E400AEB066 /* matchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchModel.swift; sourceTree = "<group>"; };
+		432C02C527833AB0009D9E16 /* emailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailViewController.swift; sourceTree = "<group>"; };
+		432C02C727833F32009D9E16 /* confirmationducodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmationducodeViewController.swift; sourceTree = "<group>"; };
+		432C02C927834220009D9E16 /* nouveauMotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nouveauMotViewController.swift; sourceTree = "<group>"; };
 		4332C860277CA73200460B7D /* matchsListeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchsListeViewController.swift; sourceTree = "<group>"; };
 		43442032275A47BC001D1297 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4350D438276CDBD5007FD3A1 /* AddEquipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEquipeViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +201,9 @@
 				43D3B665277E2F4C00D5BA12 /* ScoreViewController.swift */,
 				4307B134277F6E420025E92B /* mapSimpleUserViewController.swift */,
 				4317D48B2781C75800EE6DD2 /* matchessViewController.swift */,
+				432C02C527833AB0009D9E16 /* emailViewController.swift */,
+				432C02C727833F32009D9E16 /* confirmationducodeViewController.swift */,
+				432C02C927834220009D9E16 /* nouveauMotViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,12 +433,14 @@
 				4FFAB05527391B7E00F09638 /* YassYes.xcdatamodeld in Sources */,
 				4314ECBF27552EC400235E20 /* ErrorResponse.swift in Sources */,
 				43D8A9EA275BC65E00E08B81 /* stadeService.swift in Sources */,
+				432C02C827833F32009D9E16 /* confirmationducodeViewController.swift in Sources */,
 				4FFAB04B27391B7E00F09638 /* AppDelegate.swift in Sources */,
 				E4700EAE2742B0C6006621CA /* addStadeViewController.swift in Sources */,
 				E4700EBE2742CAB0006621CA /* classementViewController.swift in Sources */,
 				E4700E9227429D83006621CA /* SignUpViewController.swift in Sources */,
 				E4700E962742A124006621CA /* modifierJoueurViewController.swift in Sources */,
 				43C7CA99275D61E300B717EA /* mapVCViewController.swift in Sources */,
+				432C02CA27834220009D9E16 /* nouveauMotViewController.swift in Sources */,
 				438DDF4627669F8E0033B38C /* codeViewController.swift in Sources */,
 				43867C95275249FC00505137 /* JoueurService.swift in Sources */,
 				E4700EB42742B2D2006621CA /* modifierStadeViewController.swift in Sources */,
@@ -461,6 +472,7 @@
 				E4700EB22742B280006621CA /* listeLiguesStadeViewController.swift in Sources */,
 				43D8A9F2275BD19C00E08B81 /* stadeAnnotion.swift in Sources */,
 				E4700EA42742A9B3006621CA /* listeLiguesViewController.swift in Sources */,
+				432C02C627833AB0009D9E16 /* emailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -74,7 +74,7 @@ class SignInViewController: UIViewController {
                 if isSuccess{
                    self.performSegue(withIdentifier: "SeConnecter", sender: nil)
                 } else {
-                    self.present(Alert.makeAlert(titre: "Alert", message: "Please try again successfully"), animated: true)
+                    self.present(Alert.makeAlert(titre: "Error", message: "Email ou mot de passe incorrect"), animated: true)
                 }
             }
 
@@ -83,6 +83,8 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "motDePasseOublier", sender: nil)
+
     }
     
     @IBAction func logInBtn(_ sender: Any) {

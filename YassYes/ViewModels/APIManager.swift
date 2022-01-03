@@ -192,9 +192,9 @@ class APIManger{
         }
     }
     
-    func updateProfile(_id:String,nom:String,prenom:String,email:String,motdepasse:String,completionHandler:@escaping (Bool)->()){
+    func update(_id:String,motdepasse:String,completionHandler:@escaping (Bool)->()){
         let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
-        AF.request(Host+"/user/profile", method:   .put ,parameters:[ "_id":_id,"nom":nom,"prenom":prenom,"email":email,"motdepasse":motdepasse], headers: headers ).response{ response in
+        AF.request(Host+"/user/hupdatemote", method:   .put ,parameters:[ "_id":_id,"motdepasse":motdepasse], headers: headers ).response{ response in
             switch response.result{
             case .success(let data):
                 do {
@@ -221,6 +221,61 @@ class APIManger{
             }
         }
     }
+        func updateProfile(_id:String,nom:String,prenom:String,email:String,motdepasse:String,completionHandler:@escaping (Bool)->()){
+            let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded"),.authorization(bearerToken:(UserDefaults.standard.string(forKey: "token")!)) ]
+            AF.request(Host+"/user/profile", method:   .put ,parameters:[ "_id":_id,"nom":nom,"prenom":prenom,"email":email,"motdepasse":motdepasse], headers: headers ).response{ response in
+                switch response.result{
+                case .success(let data):
+                    do {
+                        let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
+                        if response.response?.statusCode == 201{
+                            completionHandler(true)
+
+                            //print(user)
+                        }else{
+                            completionHandler(false)
+                        }
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                        completionHandler(false)
+                        
+                        
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+            }
+    }
+    func motDePasseOublier(email:String,completionHandler:@escaping (Bool)->()){
+        let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded") ]
+        AF.request(Host+"/user/motDePasseOublier", method:   .put ,parameters:[ "email":email], headers: headers ).response{ response in
+            switch response.result{
+            case .success(let data):
+                do {
+                    let json  = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    if response.response?.statusCode == 200{
+                
+                        let jsonData = JSON(response.data!)
+                        print(jsonData)
+                        UserDefaults.standard.set(jsonData["_id"].stringValue, forKey: "_id")
+                        print(UserDefaults.standard.string(forKey: "_id")!)
+
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
+                    }
+                } catch  {
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
         func makeItem(jsonItem: JSON) -> adminModel {
         //let isoDate = jsonItem["dateNaissance"]
         adminModel(
@@ -237,7 +292,7 @@ class APIManger{
     
     func verifyCode(_id:String,code: String,completionHandler:@escaping (Bool)->()){
          let headers: HTTPHeaders = [.contentType("application/x-www-form-urlencoded") ,.authorization(bearerToken:(UserDefaults.standard.string(forKey: "_id")!))]
-        AF.request("http://localhost:3000/user/verifEmail/"+_id,  method:   .patch ,parameters: ["verifCode":code] ,  headers: headers ).response{ response in
+        AF.request(Host+"/user/verifEmail/"+_id,  method:   .patch ,parameters: ["verifCode":code] ,  headers: headers ).response{ response in
              switch response.result{
              case .success(let data):
                  do {
